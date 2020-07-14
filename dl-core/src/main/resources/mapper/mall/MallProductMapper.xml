@@ -18,7 +18,7 @@
                 and good.state = #{query.state}
             </if>
             <if test="query.mallProductCategoryId != null and query.mallProductCategoryId != '' ">
-                and good.class_id = #{query.mallProductCategoryId}
+                and good.category_id = #{query.mallProductCategoryId}
             </if>
         </where>
         order by good.sale desc , good.sort

@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yc.core.mall.entity.MallProduct;
 import com.yc.core.mall.model.query.GoodQuery;
-import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * 功能描述:

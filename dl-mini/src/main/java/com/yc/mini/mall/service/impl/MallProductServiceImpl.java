@@ -3,12 +3,9 @@ package com.yc.mini.mall.service.impl;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yc.core.mall.entity.MallProduct;
-import com.yc.core.mall.entity.MallProductCategory;
-import com.yc.core.mall.mapper.MallProductCategoryClassMapper;
 import com.yc.core.mall.mapper.MallProductMapper;
 import com.yc.core.mall.model.query.GoodQuery;
 import com.yc.mini.mall.service.MallProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,21 +20,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class MallProductServiceImpl extends ServiceImpl<MallProductMapper, MallProduct> implements MallProductService {
 
-    private final MallProductCategoryClassMapper malProductCategoryMapper;
-
-    @Autowired
-    public MallProductServiceImpl(MallProductCategoryClassMapper malProductCategoryMapper) {
-        this.malProductCategoryMapper = malProductCategoryMapper;
-    }
 
     @Override
     public Page<MallProduct> pageMallProduct(Page<MallProduct> page, GoodQuery query) {
-        Page<MallProduct> goodPage = this.baseMapper.goodPage(page, query);
-        goodPage.getRecords().forEach(i -> {
-            MallProductCategory mallProductCategory = this.malProductCategoryMapper.selectById(i.getClassId());
-            i.setPClassId(mallProductCategory.getParentId());
-        });
-        return goodPage;
+        return this.baseMapper.goodPage(page, query);
     }
 
     @Override

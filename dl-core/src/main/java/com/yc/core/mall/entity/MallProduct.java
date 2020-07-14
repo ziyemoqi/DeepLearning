@@ -33,9 +33,9 @@ public class MallProduct implements Serializable {
      */
     private String name;
     /**
-     * 分类ID
+     * 商品类目
      */
-    private String classId;
+    private String categoryId;
     /**
      * 商品状态(0:待审核 1:已通过 2：已拒绝 3:已上架 4-已下架 5-删除)
      */

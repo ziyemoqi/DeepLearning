@@ -19,4 +19,15 @@
        logging.path为D:/tmp/spring-boot.log/会发生很奇怪的事情,它会在D盘下，创建tmp目录(若不存在),
        在tmp目录下会创建”spring-boot.log#”目录,是以#替换/的;
     2、日志输出文件的加载顺序:logback.xml > application.properties > logback-spring.xml,最后加载的，会覆盖前者
-    
+六、微信小程序登录流程:
+    涉及到微信服务器,开发者服务器,小程序
+    第一步: 小程序通过wx.login()向微信服务器获取code
+    第二步: 小程序通过wx.request()发送code到开发者服务器
+    第三步: 开发者服务器接收小程序发送的code,并携带appid、appsecret(这两个需要到微信小程序后台查看)、code发送到微信服务器
+    第四步: 微信服务器接收开发者服务器发送的appid、appsecret、code进行校验。校验通过后向开发者服务器发送session_key、openid
+    第五步: 开发者服务器自己生成一个skey(自定义登录状态)与openid、session_key进行关联，并存到数据库中(mysql、redis等)
+    第六步: 开发者服务器返回生成skey(自定义登录状态)到小程序。
+    第七步: 小程序存储skey(自定义登录状态)到本地。
+    第八步: 小程序通过wx.request()发起业务请求到开发者服务器，同时携带skey(自定义登录状态)。
+    第九步: 开发者服务器接收小程序发送的skey(自定义登录状态),查询skey在数据库中是否有对应的openid、session_key。
+    第十步: 开发者服务器返回业务数据到小程序。

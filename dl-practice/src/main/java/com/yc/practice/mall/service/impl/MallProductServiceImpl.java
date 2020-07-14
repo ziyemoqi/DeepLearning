@@ -35,7 +35,7 @@ public class MallProductServiceImpl extends ServiceImpl<MallProductMapper, MallP
     public Page<MallProduct> pageMallProduct(Page<MallProduct> page, GoodQuery query) {
         Page<MallProduct> goodPage = this.baseMapper.goodPage(page, query);
         goodPage.getRecords().forEach(i -> {
-            MallProductCategory mallProductCategory = this.malProductCategoryMapper.selectById(i.getClassId());
+            MallProductCategory mallProductCategory = this.malProductCategoryMapper.selectById(i.getCategoryId());
             i.setPClassId(mallProductCategory.getParentId());
         });
         return goodPage;

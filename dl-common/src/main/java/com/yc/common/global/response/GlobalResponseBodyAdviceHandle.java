@@ -17,7 +17,6 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * 功能描述:封装返回数据
  *
- *
  * @Author: xieyc && 紫色年华
  * @Date: 2019-08-21 17:58
  * @Version: 1.0.0
@@ -27,8 +26,9 @@ public class GlobalResponseBodyAdviceHandle implements ResponseBodyAdvice<Object
 
     /**
      * 是否对指定接口生效
-     *  标注了RestController的接口有效
-     * @param returnType  返回类型
+     * 标注了RestController的接口有效
+     *
+     * @param returnType    返回类型
      * @param converterType 转化类型
      * @return boolean
      */
@@ -40,15 +40,15 @@ public class GlobalResponseBodyAdviceHandle implements ResponseBodyAdvice<Object
 
     /**
      * 怎样封装结果集
-     *  [在supports指定的接口返回前调用]
+     * [在supports指定的接口返回前调用]
      *
-     * @param body 返回值
-     * @param returnType  控制器方法的返回类型
-     * @param selectedContentType 内容类型
+     * @param body                  返回值
+     * @param returnType            控制器方法的返回类型
+     * @param selectedContentType   内容类型
      * @param selectedConverterType 转换器类型
-     * @param request   当前请求
-     * @param response  当前响应
-     * @return  传入的主体或修改的(可能是新的)实例
+     * @param request               当前请求
+     * @param response              当前响应
+     * @return 传入的主体或修改的(可能是新的)实例
      */
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType,
@@ -60,13 +60,13 @@ public class GlobalResponseBodyAdviceHandle implements ResponseBodyAdvice<Object
         Logger log = LoggerFactory.getLogger(returnType.getDeclaringClass());
 
         // 通过反射获取返回值全类名
-        String bodyclassname = body == null ? null : body.getClass().getName();
+        String bodyClassName = body == null ? null : body.getClass().getName();
 
         RestResult restResult = RestResult.success();
         // 一个对象是否为一个类的实例
         if (body instanceof RestResult) {
             restResult = (RestResult) body;
-        }else if (body != null && bodyclassname.startsWith("com.baomidou.mybatisplus")) {
+        } else if (body != null && bodyClassName.startsWith("com.baomidou.mybatisplus")) {
             // 判断是否是MyBatisPlus分页对象，是则使用反射获取Page对象属性值封装返回
             Class<?> bodyectClass = body.getClass();
             try {

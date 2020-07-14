@@ -13,7 +13,7 @@ import java.util.HashMap;
  * @Date: 2019-08-22
  * @Version: 1.0.0
  */
-public class RestResult extends HashMap<String,Object> {
+public class RestResult extends HashMap<String, Object> {
 
     @Override
     public RestResult put(String key, Object value) {
@@ -21,11 +21,11 @@ public class RestResult extends HashMap<String,Object> {
         return this;
     }
 
-    public RestResult(){
+    public RestResult() {
         put("code", CommonConstant.SUCCESS_CODE);
     }
 
-    public static RestResult success(){
+    public static RestResult success() {
         return new RestResult();
     }
 
@@ -44,6 +44,7 @@ public class RestResult extends HashMap<String,Object> {
 
     /**
      * 统一设置返回数据至page节点
+     *
      * @param data 返回数据
      * @return result
      */
@@ -54,6 +55,7 @@ public class RestResult extends HashMap<String,Object> {
 
     /**
      * 设置分页对象数据至page节点
+     *
      * @param page 分页对象
      * @return result
      */
@@ -78,7 +80,7 @@ public class RestResult extends HashMap<String,Object> {
     /**
      * 格式化消息参数
      *
-     * @param msg 消息体
+     * @param msg    消息体
      * @param params 参数
      * @return r
      */

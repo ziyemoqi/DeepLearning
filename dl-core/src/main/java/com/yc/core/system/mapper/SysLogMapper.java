@@ -25,5 +25,5 @@ public interface SysLogMapper extends BaseMapper<SysLog> {
      * @param logQuery 查询条件
      * @return
      */
-    Page<SysLogVO> logPage(@Param("param") Page<SysLogVO> page, @Param("query") LogQuery logQuery);
+    Page<SysLogVO> logPage(@Param("page") Page<SysLogVO> page, @Param("query") LogQuery logQuery);
 }

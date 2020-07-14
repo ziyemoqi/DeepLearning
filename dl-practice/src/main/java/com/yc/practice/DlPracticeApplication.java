@@ -32,4 +32,5 @@ public class DlPracticeApplication extends SpringBootServletInitializer {
 
     // TODO: 2020/5/24 秒杀
     // TODO: 2020/5/24 优惠券
+    // TODO: 2020/7/12 单点登录
 }

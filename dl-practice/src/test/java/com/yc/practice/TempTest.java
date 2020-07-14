@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.yc.common.constant.CommonConstant;
 import com.yc.common.constant.CommonEnum;
 import com.yc.common.global.error.ErrorException;
 import com.yc.core.mall.entity.ProductCategory;
@@ -23,6 +24,8 @@ import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 功能描述:
@@ -1866,10 +1869,42 @@ public class TempTest {
 
         // System.out.println(RandomUtil.randomNumbers(4));
 
-        SysUser sysUser = null;
+        // SysUser sysUser = null;
+        //
+        // ObjectUtil.isNull(sysUser);
+        // System.out.println("错误");
+        // Long nowLong = Long.parseLong(new SimpleDateFormat(CommonConstant.yyyyMMddHHmmss).format(new Date()));
+        // String aa = "重量模版重量模版重量模版重量模版重量模版重量模版重量模版重量模版";
+        // String bb = "20200505121245";
+        //
+        // System.out.println(bb.length());
 
-        ObjectUtil.isNull(sysUser);
-        System.out.println("错误");
+        String cc = "aajkl 20200505121245";
+        if(cc.length()>14){
+            System.out.println(cc.substring(cc.length()-14,cc.length()));
+            Matcher matcher = Pattern.compile("[0-9]{1,}").matcher((CharSequence)cc.substring(cc.length()-14,cc.length()));
+            if(matcher.matches()){
+                System.out.println(cc.substring(0,cc.length()-14));
+            } else if(cc.length() > 18){
+                System.out.println(cc);
+            } else {
+                System.out.println(cc + "");
+            }
+        } else {
+            System.out.println(cc + "");
+        }
+
+        // if(cc.contains(" ") && cc.length() - cc.lastIndexOf(" ") == 14){
+        //     System.out.println(cc.substring(0,cc.lastIndexOf(" ")) + "2332");
+        // }
+        // System.out.println(cc.lastIndexOf(" "));
+        //
+        // String str ="123哈456";
+        // Pattern pattern = Pattern.compile("[0-9]{1,}");
+        // Matcher matcher = pattern.matcher((CharSequence)str);
+        // boolean result = matcher.matches();
+        // System.out.println(result);
+        //
     }
 
 
