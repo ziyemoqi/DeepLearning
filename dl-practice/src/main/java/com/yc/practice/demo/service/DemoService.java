@@ -37,5 +37,6 @@ public interface DemoService extends IService<Demo> {
      */
     void deleteAlone(String demoId);
 
+    void dd();
 
 }

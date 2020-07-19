@@ -40,7 +40,7 @@ public class MyBatisGenerator {
      * 要生成的表名
      */
     private static final String[] TABLES = {
-            "mini_user",
+            "wx_open_message",
     };
 
     /**
@@ -48,7 +48,7 @@ public class MyBatisGenerator {
      */
     private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
     private static final String URL =
-            "jdbc:mysql://127.0.0.1:3306/deeplearning?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8";
+            "jdbc:mysql://127.0.0.1:3306/xfxmall?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "xieyc@mysql";
     // private static final String URL =

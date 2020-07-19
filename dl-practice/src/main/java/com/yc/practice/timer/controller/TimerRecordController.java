@@ -7,6 +7,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 /**
  * 功能描述:定时器记录 控制层
  *
@@ -29,8 +31,20 @@ public class TimerRecordController {
     /**
      * 超时订单取消
      */
-    @Scheduled(cron = "0 0/5 * * * ?")
+    // @Scheduled(cron = "0 0/5 * * * ?")
     public void orderCheck() {
         service.orderCheck();
+    }
+
+    /**
+     * 刷新ComponentAccessToken(1小时50分钟)
+     */
+    @Scheduled(cron = "0 50 0/2 * * ?")
+    public void refreshComponentAccessToken() {
+        log.info("=========== 刷新ComponentAccessToken START ===========");
+        System.out.println(new Date());
+        log.info("=========== 刷新ComponentAccessToken END ===========");
+
+
     }
 }

@@ -8,7 +8,7 @@ import com.yc.common.constant.CommonConstant;
 import com.yc.common.global.error.Error;
 import com.yc.common.global.error.ErrorException;
 import com.yc.common.global.response.RestResult;
-import com.yc.common.propertie.SecurityProperties;
+import com.yc.common.properties.SecurityProperties;
 import com.yc.common.utils.PasswordCheckUtil;
 import com.yc.core.system.entity.SysUser;
 import com.yc.core.system.mapper.SysUserMapper;

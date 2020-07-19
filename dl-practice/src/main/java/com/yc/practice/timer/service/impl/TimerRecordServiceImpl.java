@@ -42,6 +42,7 @@ public class TimerRecordServiceImpl extends ServiceImpl<TimerRecordMapper, Timer
 
     @Override
     public void orderCheck() {
+
         try {
             // 1.查询从创建订单开始超时30分钟的订单
             List<MallOrder> mallOrders = mallOrderMapper.selectList(new LambdaQueryWrapper<MallOrder>()
@@ -70,4 +71,6 @@ public class TimerRecordServiceImpl extends ServiceImpl<TimerRecordMapper, Timer
             this.baseMapper.insert(timerRecord);
         }
     }
+
+
 }

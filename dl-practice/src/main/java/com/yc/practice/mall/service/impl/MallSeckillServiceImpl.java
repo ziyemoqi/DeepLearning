@@ -1,5 +1,6 @@
 package com.yc.practice.mall.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -19,7 +20,6 @@ import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -59,6 +59,10 @@ public class MallSeckillServiceImpl extends ServiceImpl<MallSeckillMapper, MallS
         if (StringUtils.isNotBlank(mallSeckill.getMallSeckillId())) {
             mallSeckill.setUpdateUserId(UserUtil.getUserId());
             this.baseMapper.updateById(mallSeckill);
+            String key = CommonConstant.MALL_SECKILL + mallSeckill.getMallSeckillId();
+            redisTemplate.opsForHash().put(key, "seckillStartTime", mallSeckill.getSeckillStartTime());
+            redisTemplate.opsForHash().put(key, "seckillEndTime", mallSeckill.getSeckillEndTime());
+            redisTemplate.opsForHash().put(key, "mallProductName", mallSeckill.getMallProductName());
         } else {
             mallSeckill.setCreateUserId(UserUtil.getUserId());
             this.baseMapper.insert(mallSeckill);
@@ -76,33 +80,42 @@ public class MallSeckillServiceImpl extends ServiceImpl<MallSeckillMapper, MallS
     @Override
     public SeckillVO mallSeckill(String mallSeckillId) {
         SeckillVO seckillVO = new SeckillVO();
-        MallSeckill seckill = new MallSeckill();
-        String key = CommonConstant.MALL_SECKILL_ + mallSeckillId;
-        ValueOperations<String, MallSeckill> operations = redisTemplate.opsForValue();
+        String key = CommonConstant.MALL_SECKILL + mallSeckillId;
         if (redisTemplate.hasKey(key)) {
-            seckill = operations.get(key);
+            seckillVO.setSeckillStartTime(LocalDateTime.parse(redisTemplate.opsForHash().get(key,"seckillStartTime").toString()));
+            seckillVO.setSeckillEndTime(LocalDateTime.parse(redisTemplate.opsForHash().get(key, "seckillEndTime").toString()));
+            seckillVO.setMallProductName(redisTemplate.opsForHash().get(key, "mallProductName").toString());
+            // 状态(0:未开始 1:开始秒杀 2:已结束)
+            if (LocalDateTime.now().isBefore(LocalDateTime.parse(redisTemplate.opsForHash().get(key, "seckillStartTime").toString()))) {
+                seckillVO.setState("0");
+            } else if (LocalDateTime.now().isEqual(LocalDateTime.parse(redisTemplate.opsForHash().get(key, "seckillStartTime").toString())) ||
+                    LocalDateTime.now().isEqual(LocalDateTime.parse(redisTemplate.opsForHash().get(key, "seckillEndTime").toString()))) {
+                seckillVO.setState("1");
+            } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(redisTemplate.opsForHash().get(key, "seckillStartTime").toString())) &&
+                    LocalDateTime.now().isBefore(LocalDateTime.parse(redisTemplate.opsForHash().get(key, "seckillEndTime").toString()))) {
+                seckillVO.setState("1");
+            } else {
+                seckillVO.setState("2");
+            }
         } else {
-            seckill = this.baseMapper.selectById(mallSeckillId);
-            operations.set(CommonConstant.MALL_SECKILL_ + mallSeckillId, seckill);
-            redisTemplate.opsForValue().set(key, seckill);
+            MallSeckill seckill = this.baseMapper.selectById(mallSeckillId);
+            redisTemplate.opsForHash().put(key, "seckillStartTime", seckill.getSeckillStartTime());
+            redisTemplate.opsForHash().put(key, "seckillEndTime", seckill.getSeckillEndTime());
+            redisTemplate.opsForHash().put(key, "mallProductName", seckill.getMallProductName());
+            BeanUtil.copyProperties(seckill, seckillVO);
+            // 状态(0:未开始 1:开始秒杀 2:已结束)
+            if (LocalDateTime.now().isBefore(seckill.getSeckillStartTime())) {
+                seckillVO.setState("0");
+            } else if (LocalDateTime.now().isEqual(seckill.getSeckillStartTime()) || LocalDateTime.now().isEqual(seckill.getSeckillEndTime())) {
+                seckillVO.setState("1");
+            } else if (LocalDateTime.now().isAfter(seckill.getSeckillStartTime()) && LocalDateTime.now().isBefore(seckill.getSeckillEndTime())) {
+                seckillVO.setState("1");
+            } else {
+                seckillVO.setState("2");
+            }
         }
-        seckillVO.setSeckillStartTime(seckill.getSeckillStartTime());
-        seckillVO.setSeckillEndTime(seckill.getSeckillEndTime());
-        seckillVO.setMallProductName(seckill.getMallProductName());
         seckillVO.setLocalDateTime(LocalDateTime.now());
-        seckillVO.setMd5(DigestUtil.md5Hex(seckill.getMallSeckillId() + CommonConstant.SLAT));
-        seckillVO.setSeckillStartTime(seckill.getSeckillStartTime());
-        seckillVO.setSeckillEndTime(seckill.getSeckillEndTime());
-        // 状态(0:未开始 1:开始秒杀 2:已结束)
-        if (LocalDateTime.now().isBefore(seckill.getSeckillStartTime())) {
-            seckillVO.setState("0");
-        } else if (LocalDateTime.now().isEqual(seckill.getSeckillStartTime()) || LocalDateTime.now().isEqual(seckill.getSeckillEndTime())) {
-            seckillVO.setState("1");
-        } else if (LocalDateTime.now().isAfter(seckill.getSeckillStartTime()) && LocalDateTime.now().isBefore(seckill.getSeckillEndTime())) {
-            seckillVO.setState("1");
-        } else {
-            seckillVO.setState("2");
-        }
+        seckillVO.setMd5(DigestUtil.md5Hex(mallSeckillId + CommonConstant.SLAT));
         return seckillVO;
     }
 

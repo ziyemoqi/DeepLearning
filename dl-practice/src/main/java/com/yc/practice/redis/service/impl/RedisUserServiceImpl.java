@@ -53,7 +53,7 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
      */
     @Override
     public RedisUser findUserById(String id) {
-        String key = CommonConstant.USER_BY_ID_ + id;
+        String key = CommonConstant.USER_BY_ID + id;
         ValueOperations<String, RedisUser> operations = redisTemplate.opsForValue();
         // 判断redis中是否有键为key的缓存
         if (redisTemplate.hasKey(key)) {
@@ -62,7 +62,7 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
         } else {
             RedisUser redisUser = this.baseMapper.selectById(id);
             // 写入缓存
-            operations.set(CommonConstant.USER_BY_ID_ + redisUser.getRedisUserId(), redisUser);
+            operations.set(CommonConstant.USER_BY_ID + redisUser.getRedisUserId(), redisUser);
             return redisUser;
         }
     }
@@ -79,7 +79,7 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
         int result = this.baseMapper.insert(redisUser);
         if (result > 0) {
             ValueOperations operations = redisTemplate.opsForValue();
-            operations.set(CommonConstant.USER_BY_ID_ + redisUser.getRedisUserId(), this.baseMapper.selectById(redisUser.getRedisUserId()));
+            operations.set(CommonConstant.USER_BY_ID + redisUser.getRedisUserId(), this.baseMapper.selectById(redisUser.getRedisUserId()));
         }
     }
 
@@ -93,7 +93,7 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
         int result = this.baseMapper.updateById(redisUser);
         if (result > 0) {
             ValueOperations operations = redisTemplate.opsForValue();
-            String key = CommonConstant.USER_BY_ID_ + redisUser.getRedisUserId();
+            String key = CommonConstant.USER_BY_ID + redisUser.getRedisUserId();
             if (redisTemplate.hasKey(key)) {
                 redisTemplate.delete(key);
             }
@@ -113,7 +113,7 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
                 .eq(RedisUser::getRedisUserId, id)
         );
         if (result > 0) {
-            String key = CommonConstant.USER_BY_ID_ + id;
+            String key = CommonConstant.USER_BY_ID + id;
             if (redisTemplate.hasKey(key)) {
                 redisTemplate.delete(key);
             }
@@ -125,7 +125,7 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
         int result = this.baseMapper.updateById(redisUser);
         if (result > 0) {
             ValueOperations operations = redisTemplate.opsForValue();
-            String key = CommonConstant.USER_BY_ID_ + redisUser.getRedisUserId();
+            String key = CommonConstant.USER_BY_ID + redisUser.getRedisUserId();
             if (redisTemplate.hasKey(key)) {
                 redisTemplate.delete(key);
             }
@@ -139,7 +139,7 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
 
     @Override
     public boolean expireState(String redisUserId) {
-        String key = CommonConstant.USER_BY_ID_ + redisUserId;
+        String key = CommonConstant.USER_BY_ID + redisUserId;
         if (redisTemplate.hasKey(key)) {
             return true;
         }

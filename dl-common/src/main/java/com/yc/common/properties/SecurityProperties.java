@@ -1,4 +1,4 @@
-package com.yc.common.propertie;
+package com.yc.common.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

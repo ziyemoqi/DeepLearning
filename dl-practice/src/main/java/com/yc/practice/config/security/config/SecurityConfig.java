@@ -1,6 +1,6 @@
 package com.yc.practice.config.security.config;
 
-import com.yc.common.propertie.SecurityProperties;
+import com.yc.common.properties.SecurityProperties;
 import com.yc.core.system.mapper.SysUserMapper;
 import com.yc.practice.config.security.filter.JwtAuthenticationTokenFilter;
 import com.yc.practice.config.security.filter.UsernamePasswordAuthenticationFilterSelf;

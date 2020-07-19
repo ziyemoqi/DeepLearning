@@ -13,7 +13,7 @@ import com.yc.common.constant.CommonConstant;
 import com.yc.common.constant.CommonEnum;
 import com.yc.common.global.error.Error;
 import com.yc.common.global.error.ErrorException;
-import com.yc.common.propertie.EncodeProperties;
+import com.yc.common.properties.EncodeProperties;
 import com.yc.common.utils.EncoderUtil;
 import com.yc.core.mall.entity.MallOrder;
 import com.yc.core.mall.entity.MallOrderItem;

@@ -61,4 +61,9 @@ public class DemoController {
         service.deleteAlone(demoId);
     }
 
+
+    @GetMapping("/dd")
+    public void dd (){
+        service.dd();
+    }
 }
