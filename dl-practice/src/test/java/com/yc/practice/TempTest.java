@@ -1,20 +1,18 @@
 package com.yc.practice;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.util.ObjectUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.yc.common.constant.CommonConstant;
 import com.yc.common.constant.CommonEnum;
-import com.yc.common.global.error.ErrorException;
 import com.yc.core.mall.entity.ProductCategory;
 import com.yc.core.region.entity.Region;
-import com.yc.core.system.entity.SysUser;
+import com.yc.core.system.mapper.SysUserMapper;
 import com.yc.practice.mall.service.ProductCategoryService;
 import com.yc.practice.region.service.RegionService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,9 +21,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * 功能描述:
@@ -45,6 +42,9 @@ public class TempTest {
 
     @Autowired
     private ProductCategoryService productCategoryService;
+
+    @Autowired
+    private SysUserMapper sysUserMapper;
 
 
     @Test
@@ -1854,58 +1854,39 @@ public class TempTest {
 
     @Test
     public void dealLowData() {
-        // String url ="https://hutool.cn?shopId=%s&type=%s";
-        // // String url ="www.xxx.com/s?index=%s";
-        // String ss = String.format(url,"aaaa","1");
-        // System.out.println(ss);
-        // SimpleDateFormat
-        // Long nowLong = Long.parseLong(new SimpleDateFormat(CommonConstant.yyyyMMddHHmmss).format(new Date()));
-        // System.out.println(nowLong);
-
-        // String ss = "";
-        // String [] a = ss.split(",");
-        // System.out.println(ObjectUtil.isNull(a));
-        // System.out.println(a.length);
-
-        // System.out.println(RandomUtil.randomNumbers(4));
-
-        // SysUser sysUser = null;
+        // B b = new B();
+        // List<Integer> list = new ArrayList<>();
+        // list.add(1);
+        // list.add(2);
+        // b.setFuncInfo(list);
+        // A a = new A();
+        // BeanUtil.copyProperties(b,a);
+        // System.out.println(a.getFuncInfo());
         //
-        // ObjectUtil.isNull(sysUser);
-        // System.out.println("错误");
-        // Long nowLong = Long.parseLong(new SimpleDateFormat(CommonConstant.yyyyMMddHHmmss).format(new Date()));
-        // String aa = "重量模版重量模版重量模版重量模版重量模版重量模版重量模版重量模版";
-        // String bb = "20200505121245";
-        //
-        // System.out.println(bb.length());
+        // List<String> stringList = list.stream().map(String::valueOf).collect(Collectors.toList());
+        // System.out.println(String.join(",", stringList));
 
-        String cc = "aajkl 20200505121245";
-        if(cc.length()>14){
-            System.out.println(cc.substring(cc.length()-14,cc.length()));
-            Matcher matcher = Pattern.compile("[0-9]{1,}").matcher((CharSequence)cc.substring(cc.length()-14,cc.length()));
-            if(matcher.matches()){
-                System.out.println(cc.substring(0,cc.length()-14));
-            } else if(cc.length() > 18){
-                System.out.println(cc);
-            } else {
-                System.out.println(cc + "");
-            }
-        } else {
-            System.out.println(cc + "");
-        }
-
-        // if(cc.contains(" ") && cc.length() - cc.lastIndexOf(" ") == 14){
-        //     System.out.println(cc.substring(0,cc.lastIndexOf(" ")) + "2332");
-        // }
-        // System.out.println(cc.lastIndexOf(" "));
-        //
-        // String str ="123哈456";
-        // Pattern pattern = Pattern.compile("[0-9]{1,}");
-        // Matcher matcher = pattern.matcher((CharSequence)str);
-        // boolean result = matcher.matches();
-        // System.out.println(result);
-        //
+        System.out.println(new Date());
+        System.out.println(LocalDateTime.now());
     }
 
+    @Test
+    public void dealShopDesignData() {
+        String designData = "[{\"component\":\"c-add-img\",\"seqNum\":0,\"name\":\"图片广告\",\"props\":{\"backgroundColor\":\"#f5f5f5\",\"imgMargin\":0,\"children\":[{\"imgUrl\":\"/image/2020/07/17/159497652713715176.png\",\"linkUrl\":\"\",\"title\":\"\"},{\"imgUrl\":\"/image/2020/07/17/159497652716230336.png\",\"linkUrl\":\"\",\"title\":\"\"},{\"imgUrl\":\"/image/2020/07/17/159497652719431605.png\",\"linkUrl\":\"\",\"title\":\"\"},{\"imgUrl\":\"/image/2020/07/17/159497652887583499.png\",\"linkUrl\":\"\",\"title\":\"\"}],\"isRound\":true,\"boxPaddingH\":10,\"boxPaddingV\":10,\"type\":1}},{\"component\":\"c-empty-line\",\"seqNum\":1,\"name\":\"辅助分割\",\"props\":{\"height\":10}},{\"component\":\"c-menu-list\",\"seqNum\":2,\"name\":\"图文导航\",\"props\":{\"backgroundColor\":\"#f5f5f5\",\"children\":[{\"imgUrl\":\"/image/2020/07/17/159497611556757529.png\",\"linkUrl\":\"\",\"title\":\"营养蔬菜\"},{\"imgUrl\":\"/image/2020/07/17/159497611558123467.png\",\"linkUrl\":\"\",\"title\":\"甄选鲜果\"},{\"imgUrl\":\"/image/2020/07/17/159497611560667609.png\",\"linkUrl\":\"\",\"title\":\"精选面食\"},{\"imgUrl\":\"/image/2020/07/17/159497611560578926.png\",\"linkUrl\":\"\",\"title\":\"水产海鲜\"},{\"imgUrl\":\"/image/2020/07/17/159497611561420829.png\",\"linkUrl\":\"\",\"title\":\"米面粮油\"},{\"imgUrl\":\"/image/2020/07/17/159497611561237355.png\",\"linkUrl\":\"\",\"title\":\"大牌乳品\"},{\"imgUrl\":\"/image/2020/07/17/159497611572743482.png\",\"linkUrl\":\"\",\"title\":\"禽蛋肉类\"},{\"imgUrl\":\"/image/2020/07/17/159497611573427882.png\",\"linkUrl\":\"\",\"title\":\"冷饮专区\"},{\"imgUrl\":\"/image/2020/07/17/159497611573916616.png\",\"linkUrl\":\"\",\"title\":\"休闲零食\"},{\"imgUrl\":\"/image/2020/07/17/159497611574028931.png\",\"linkUrl\":\"\",\"title\":\"更多商品\"}],\"rowNum\":5,\"boxPaddingH\":0,\"boxPaddingV\":0}},{\"component\":\"c-goods-list\",\"seqNum\":3,\"name\":\"商品\",\"props\":{\"rowNum\":2,\"isRound\":false,\"boxPaddingH\":16,\"boxPaddingV\":0,\"type\":0,\"goodIds\":[\"e379882638a94b2bacf58f9d1938964c\",\"a7406181a8634712bc3ec01e11e28600\",\"6363c9a8cf1a41e2941965f3abc75589\",\"de346ebbb7804dd3b5a9841f0568defe\",\"eedfd8566fe84bd9b3a92b30b842fda8\"],\"goodsType\":\"single\"}}]";
+        JSONArray jsonArray = JSONArray.parseArray(designData);
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            if (StringUtils.equals(jsonObject.getString("component"), "c-goods-list")) {
+                int seqNum = jsonObject.getInteger("seqNum");
+                JSONObject props = jsonObject.getJSONObject("props");
+                JSONArray goodIds = props.getJSONArray("goodIds");
+                for (int y = 0; y < goodIds.size(); y++) {
+                    System.out.println(goodIds.get(y));
+                    // JSONObject itemGood = goodIds.getJSONObject(y);
+                    // System.out.println(itemGood);
+                }
+            }
+        }
+    }
 
 }

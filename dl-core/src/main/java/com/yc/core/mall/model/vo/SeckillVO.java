@@ -1,7 +1,6 @@
 package com.yc.core.mall.model.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.yc.core.mall.entity.MallSeckill;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,7 +16,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class SeckillVO extends MallSeckill implements Serializable {
+public class SeckillVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,12 +28,28 @@ public class SeckillVO extends MallSeckill implements Serializable {
     /**
      * 系统当前时间
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime localDateTime;
 
     /**
      * 状态(0:未开始 1:开始秒杀 2:已结束)
      */
     private String state;
+
+    /**
+     * 秒杀开启时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private LocalDateTime seckillStartTime;
+    /**
+     * 秒杀结束时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private LocalDateTime seckillEndTime;
+
+    /**
+     * 商品名称
+     */
+    private String mallProductName;
 
 }

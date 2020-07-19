@@ -161,12 +161,12 @@ public class CommonConstant {
     /**
      * 秒杀项目
      */
-    public static final String MALL_SECKILL_ = "MALL_SECKILL_";
+    public static final String MALL_SECKILL = "MALL_SECKILL_";
 
     /**
      * 用户ID
      */
-    public final static String USER_BY_ID_ = "USER_BY_ID_";
+    public final static String USER_BY_ID = "USER_BY_ID_";
 
     /**
      * 总成绩排名

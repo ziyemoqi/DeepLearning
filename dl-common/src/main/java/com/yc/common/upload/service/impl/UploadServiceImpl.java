@@ -3,7 +3,7 @@ package com.yc.common.upload.service.impl;
 import com.yc.common.constant.CommonConstant;
 import com.yc.common.global.error.Error;
 import com.yc.common.global.error.ErrorException;
-import com.yc.common.propertie.UploadProperties;
+import com.yc.common.properties.UploadProperties;
 import com.yc.common.upload.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
