@@ -10,9 +10,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * 功能描述:
+ * 功能描述: 字典
  *
- * @Author:  xieyc && 紫色年华
+ * @Author: xieyc && 紫色年华
  * @Date 2019-09-20
  * @Version: 1.0.0
  */

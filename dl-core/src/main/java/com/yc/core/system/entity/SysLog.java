@@ -11,9 +11,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * 功能描述:
+ * 功能描述: 日志
  *
- * @Author:  xieyc && 紫色年华
+ * @Author: xieyc && 紫色年华
  * @Date 2019-09-21
  * @Version: 1.0.0
  */
@@ -72,7 +72,7 @@ public class SysLog implements Serializable {
     /**
      * 创建时间
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime createTime;
 
 

@@ -4,7 +4,7 @@ import ${package.Entity}.${entity};
 import ${superServiceClassPackage};
 
 /**
- * 功能描述:
+ * 功能描述: ${table.comment!} 服务类
  *
  * @Author ${author} && 紫色年华
  * @Date ${date}

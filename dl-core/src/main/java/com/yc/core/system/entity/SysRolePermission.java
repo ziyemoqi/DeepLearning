@@ -9,9 +9,9 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * 功能描述:
+ * 功能描述: 角色权限
  *
- * @Author  xieyc
+ * @Author xieyc
  * @Date 2019-09-20
  * @Version: 1.0.0
  */
@@ -35,7 +35,8 @@ public class SysRolePermission implements Serializable {
 
     /////////////////////////////// 自定义方法 ///////////////////////////////
 
-    public SysRolePermission() {}
+    public SysRolePermission() {
+    }
 
     public SysRolePermission(String sysRoleId, String permissionId) {
         this.roleId = sysRoleId;

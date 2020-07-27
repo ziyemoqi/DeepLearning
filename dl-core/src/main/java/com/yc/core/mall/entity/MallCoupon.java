@@ -1,5 +1,6 @@
 package com.yc.core.mall.entity;
 
+import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -9,42 +10,48 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * 功能描述: 订单记录变更表
+ * 功能描述:
  *
- * @Author:  xieyc && 紫色年华
- * @Date 2020-04-14
+ * @Author xieyc && 紫色年华
+ * @Date 2020-07-27
  * @Version: 1.0.0
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class MallOrderLog implements Serializable {
+public class MallCoupon implements Serializable {
 
     private static final long serialVersionUID = 1L;
     /**
-     * 主键
+     * 优惠券ID
      */
-    @TableId(value = "mall_order_log_id", type = IdType.ASSIGN_UUID)
-    private String mallOrderLogId;
+    @TableId(value = "mall_coupon_id", type = IdType.ASSIGN_UUID)
+    private String mallCouponId;
     /**
-     * 订单id
+     * 优惠券金额
+     */
+    private BigDecimal price;
+    /**
+     * 用户ID
+     */
+    private String sysUserId;
+    /**
+     * 订单ID
      */
     private String mallOrderId;
     /**
-     * 订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->已取消
+     * 是否使用 0未使用 1已使用
      */
-    private Integer state;
+    private Boolean isUsed;
     /**
-     * 备注
+     * 使用时间
      */
-    private String remark;
+    private LocalDateTime usedTime;
     /**
-     * 创建人
-     */
-    private String createUserId;
-    /**
-     * 操作时间
+     * 创建时间
      */
     private LocalDateTime createTime;
+
+
 
 }

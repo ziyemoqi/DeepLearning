@@ -1,6 +1,7 @@
 package com.yc.practice;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -8,9 +9,11 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.yc.common.constant.CommonEnum;
 import com.yc.core.mall.entity.ProductCategory;
 import com.yc.core.region.entity.Region;
+import com.yc.core.system.entity.SysUser;
 import com.yc.core.system.mapper.SysUserMapper;
 import com.yc.practice.mall.service.ProductCategoryService;
 import com.yc.practice.region.service.RegionService;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
@@ -22,7 +25,9 @@ import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 功能描述:
@@ -1852,6 +1857,13 @@ public class TempTest {
         regionService.updateBatchById(updateList);
     }
 
+    @Data
+    public class Category {
+        private String first;
+        private String second;
+        private String sysUserId;
+    }
+
     @Test
     public void dealLowData() {
         // B b = new B();
@@ -1866,8 +1878,21 @@ public class TempTest {
         // List<String> stringList = list.stream().map(String::valueOf).collect(Collectors.toList());
         // System.out.println(String.join(",", stringList));
 
-        System.out.println(new Date());
-        System.out.println(LocalDateTime.now());
+        // System.out.println(new Date());
+        // System.out.println(LocalDateTime.now());
+        List<Category> categoryList = new ArrayList<>();
+        Category category = new Category();
+        category.setFirst("一级类目A");
+        category.setSecond("二级类目A");
+        categoryList.add(category);
+        category = new Category();
+        category.setFirst("一级类目B");
+        category.setSecond("二级类目B");
+        categoryList.add(category);
+        List<String> menuIds = categoryList.stream().map(func ->
+                func.getFirst() + ">" + func.getSecond()).collect(Collectors.toList());
+        String d = String.join(",", menuIds);
+        System.out.println(d);
     }
 
     @Test
@@ -1889,4 +1914,47 @@ public class TempTest {
         }
     }
 
+    @Test
+    public void subDate() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime beginTime = LocalDateTime.parse("2020-07-22 12:12:12", dtf);
+        LocalDateTime endTime = LocalDateTime.parse("2020-07-28 12:12:12", dtf);
+        if (!(LocalDateTime.now().isBefore(beginTime) ||
+                LocalDateTime.now().isAfter(endTime))) {
+            System.out.println("出错");
+        } else {
+            System.out.println("213234");
+        }
+    }
+
+    @Test
+    public void testList() {
+        List<SysUser> userList = new ArrayList<>();
+        SysUser sysUser = new SysUser();
+        sysUser.setAddress("sadf");
+        sysUser.setSysUserId("a");
+        userList.add(sysUser);
+        sysUser = new SysUser();
+        sysUser.setAddress("sadaaaaf");
+        sysUser.setSysUserId("b");
+        userList.add(sysUser);
+        sysUser = new SysUser();
+        sysUser.setAddress("sadf");
+        sysUser.setSysUserId("c");
+        userList.add(sysUser);
+
+        // An highlighted block
+//      List<UserInfoExp> list = new ArrayList<>();
+        List<Category> list = userList.stream().map(e -> JSONUtil.
+                toBean(JSONUtil.toJsonStr(e), Category.class)).
+                collect(Collectors.toList());
+
+        System.out.println(list);
+    }
+
+
+    @Test
+    public void testredisList(){
+
+    }
 }

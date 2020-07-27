@@ -14,7 +14,7 @@ import ${superControllerClassPackage};
 
 /**
  *
- * 功能描述:
+ * 功能描述: ${table.comment!} 前端控制器
  *
  * @Author ${author} && 紫色年华
  * @Date ${date}

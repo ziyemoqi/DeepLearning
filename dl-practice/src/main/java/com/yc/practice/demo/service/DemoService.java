@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.yc.core.demo.entity.Demo;
 import com.yc.core.demo.model.DemoQuery;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * 功能描述:
  *
@@ -37,6 +39,6 @@ public interface DemoService extends IService<Demo> {
      */
     void deleteAlone(String demoId);
 
-    void dd();
+    void dd(HttpServletResponse response);
 
 }

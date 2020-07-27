@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 /**
  * 功能描述:权限
  *
- * @Author:  xieyc && 紫色年华
+ * @Author: xieyc && 紫色年华
  * @Date 2019-09-20
  * @Version: 1.0.0
  */
@@ -99,20 +99,21 @@ public class SysPermission implements Serializable {
 
     /////////////////////////////// 非表字段 ///////////////////////////////
 
-    public SysPermission() {}
+    public SysPermission() {
+    }
 
     public SysPermission(boolean index) {
-        if(index) {
+        if (index) {
             this.sysPermissionId = "9502685863ab87f0ad1134142788a385";
-            this.name="首页";
-            this.component="dashboard/Analysis";
-            this.url="/dashboard/analysis";
-            this.icon="home";
-            this.menuType=0;
-            this.sort=0;
-            this.delFlag=0;
-            this.isRoute=true;
-            this.isLeaf=true;
+            this.name = "首页";
+            this.component = "dashboard/Analysis";
+            this.url = "/dashboard/analysis";
+            this.icon = "home";
+            this.menuType = 0;
+            this.sort = 0;
+            this.delFlag = 0;
+            this.isRoute = true;
+            this.isLeaf = true;
         }
     }
 
