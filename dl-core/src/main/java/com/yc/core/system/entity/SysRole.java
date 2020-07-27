@@ -11,9 +11,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * 功能描述:
+ * 功能描述: 角色
  *
- * @Author   xieyc
+ * @Author xieyc
  * @Date 2019-09-19
  * @Version: 1.0.0
  */
@@ -56,7 +56,7 @@ public class SysRole implements Serializable {
     /**
      * 创建时间
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime createTime;
     /**
      * 修改人

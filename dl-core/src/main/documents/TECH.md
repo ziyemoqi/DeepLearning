@@ -25,9 +25,7 @@
     第二步: 小程序通过wx.request()发送code到开发者服务器
     第三步: 开发者服务器接收小程序发送的code,并携带appid、appsecret(这两个需要到微信小程序后台查看)、code发送到微信服务器
     第四步: 微信服务器接收开发者服务器发送的appid、appsecret、code进行校验。校验通过后向开发者服务器发送session_key、openid
-    第五步: 开发者服务器自己生成一个skey(自定义登录状态)与openid、session_key进行关联，并存到数据库中(mysql、redis等)
-    第六步: 开发者服务器返回生成skey(自定义登录状态)到小程序。
-    第七步: 小程序存储skey(自定义登录状态)到本地。
-    第八步: 小程序通过wx.request()发起业务请求到开发者服务器，同时携带skey(自定义登录状态)。
-    第九步: 开发者服务器接收小程序发送的skey(自定义登录状态),查询skey在数据库中是否有对应的openid、session_key。
+    第五步: 开发者服务器自己生成一个token(自定义登录状态)与openid、session_key进行关联，并存到数据库中(mysql、redis等)
+    第六步: 开发者服务器返回生成token到小程序,小程序存储skey到本地,小程序后续的业务请求需携带token。
+    第九步: 开发者服务器接收并校验小程序发送的token。
     第十步: 开发者服务器返回业务数据到小程序。

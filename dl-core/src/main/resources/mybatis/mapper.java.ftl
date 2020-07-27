@@ -5,7 +5,7 @@ import ${superMapperClassPackage};
 import org.springframework.stereotype.Repository;
 /**
  *
- * 功能描述:
+ * 功能描述: ${table.comment!} Mapper 接口
  *
  * @Author ${author} && 紫色年华
  * @Date ${date}

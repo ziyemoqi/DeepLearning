@@ -13,14 +13,14 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
- * 功能描述:
+ * 功能描述: 用户信息
  *
- * @Author:  xieyc && 紫色年华
+ * @Author: xieyc && 紫色年华
  * @Date 2019-09-19
  * @Version: 1.0.0
- *
- *  mybatisPlus会默认使用实体类的类名到数据库中找对应的表
- *  也可以通过@TableName(value = "sys_user")来指定在数据库中的名字
+ * <p>
+ * mybatisPlus会默认使用实体类的类名到数据库中找对应的表
+ * 也可以通过@TableName(value = "sys_user")来指定在数据库中的名字
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -30,13 +30,12 @@ public class SysUser implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * @TableId:
-     *  value:指定数据库表中主键的列名，如果实体类属性和表中字段一致，可省略
-     *  type:指定主键策略
-     *         IdType.AUTO：数据库ID自增
-     *         IdType.INPUT: 用户输入ID
-     *         IdType.ID_WORKER:  全局唯一ID，内容为空自动填充（默认配置）
-     *         IdType.ASSIGN_UUID: 全局唯一ID，内容为空自动填充
+     * @TableId: value:指定数据库表中主键的列名，如果实体类属性和表中字段一致，可省略
+     * type:指定主键策略
+     * IdType.AUTO：数据库ID自增
+     * IdType.INPUT: 用户输入ID
+     * IdType.ID_WORKER:  全局唯一ID，内容为空自动填充（默认配置）
+     * IdType.ASSIGN_UUID: 全局唯一ID，内容为空自动填充
      */
     @TableId(value = "sys_user_id", type = IdType.ASSIGN_UUID)
     private String sysUserId;
@@ -71,7 +70,7 @@ public class SysUser implements Serializable {
     /**
      * 生日
      */
-    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private LocalDate birthday;
     /**
      * 头像

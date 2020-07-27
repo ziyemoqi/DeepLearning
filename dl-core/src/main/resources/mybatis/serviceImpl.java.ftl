@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
-* 功能描述:
+* 功能描述: ${table.comment!} 服务实现类
 *
 * @Author ${author} && 紫色年华
 * @Date ${date}

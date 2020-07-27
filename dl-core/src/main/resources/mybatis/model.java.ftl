@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 </#if>
 
 /**
- * 功能描述:
+ * 功能描述: ${table.comment!}
  *
  * @Author ${author} && 紫色年华
  * @Date ${date}

@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * 功能描述:MyBatis-plus 代码生成器
  *
- * @Author:  xieyc && 紫色年华
+ * @Author: xieyc && 紫色年华
  * @Date: 2019-06-28 17:17
  * @Version: 1.0.0
  */
@@ -34,13 +34,16 @@ public class MyBatisGenerator {
     /**
      * 文件夹名
      */
-    private static final String MODEL_NAME = "mini";
+    private static final String MODEL_NAME = "mall";
     private static final String AUTHOR = "xieyc";
     /**
      * 要生成的表名
      */
     private static final String[] TABLES = {
-            "wx_open_message",
+            "mall_coupon",
+            "mq_consumer_log",
+            "mq_producer_log",
+            "user_balance_log",
     };
 
     /**
@@ -48,7 +51,7 @@ public class MyBatisGenerator {
      */
     private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
     private static final String URL =
-            "jdbc:mysql://127.0.0.1:3306/xfxmall?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8";
+            "jdbc:mysql://127.0.0.1:3306/deeplearning?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "xieyc@mysql";
     // private static final String URL =
@@ -66,7 +69,7 @@ public class MyBatisGenerator {
                 // 是否覆盖文件
                 .setFileOverride(true)
                 // 输出目录
-                .setOutputDir( BASE_PATH + "/src/main/java")
+                .setOutputDir(BASE_PATH + "/src/main/java")
                 // 作者
                 .setAuthor(AUTHOR)
                 // 生成后打开文件夹
@@ -87,7 +90,7 @@ public class MyBatisGenerator {
                 .setControllerName("%sController")
         );
 
-         // 数据库配置
+        // 数据库配置
         gen.setDataSource(new DataSourceConfig()
                 .setUrl(URL)
                 .setDriverName(DRIVER_NAME)
@@ -124,7 +127,7 @@ public class MyBatisGenerator {
         fileOutList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return BASE_PATH + "/src/main/resources/mapper/"+ MODEL_NAME +"/" + tableInfo.getEntityName() + "Mapper.xml";
+                return BASE_PATH + "/src/main/resources/mapper/" + MODEL_NAME + "/" + tableInfo.getEntityName() + "Mapper.xml";
             }
         });
         abc.setFileOutConfigList(fileOutList);
@@ -143,14 +146,14 @@ public class MyBatisGenerator {
 
         // 策略配置
         gen.setStrategy(new StrategyConfig()
-                        // 表名生成策略
+                // 表名生成策略
                 .setNaming(NamingStrategy.underline_to_camel)
                 .setColumnNaming(NamingStrategy.underline_to_camel)
                 .setEntityLombokModel(true)
                 .setRestControllerStyle(true)
-                        // 需要生成的表
+                // 需要生成的表
                 .setInclude(TABLES)
-                        // 自定义实体，公共字段
+                // 自定义实体，公共字段
                 .setSuperEntityColumns("id")
                 .setControllerMappingHyphenStyle(true)
         );

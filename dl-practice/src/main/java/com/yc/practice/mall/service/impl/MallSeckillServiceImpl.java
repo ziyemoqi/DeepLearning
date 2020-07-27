@@ -16,6 +16,7 @@ import com.yc.core.mall.model.form.SeckillForm;
 import com.yc.core.mall.model.vo.SeckillVO;
 import com.yc.practice.common.UserUtil;
 import com.yc.practice.mall.service.MallSeckillService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,7 @@ import java.util.Map;
  * @Date 2020-06-01
  * @Version: 1.0.0
  */
+@Slf4j
 @Service
 public class MallSeckillServiceImpl extends ServiceImpl<MallSeckillMapper, MallSeckill> implements MallSeckillService {
 
@@ -82,7 +84,7 @@ public class MallSeckillServiceImpl extends ServiceImpl<MallSeckillMapper, MallS
         SeckillVO seckillVO = new SeckillVO();
         String key = CommonConstant.MALL_SECKILL + mallSeckillId;
         if (redisTemplate.hasKey(key)) {
-            seckillVO.setSeckillStartTime(LocalDateTime.parse(redisTemplate.opsForHash().get(key,"seckillStartTime").toString()));
+            seckillVO.setSeckillStartTime(LocalDateTime.parse(redisTemplate.opsForHash().get(key, "seckillStartTime").toString()));
             seckillVO.setSeckillEndTime(LocalDateTime.parse(redisTemplate.opsForHash().get(key, "seckillEndTime").toString()));
             seckillVO.setMallProductName(redisTemplate.opsForHash().get(key, "mallProductName").toString());
             // 状态(0:未开始 1:开始秒杀 2:已结束)
@@ -151,7 +153,6 @@ public class MallSeckillServiceImpl extends ServiceImpl<MallSeckillMapper, MallS
 
     /**
      * 基于存储过程执行秒杀
-     * <p>
      * 注:存储过程优化的是事务行级锁持有的时间
      *
      * @param seckillForm 入参
@@ -167,18 +168,23 @@ public class MallSeckillServiceImpl extends ServiceImpl<MallSeckillMapper, MallS
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("mallSeckillId", seckillForm.getMallSeckillId());
         map.put("killTime", LocalDateTime.now().toString());
-        map.put("sysUserId", UserUtil.getUserId());
+        // map.put("sysUserId", UserUtil.getUserId());
+        map.put("sysUserId", LocalDateTime.now().toString());
         map.put("result", null);
         // 执行存储过程 赋值result
         this.baseMapper.killByProcedure(map);
         int result = MapUtils.getInteger(map, "result", -2);
         if (result == 0) {
+            log.error("秒杀结束");
             throw new ErrorException(Error.SeckillOver);
         } else if (result == -1) {
+            log.error("重复秒杀");
             throw new ErrorException(Error.DuplicateSeckill);
         } else if (result == -2) {
+            log.error("服务异常");
             throw new ErrorException(Error.ServiceError);
         }
+        log.info("秒杀成功！");
     }
 
 }

@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+
 
 /**
  * 功能描述:Demo 控制层
@@ -63,7 +65,7 @@ public class DemoController {
 
 
     @GetMapping("/dd")
-    public void dd (){
-        service.dd();
+    public void dd (HttpServletResponse response){
+        service.dd(response);
     }
 }

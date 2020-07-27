@@ -122,6 +122,12 @@
                 <optional>true</optional>
             </dependency>
 
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-open</artifactId>
+                <version>3.8.0</version>
+            </dependency>
+
         </dependencies>
 
 </project>

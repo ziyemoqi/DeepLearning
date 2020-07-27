@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 /**
  * 功能描述:
  *
- * @Author:  xieyc && 紫色年华
+ * @Author: xieyc && 紫色年华
  * @Date 2020-04-08
  * @Version: 1.0.0
  */
@@ -50,7 +50,7 @@ public class MallOrder implements Serializable {
      */
     private Integer payType;
     /**
-     * 订单状态：0-已取消-10-未付款，20-已付款(待发货)，40-已发货，50-交易成功，60-交易关闭  70-无效订单
+     * 订单状态：0-已取消 10-未付款，20-已付款(待发货)，40-已发货，50-交易成功(已收货)，60-交易关闭(超时)  70-无效 80-退款
      */
     private Integer state;
     /**
@@ -90,24 +90,36 @@ public class MallOrder implements Serializable {
      */
     private Integer confirmState;
     /**
+     * 确认时间
+     */
+    private LocalDateTime confirmTime;
+    /**
+     * 优惠券ID
+     */
+    private String mallCouponId;
+    /**
+     * 优惠券金额
+     */
+    private String mallCouponMoney;
+    /**
      * 支付时间
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime payTime;
     /**
      * 发货时间
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime sendTime;
     /**
      * 交易完成时间(确认收货时间)
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime endTime;
     /**
      * 订单未支付关闭时间
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime closeTime;
     /**
      * 创建人

@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  *
- * 功能描述:
+ * 功能描述: 秒杀DAO
  *
  * @Author:  xieyc && 紫色年华
  * @Date 2020-06-01
