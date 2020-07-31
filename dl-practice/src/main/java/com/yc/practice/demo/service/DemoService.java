@@ -39,6 +39,6 @@ public interface DemoService extends IService<Demo> {
      */
     void deleteAlone(String demoId);
 
-    void dd(HttpServletResponse response);
+    String dd(HttpServletResponse response);
 
 }

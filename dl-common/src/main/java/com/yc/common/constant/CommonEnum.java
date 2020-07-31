@@ -137,6 +137,7 @@ public interface CommonEnum {
          * 订单状态
          */
         ORDER_STATE_0(0,"已取消"),
+        ORDER_STATE_5(5,"未确认"),
         ORDER_STATE_10(10,"未付款"),
         ORDER_STATE_20(20,"已付款(待发货)"),
         ORDER_STATE_40(40,"已发货"),

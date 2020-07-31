@@ -30,7 +30,7 @@ public class MallCoupon implements Serializable {
     /**
      * 优惠券金额
      */
-    private BigDecimal price;
+    private BigDecimal amount;
     /**
      * 用户ID
      */
@@ -51,7 +51,6 @@ public class MallCoupon implements Serializable {
      * 创建时间
      */
     private LocalDateTime createTime;
-
 
 
 }

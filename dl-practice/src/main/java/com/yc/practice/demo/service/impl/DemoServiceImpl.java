@@ -1,10 +1,13 @@
 package com.yc.practice.demo.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.extra.servlet.ServletUtil;
 import cn.hutool.http.ContentType;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.yc.common.global.error.ErrorException;
 import com.yc.common.properties.EncodeProperties;
 import com.yc.core.demo.entity.Demo;
 import com.yc.core.demo.mapper.DemoMapper;
@@ -20,8 +23,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 功能描述: Demo 业务层
@@ -67,21 +72,20 @@ public class DemoServiceImpl extends ServiceImpl<DemoMapper, Demo> implements De
         this.baseMapper.deleteById(demoId);
     }
 
+    private static ReentrantLock lock = new ReentrantLock(true);
+
     @Override
-    public void dd(HttpServletResponse response) {
-        // 如果砍价人数足够
-        // 如果该用户已超过砍价总次数
-        List<BigDecimal> list = new ArrayList<>();
-        list.add(BigDecimal.valueOf(1.23));
-        list.add(BigDecimal.valueOf(2.23));
-        list.add(BigDecimal.valueOf(3.23));
-        list.add(BigDecimal.valueOf(4.23));
-        list.add(BigDecimal.valueOf(5.23));
-        list.add(BigDecimal.valueOf(6.23));
-        list.add(BigDecimal.valueOf(7.23));
-        // redisTemplate.opsForList().rightPushAll("oowwoo", list);
-        System.out.println(redisTemplate.opsForList().range("oowwoo", 0,0));
-        redisTemplate.opsForList().leftPop("oowwoo");
+    public String dd(HttpServletResponse response) {
+        lock.lock();
+        try {
+            return "你好";
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        } finally {
+            lock.unlock();
+        }
+        return null;
+
     }
 
 

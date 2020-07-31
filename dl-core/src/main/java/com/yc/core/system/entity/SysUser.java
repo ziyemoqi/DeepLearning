@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -93,21 +94,13 @@ public class SysUser implements Serializable {
      */
     private String email;
     /**
-     * 创建人
+     * 积分
      */
-    private String createUserId;
+    private Integer score;
     /**
-     * 创建时间
+     * 余额
      */
-    private LocalDateTime createTime;
-    /**
-     * 修改人
-     */
-    private String updateUserId;
-    /**
-     * 修改时间
-     */
-    private LocalDateTime updateTime;
+    private BigDecimal balance;
     /**
      * 序号
      */
@@ -128,6 +121,22 @@ public class SysUser implements Serializable {
      * 所属部门
      */
     private String departId;
+    /**
+     * 创建人
+     */
+    private String createUserId;
+    /**
+     * 创建时间
+     */
+    private LocalDateTime createTime;
+    /**
+     * 修改人
+     */
+    private String updateUserId;
+    /**
+     * 修改时间
+     */
+    private LocalDateTime updateTime;
 
     /////////////////////////////// 非表字段 ///////////////////////////////
 

@@ -50,7 +50,7 @@ public class MallOrder implements Serializable {
      */
     private Integer payType;
     /**
-     * 订单状态：0-已取消 10-未付款，20-已付款(待发货)，40-已发货，50-交易成功(已收货)，60-交易关闭(超时)  70-无效 80-退款
+     * 订单状态：0-已取消 5.未确认 10-未付款，20-已付款(待发货)，40-已发货，50-交易成功(已收货)，60-交易关闭(超时)  70-无效 80-退款
      */
     private Integer state;
     /**
