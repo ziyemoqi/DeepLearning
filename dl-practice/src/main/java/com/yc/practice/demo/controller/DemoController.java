@@ -65,7 +65,7 @@ public class DemoController {
 
 
     @GetMapping("/dd")
-    public void dd (HttpServletResponse response){
-        service.dd(response);
+    public String dd (HttpServletResponse response){
+        return service.dd(response);
     }
 }

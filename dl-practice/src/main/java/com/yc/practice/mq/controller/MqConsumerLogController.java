@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Version: 1.0.0
  */
 @RestController
-@RequestMapping("/mall/mq-consumer-log")
+@RequestMapping("/mqConsumerLog")
 @Slf4j
 public class MqConsumerLogController {
 
