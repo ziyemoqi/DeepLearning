@@ -30,7 +30,8 @@ public class HttpClientUtil {
 
     /**
      * Get方式请求
-     * @param url 地址
+     *
+     * @param url   地址
      * @param param Map参数
      * @return 响应
      */
@@ -70,7 +71,8 @@ public class HttpClientUtil {
 
     /**
      * Post请求
-     * @param url 地址
+     *
+     * @param url   地址
      * @param param Map参数
      * @return 响应
      */
@@ -105,36 +107,37 @@ public class HttpClientUtil {
         return resultString;
     }
 
-	/**
-	 * Post请求
-	 * @param url 地址
-	 * @param json json字符串
-	 * @return 响应
-	 */
-	public static String doPostJson(String url, String json) {
-		// 创建Httpclient对象
-		CloseableHttpClient httpClient = HttpClients.createDefault();
-		CloseableHttpResponse response = null;
-		String resultString = "";
-		try {
-			HttpPost httpPost = new HttpPost(url);
-			// 创建请求内容
-			StringEntity entity = new StringEntity(json, ContentType.APPLICATION_JSON);
-			httpPost.setEntity(entity);
-			// 执行http请求
-			response = httpClient.execute(httpPost);
-			resultString = EntityUtils.toString(response.getEntity(), CommonConstant.CHARSET_UTF_8);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				response.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return resultString;
-	}
+    /**
+     * Post请求
+     *
+     * @param url  地址
+     * @param json json字符串
+     * @return 响应
+     */
+    public static String doPostJson(String url, String json) {
+        // 创建Httpclient对象
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        CloseableHttpResponse response = null;
+        String resultString = "";
+        try {
+            HttpPost httpPost = new HttpPost(url);
+            // 创建请求内容
+            StringEntity entity = new StringEntity(json, ContentType.APPLICATION_JSON);
+            httpPost.setEntity(entity);
+            // 执行http请求
+            response = httpClient.execute(httpPost);
+            resultString = EntityUtils.toString(response.getEntity(), CommonConstant.CHARSET_UTF_8);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                response.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return resultString;
+    }
 
 
 }

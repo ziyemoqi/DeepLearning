@@ -43,6 +43,4 @@ public class SysRolePermission implements Serializable {
         this.permissionId = permissionId;
     }
 
-    /////////////////////////////// 非表字段 ///////////////////////////////
-
 }

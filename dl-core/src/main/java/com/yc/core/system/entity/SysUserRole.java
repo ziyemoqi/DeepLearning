@@ -38,6 +38,5 @@ public class SysUserRole implements Serializable {
         this.roleId = roleId;
     }
 
-    /////////////////////////////// 非表字段 ///////////////////////////////
 
 }

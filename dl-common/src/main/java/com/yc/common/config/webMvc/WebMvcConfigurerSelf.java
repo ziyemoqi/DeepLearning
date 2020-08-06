@@ -27,7 +27,7 @@ public class WebMvcConfigurerSelf implements WebMvcConfigurer {
     private final UploadProperties uploadProperties;
 
     @Autowired
-    public WebMvcConfigurerSelf (UploadProperties uploadProperties){
+    public WebMvcConfigurerSelf(UploadProperties uploadProperties) {
         this.uploadProperties = uploadProperties;
     }
 
@@ -36,8 +36,8 @@ public class WebMvcConfigurerSelf implements WebMvcConfigurer {
         // 页面相关的静态目录
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         // 映射本地存储路径 "file:D:/upload/"
-        registry.addResourceHandler(uploadProperties.getImgAccessPath()).addResourceLocations("file:"+uploadProperties.getImgSavePath());
-        registry.addResourceHandler(uploadProperties.getFileAccessPath()).addResourceLocations("file:"+uploadProperties.getFileSavePath());
+        registry.addResourceHandler(uploadProperties.getImgAccessPath()).addResourceLocations("file:" + uploadProperties.getImgSavePath());
+        registry.addResourceHandler(uploadProperties.getFileAccessPath()).addResourceLocations("file:" + uploadProperties.getFileSavePath());
     }
 
     /**

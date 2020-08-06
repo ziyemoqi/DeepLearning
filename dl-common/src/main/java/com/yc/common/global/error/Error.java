@@ -2,14 +2,14 @@ package com.yc.common.global.error;
 
 /**
  * 功能描述:异常代码枚举
- *  一、[throw new ErrorException(DlError.RoleNoDelete);]
- *  二、
- *      httpStatusCode: http响应码(非200前端进入error代码逻辑块)
- *      code:           平台响应码
- *      msg:            响应信息
- *  三、
- *      401:缺乏有效身份认证凭证,多指未登录
- *      403:服务器拒绝响应,权限不足
+ * 一、[throw new ErrorException(DlError.RoleNoDelete);]
+ * 二、
+ * httpStatusCode: http响应码(非200前端进入error代码逻辑块)
+ * code:           平台响应码
+ * msg:            响应信息
+ * 三、
+ * 401:缺乏有效身份认证凭证,多指未登录
+ * 403:服务器拒绝响应,权限不足
  *
  * @Author: xieyc && 紫色年华
  * @Date: 2020-03-22
@@ -42,8 +42,8 @@ public enum Error implements IError {
     /**
      * 字典管理
      */
-    PathIsNull(200,40004,"字典路径不能为空，禁止读取根字典信息!"),
-    PathIsError(200,40005,"字典路径格式有误"),
+    PathIsNull(200, 40004, "字典路径不能为空，禁止读取根字典信息!"),
+    PathIsError(200, 40005, "字典路径格式有误"),
     DictExisted(200, 20004, "存在重复字典项,请重新填写"),
     DictNotFound(200, 40406, "字典不存在"),
 
@@ -75,31 +75,31 @@ public enum Error implements IError {
     /**
      * 库存不足
      */
-    StockLow(200,200001,"库存不足,请重新选购"),
+    StockLow(200, 200001, "库存不足,请重新选购"),
     /**
      * 存在重复路径
      */
-    URLNotUnique(200,200002,"存在重复路径,请修改!"),
+    URLNotUnique(200, 200002, "存在重复路径,请修改!"),
     /**
      * 原密码输入错误
      */
-    OldPasswordError(200,20003,"原密码输入错误!"),
+    OldPasswordError(200, 20003, "原密码输入错误!"),
     /**
      * 请选择要上传的图片
      */
-    UploadImgError(200,20004,"请选择要上传的图片!"),
+    UploadImgError(200, 20004, "请选择要上传的图片!"),
     /**
      * 请选择要上传的文件
      */
-    UploadFileError(200,20004,"请选择要上传的文件!"),
+    UploadFileError(200, 20004, "请选择要上传的文件!"),
     /**
      * 请选择要上传的图片
      */
-    ImgFormatError(200,20005,"请选择jpg,jpeg,gif,png格式的图片!"),
+    ImgFormatError(200, 20005, "请选择jpg,jpeg,gif,png格式的图片!"),
     /**
      * 保存文件异常
      */
-    SaveImgError(200,20006,"保存文件异常!"),
+    SaveImgError(200, 20006, "保存文件异常!"),
     /**
      * 商品未上架
      */
@@ -120,12 +120,12 @@ public enum Error implements IError {
     /**
      * 重复秒杀
      */
-    DuplicateSeckill(200,20009,"请勿重复秒杀!"),
+    DuplicateSeckill(200, 20009, "请勿重复秒杀!"),
 
     /**
      * 秒杀结束
      */
-    SeckillOver(200,20010,"秒杀结束!"),
+    SeckillOver(200, 20010, "秒杀结束!"),
     ;
 
     /**

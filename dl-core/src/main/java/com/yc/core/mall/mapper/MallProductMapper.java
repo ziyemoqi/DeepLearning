@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yc.core.mall.entity.MallProduct;
 import com.yc.core.mall.model.query.GoodQuery;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -27,4 +28,15 @@ public interface MallProductMapper extends BaseMapper<MallProduct> {
     Page<MallProduct> goodPage(@Param("page") Page<MallProduct> page,
                                @Param("query") GoodQuery query);
 
+
+    /**
+     * 减库存
+     *
+     * @param mallProductId 商品ID
+     * @param stock         库存
+     * @return 是否成功
+     */
+    @Update("update mall_product set stock= stock- #{stock} " +
+            "where mall_product_id = #{mallProductId} and stock >= #{stock}")
+    int reduceProductStock(@Param("mallProductId") String mallProductId, @Param("stock") int stock);
 }

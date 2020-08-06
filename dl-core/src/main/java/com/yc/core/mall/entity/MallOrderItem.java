@@ -1,17 +1,18 @@
 package com.yc.core.mall.entity;
 
-import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
+
 /**
  * 功能描述:
  *
- * @Author:  xieyc && 紫色年华
+ * @Author: xieyc && 紫色年华
  * @Date 2020-05-08
  * @Version: 1.0.0
  */
@@ -41,24 +42,23 @@ public class MallOrderItem implements Serializable {
     /**
      * 商品id
      */
-    private String goodId;
+    private String productId;
     /**
      * 商品名称
      */
-    private String goodName;
+    private String productName;
     /**
      * 商品图片
      */
-    private String goodPic;
+    private String productPic;
     /**
      * 单价
      */
-    private BigDecimal goodPrice;
+    private BigDecimal productPrice;
     /**
      * 购买数量
      */
-    private Integer goodNum;
-
+    private Integer productNum;
 
 
 }

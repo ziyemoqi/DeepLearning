@@ -19,6 +19,7 @@ public class Base64FileUtil {
 
     /**
      * 本地文件转换成base64字符串
+     *
      * @param fileUrl 文件本地路径
      * @return str
      */
@@ -44,6 +45,7 @@ public class Base64FileUtil {
 
     /**
      * 在线文件转换成base64字符串
+     *
      * @param fileUrl 文件线上路径
      * @return str
      */
@@ -75,6 +77,7 @@ public class Base64FileUtil {
 
     /**
      * base64字符串转换成文件
+     *
      * @param base64     base64字符串
      * @param toFilePath 文件存放路径
      * @return true or false

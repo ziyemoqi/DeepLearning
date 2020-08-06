@@ -33,7 +33,7 @@ public class UploadServiceImpl implements UploadService {
     private final UploadProperties uploadProperties;
 
     @Autowired
-    public UploadServiceImpl(UploadProperties uploadProperties,RedisTemplate redisTemplate){
+    public UploadServiceImpl(UploadProperties uploadProperties, RedisTemplate redisTemplate) {
         this.uploadProperties = uploadProperties;
         this.redisTemplate = redisTemplate;
     }
@@ -45,7 +45,7 @@ public class UploadServiceImpl implements UploadService {
             throw new ErrorException(Error.UploadImgError);
         }
         if (file.getSize() > 1024 * 1024 * 5) {
-            throw new ErrorException(200,50001,"文件大小不能大于5M");
+            throw new ErrorException(200, 50001, "文件大小不能大于5M");
         }
         //获取文件后缀
         String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);
@@ -81,9 +81,9 @@ public class UploadServiceImpl implements UploadService {
             folder.mkdirs();
         }
         String oldName = file.getOriginalFilename();
-        String newName = generateOrderNo()+ oldName.substring(oldName.lastIndexOf("."));
+        String newName = generateOrderNo() + oldName.substring(oldName.lastIndexOf("."));
         try {
-            file.transferTo(new File(folder,newName));
+            file.transferTo(new File(folder, newName));
         } catch (IOException e) {
             throw new ErrorException(Error.SaveImgError);
         }
@@ -91,21 +91,23 @@ public class UploadServiceImpl implements UploadService {
     }
 
     // ====================== 私有方法 =====================
+
     /**
      * 生成唯一文件名称
-     *  [20200427171843000001]
+     * [20200427171843000001]
+     *
      * @return 20位数字[当前时间(毫秒) + 自增id]
      */
-    private String generateOrderNo(){
+    private String generateOrderNo() {
         StringBuilder sb = new StringBuilder();
         Long nowLong = Long.parseLong(new SimpleDateFormat(CommonConstant.yyyyMMddHHmmss).format(new Date()));
         sb.append(nowLong.toString());
         String date = new SimpleDateFormat(CommonConstant.yyyyMMddHHmm).format(new Date());
         String key = CommonConstant.TODAY_ORDER_NO + date;
-        if(!redisTemplate.hasKey(key)){
-            redisTemplate.opsForValue().set(key,0,5, TimeUnit.MINUTES);
+        if (!redisTemplate.hasKey(key)) {
+            redisTemplate.opsForValue().set(key, 0, 5, TimeUnit.MINUTES);
         }
-        Long increment = redisTemplate.opsForValue().increment(key,1);
+        Long increment = redisTemplate.opsForValue().increment(key, 1);
         String incrementStr = increment.toString();
         if (incrementStr.length() <= 6) {
             sb.append(String.format("%06d", increment));

@@ -6,13 +6,15 @@ import com.yc.core.system.entity.SysUser;
 import com.yc.core.system.model.query.UserQuery;
 import com.yc.core.system.model.vo.SysUserVO;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
+
 /**
- *
  * 功能描述:
  *
- * @Author:  xieyc && 紫色年华
+ * @Author: xieyc && 紫色年华
  * @Date 2019-09-19
  * @Version: 1.0.0
  */
@@ -21,7 +23,8 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 用户查询
-     * @param page 分页信息
+     *
+     * @param page      分页信息
      * @param userQuery 入参
      * @return 返回
      */
@@ -37,10 +40,13 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 用户查询
+     *
      * @param page 分页信息
      * @return 用户page
      */
     Page<SysUserVO> chatPage(@Param("page") Page<SysUser> page);
 
-
+    @Update("update sys_user set balance = balance - #{balance} " +
+            "where sys_user_id = #{sysUserId} and balance >= #{balance}")
+    int reduceBalance(@Param("sysUserId") String sysUserId, @Param("balance") BigDecimal balance);
 }

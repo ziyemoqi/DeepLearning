@@ -1,6 +1,7 @@
 package com.yc.practice;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.RandomUtil;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -72,6 +73,13 @@ public class TempTest {
         }
         System.out.println(bigDecimals);
         System.out.println(bigDecimals.size());
+    }
+
+    @Test
+    public void testd() {
+        int rand = RandomUtil.randomInt(50,60);
+        System.out.println(rand);
+        System.out.println(BigDecimal.valueOf(rand).divide(BigDecimal.valueOf(100)));
     }
 
 }

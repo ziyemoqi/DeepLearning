@@ -27,35 +27,38 @@ import java.security.spec.X509EncodedKeySpec;
 public class EncoderUtil {
 
     // ================= AES 加密 START ==================
+
     /**
-     *  AES加密
+     * AES加密
      *
      * @param orignalStr 明文
-     * @param encryKey  aes密钥
+     * @param encryKey   aes密钥
      * @return 结果描述
      */
-    public static String aesEncrypt(String orignalStr,String encryKey) {
+    public static String aesEncrypt(String orignalStr, String encryKey) {
         String encryptMsg = "";
         try {
             encryptMsg = base64Encode(aesEncryptToBytes(orignalStr, encryKey));
         } catch (Exception e) {
-            log.error("AES加密失败" , e);
+            log.error("AES加密失败", e);
         }
         return encryptMsg;
     }
 
     /**
      * base 64 encode
+     *
      * @param bytes 待编码的byte[]
      * @return 编码后的base 64 code
      */
-    private static String base64Encode(byte[] bytes){
+    private static String base64Encode(byte[] bytes) {
         return new BASE64Encoder().encode(bytes);
     }
 
     /**
      * AES加密
-     * @param content 待加密的内容
+     *
+     * @param content    待加密的内容
      * @param encryptKey 加密密钥
      * @return 加密后的byte[]
      * @throws Exception
@@ -72,12 +75,13 @@ public class EncoderUtil {
 
     /**
      * Aes解密
+     *
      * @param encryptStr 密文
      * @param decryptKey aeskey
      * @return
      */
-    public static String aesDecrypt(String encryptStr, String decryptKey){
-        if(StringUtils.isNotBlank(encryptStr)) {
+    public static String aesDecrypt(String encryptStr, String decryptKey) {
+        if (StringUtils.isNotBlank(encryptStr)) {
             try {
                 return aesDecryptByBytes(base64Decode(encryptStr), decryptKey);
             } catch (Exception e) {
@@ -89,12 +93,13 @@ public class EncoderUtil {
 
     /**
      * base64解密
+     *
      * @param base64Code base64code
      * @return byty[]
      * @throws Exception
      */
     private static byte[] base64Decode(String base64Code) throws Exception {
-        if(StringUtils.isNotEmpty(base64Code)) {
+        if (StringUtils.isNotEmpty(base64Code)) {
             return (new BASE64Decoder()).decodeBuffer(base64Code);
         }
         return null;
@@ -113,6 +118,7 @@ public class EncoderUtil {
     // ================= AES 加密 END ====================
 
     // ================= RSA 加密 END ====================
+
     /**
      * RSA公钥加密
      *
