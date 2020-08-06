@@ -28,7 +28,6 @@
         <druid-spring-boot-starter.version>1.1.22</druid-spring-boot-starter.version>
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <swagger.version>2.7.0</swagger.version>
-        <commons-lang3.version>3.9</commons-lang3.version>
         <fastjson.version>1.2.58</fastjson.version>
         <jwt.version>3.7.0</jwt.version>
         <hutool.version>5.3.7</hutool.version>
@@ -120,12 +119,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
                 <optional>true</optional>
-            </dependency>
-
-            <dependency>
-                <groupId>com.github.binarywang</groupId>
-                <artifactId>weixin-java-open</artifactId>
-                <version>3.8.0</version>
             </dependency>
 
         </dependencies>

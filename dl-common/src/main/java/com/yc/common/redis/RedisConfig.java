@@ -25,11 +25,10 @@ import java.time.Duration;
 
 /**
  * 功能描述:Redis配置类
- *          自定义RedisTemplate
+ * 自定义RedisTemplate
  *
- *          @EnableCaching: 开启基于注解的缓存
- *
- * @Author:  xieyc && 紫色年华
+ * @EnableCaching: 开启基于注解的缓存
+ * @Author: xieyc && 紫色年华
  * @Date: 2019-06-12
  * @Version: 1.0.0
  */
@@ -38,9 +37,9 @@ import java.time.Duration;
 public class RedisConfig extends CachingConfigurerSupport {
 
     /**
-     * @description 自定义的缓存key的生成策略 若想使用这个key
-     *              只需要将注解上keyGenerator的值设置为keyGenerator即可
      * @return 自定义策略生成的key
+     * @description 自定义的缓存key的生成策略 若想使用这个key
+     * 只需要将注解上keyGenerator的值设置为keyGenerator即可
      */
     @Bean
     @Override
@@ -61,6 +60,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     /**
      * 配置redisTemplate
+     *
      * @param factory
      * @return
      */
@@ -103,60 +103,5 @@ public class RedisConfig extends CachingConfigurerSupport {
         RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofHours(1)); // 设置缓存有效期一小时;
         return new RedisCacheManager(writer, config);
     }
-
-    // /**
-    //  * 对字符串类型数据操作
-    //  *
-    //  * @param redisTemplate
-    //  * @return
-    //  */
-    // @Bean
-    // public ValueOperations<String, Object> valueOperations(RedisTemplate<String, Object> redisTemplate) {
-    //     return redisTemplate.opsForValue();
-    // }
-    //
-    // /**
-    //  * 对hash类型的数据操作
-    //  *
-    //  * @param redisTemplate
-    //  * @return
-    //  */
-    // @Bean
-    // public HashOperations<String, String, Object> hashOperations(RedisTemplate<String, Object> redisTemplate) {
-    //     return redisTemplate.opsForHash();
-    // }
-    //
-    // /**
-    //  * 对链表类型的数据操作
-    //  *
-    //  * @param redisTemplate
-    //  * @return
-    //  */
-    // @Bean
-    // public ListOperations<String, Object> listOperations(RedisTemplate<String, Object> redisTemplate) {
-    //     return redisTemplate.opsForList();
-    // }
-    //
-    // /**
-    //  * 对无序集合类型的数据操作
-    //  *
-    //  * @param redisTemplate
-    //  * @return
-    //  */
-    // @Bean
-    // public SetOperations<String, Object> setOperations(RedisTemplate<String, Object> redisTemplate) {
-    //     return redisTemplate.opsForSet();
-    // }
-    //
-    // /**
-    //  * 对有序集合类型的数据操作
-    //  *
-    //  * @param redisTemplate
-    //  * @return
-    //  */
-    // @Bean
-    // public ZSetOperations<String, Object> zSetOperations(RedisTemplate<String, Object> redisTemplate) {
-    //     return redisTemplate.opsForZSet();
-    // }
 
 }

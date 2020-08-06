@@ -1,6 +1,5 @@
 package com.yc.core.mq.model;
 
-import com.yc.core.mall.entity.MallProduct;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -18,7 +17,7 @@ public class MqOrderFrom {
     /**
      * 商品信息
      */
-    private List<OrderProduct> productList;
+    private List<MqOrderProductFORM> productList;
     /**
      * 用户ID
      */
@@ -35,19 +34,18 @@ public class MqOrderFrom {
      * 余额
      */
     private BigDecimal balance;
-
     /**
-     * 商品信息
+     * 收货地址
      */
-    @Data
-    public class OrderProduct {
-        /**
-         * 购买商品
-         */
-        private String productId;
-        /**
-         * 购买数量
-         */
-        private Integer buyNum;
-    }
+    private String mallShippingId;
+
+    // *********** 本地赋值字段 *************
+    /**
+     * 订单总金额
+     */
+    private BigDecimal totalAmount;
+    /**
+     * 优惠券金额
+     */
+    private BigDecimal mallCouponMoney;
 }

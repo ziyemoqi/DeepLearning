@@ -107,19 +107,19 @@ public class MallOrderServiceImpl extends ServiceImpl<MallOrderMapper, MallOrder
         List<MallProduct> goodList = new ArrayList<>();
         BigDecimal amount = BigDecimal.valueOf(0);
         for (MallOrderItem curr : orderItemList) {
-            if (StringUtils.isBlank(curr.getGoodId())) {
+            if (StringUtils.isBlank(curr.getProductId())) {
                 throw new ErrorException(Error.GoodNotFound);
             }
-            MallProduct mallProduct = this.mallProductService.getBaseMapper().selectById(curr.getGoodId());
-            if (mallProduct.getStock() < curr.getGoodNum()) {
+            MallProduct mallProduct = this.mallProductService.getBaseMapper().selectById(curr.getProductId());
+            if (mallProduct.getStock() < curr.getProductNum()) {
                 throw new ErrorException(Error.StockLow);
             }
             curr.setMallOrderId(mallOrder.getMallOrderId());
             curr.setOrderNo(mallOrder.getOrderNo());
             curr.setSysUserId(UserUtil.getUserId());
-            amount = amount.add(mallProduct.getPrice().multiply(BigDecimal.valueOf(curr.getGoodNum())));
-            mallProduct.setSale(curr.getGoodNum() + mallProduct.getSale());
-            mallProduct.setStock(mallProduct.getStock() - curr.getGoodNum());
+            amount = amount.add(mallProduct.getPrice().multiply(BigDecimal.valueOf(curr.getProductNum())));
+            mallProduct.setSale(curr.getProductNum() + mallProduct.getSale());
+            mallProduct.setStock(mallProduct.getStock() - curr.getProductNum());
             goodList.add(mallProduct);
         }
         // 校验总价

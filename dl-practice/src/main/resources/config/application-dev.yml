@@ -45,6 +45,7 @@ dl:
     - /websocket/**
     - /mallOrder/syncCallBackPay
     - /mallSeckill/**
+    - /mqOrder/**
     - /demo/**
   #===== 文件相关 =====
   upload:

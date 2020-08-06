@@ -41,16 +41,16 @@ import java.util.concurrent.TimeUnit;
 public class UsernamePasswordAuthenticationFilterSelf extends UsernamePasswordAuthenticationFilter {
 
     private final SysUserMapper sysUserMapper;
-    private final TokenService TokenService;
+    private final TokenService tokenService;
     private final SysLogService sysLogService;
     private final RedisTemplate<String, String> redisTemplate;
     private final SecurityProperties securityProperties;
 
     public UsernamePasswordAuthenticationFilterSelf(AuthenticationManager authenticationManager,
-                                                    SysUserMapper sysUserMapper, TokenService TokenService,
+                                                    SysUserMapper sysUserMapper, TokenService tokenService,
                                                     SecurityProperties securityProperties,
                                                     RedisTemplate<String, String> redisTemplate, SysLogService sysLogService) {
-        this.TokenService = TokenService;
+        this.tokenService = tokenService;
         this.redisTemplate = redisTemplate;
         this.sysLogService = sysLogService;
         this.sysUserMapper = sysUserMapper;
@@ -132,7 +132,7 @@ public class UsernamePasswordAuthenticationFilterSelf extends UsernamePasswordAu
         JSONObject jsonObject = new JSONObject();
         SysUser sysUser = sysUserMapper.loginByName(authResult.getName());
         jsonObject.put("userInfo", sysUser);
-        String jwtToken = TokenService.create(authResult.getName());
+        String jwtToken = tokenService.create(authResult.getName());
         jwtToken = CommonConstant.TOKEN_PREFIX + " " + jwtToken;
         jsonObject.put("token", jwtToken);
         jsonObject.put("pwdStrong", String.valueOf(PasswordCheckUtil.getPwdStrong(password)));

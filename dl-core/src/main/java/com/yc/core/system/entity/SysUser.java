@@ -49,10 +49,6 @@ public class SysUser implements Serializable {
      */
     private String loginName;
     /**
-     * 微信openId
-     */
-    private String wxOpenId;
-    /**
      * 密码
      */
     private String passWord;

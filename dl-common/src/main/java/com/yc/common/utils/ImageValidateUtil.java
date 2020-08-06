@@ -56,10 +56,10 @@ public class ImageValidateUtil {
     /**
      * 生成指定验证码图像文件
      *
-     * @param w 宽度
-     * @param h 高度
+     * @param w          宽度
+     * @param h          高度
      * @param outputFile 文件
-     * @param code 验证码
+     * @param code       验证码
      * @throws IOException
      */
     public static void outputImage(int w, int h, File outputFile, String code) throws IOException {
@@ -83,9 +83,9 @@ public class ImageValidateUtil {
     /**
      * 输出指定验证码图片流
      *
-     * @param w 宽度
-     * @param h 高度
-     * @param os 输出流
+     * @param w    宽度
+     * @param h    高度
+     * @param os   输出流
      * @param code 验证码
      * @throws IOException
      */
@@ -128,8 +128,8 @@ public class ImageValidateUtil {
         }
 
         //干扰线
-        for(int i=0;i<50;i++){
-            Color cc = new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255));
+        for (int i = 0; i < 50; i++) {
+            Color cc = new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255));
             g2.setColor(cc);
             g2.drawLine(random.nextInt(w), random.nextInt(h), random.nextInt(w), random.nextInt(h));
         }

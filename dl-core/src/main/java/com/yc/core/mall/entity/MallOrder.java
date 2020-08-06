@@ -100,7 +100,11 @@ public class MallOrder implements Serializable {
     /**
      * 优惠券金额
      */
-    private String mallCouponMoney;
+    private BigDecimal mallCouponMoney;
+    /**
+     * 使用余额
+     */
+    private BigDecimal useBalance;
     /**
      * 支付时间
      */

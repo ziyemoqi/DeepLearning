@@ -36,7 +36,7 @@ public class PasswordCheckUtil {
             Integer.MAX_VALUE};
 
     /**
-     *  获得密码强度等级，包括简单、复杂、强、很强、极强
+     * 获得密码强度等级，包括简单、复杂、强、很强、极强
      *
      * @param password 密码
      * @return level
@@ -227,10 +227,10 @@ public class PasswordCheckUtil {
     }
 
     /**
-     *  检查字符类型
+     * 检查字符类型
      *
      * @param c char
-     * @return  数字、大写字母、小写字母和其他字符。
+     * @return 数字、大写字母、小写字母和其他字符。
      */
     private static int checkCharacterType(char c) {
         if (c >= 48 && c <= 57) {
@@ -248,9 +248,9 @@ public class PasswordCheckUtil {
     /**
      * 按不同类型计算密码的数量
      *
-     * @param password  密码
-     * @param type 类型
-     * @return  数量
+     * @param password 密码
+     * @param type     类型
+     * @return 数量
      */
     private static int countLetter(String password, int type) {
         int count = 0;
@@ -281,7 +281,7 @@ public class PasswordCheckUtil {
      * @return size
      */
     private static int sizeOfInt(int x) {
-        for(int i = 0; ; i++){
+        for (int i = 0; ; i++) {
             if (x <= SIZE_TABLE[i]) {
                 return i + 1;
             }

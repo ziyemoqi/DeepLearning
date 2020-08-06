@@ -75,6 +75,6 @@ public class MallProduct implements Serializable {
      * 父级类目
      */
     @TableField(exist = false)
-    private String pClassId;
+    private String pCategoryId;
 
 }

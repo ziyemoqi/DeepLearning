@@ -33,13 +33,13 @@ public class LocalHostUtil {
         if (StringUtils.isBlank(ip) || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
         }
-        if (StringUtils.isBlank(ip)  || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (StringUtils.isBlank(ip) || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("HTTP_CLIENT_IP");
         }
-        if (StringUtils.isBlank(ip)  || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (StringUtils.isBlank(ip) || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("HTTP_X_FORWARDED_FOR");
         }
-        if (StringUtils.isBlank(ip)  || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (StringUtils.isBlank(ip) || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
         return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : ip;
@@ -80,7 +80,7 @@ public class LocalHostUtil {
                 String line;
                 while ((line = br.readLine()) != null) {
                     Matcher mat = Pattern.compile("\\b\\w+:\\w+:\\w+:\\w+:\\w+:\\w+\\b").matcher(line);
-                    if (mat.find()){
+                    if (mat.find()) {
                         mac = mat.group(0);
                     }
                 }
@@ -130,7 +130,7 @@ public class LocalHostUtil {
      * @Description:读取本机机器名称
      * @Date: 16:41 2019/5/9
      * @Param:
-     * @Return:  HostName
+     * @Return: HostName
      */
     public static String getHostName() {
         String ip = "";

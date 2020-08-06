@@ -24,30 +24,32 @@ public class UploadController {
     private final UploadService uploadService;
 
     @Autowired
-    public UploadController(UploadService uploadService){
+    public UploadController(UploadService uploadService) {
         this.uploadService = uploadService;
     }
 
     /**
      * 图片上传(单张)
+     *
      * @param request 请求信息
-     * @param file 文件
+     * @param file    文件
      * @return 文件名称
      */
     @PostMapping("/img")
     public String uploadImg(HttpServletRequest request, MultipartFile file) {
-        return uploadService.uploadImg(request,file);
+        return uploadService.uploadImg(request, file);
     }
 
     /**
      * 文件上传(单文件)
+     *
      * @param request 请求信息
-     * @param file 文件
+     * @param file    文件
      * @return 路径
      */
     @PostMapping("/file")
-    public String uploadFile(HttpServletRequest request,MultipartFile file) {
-        return uploadService.uploadFile(request,file);
+    public String uploadFile(HttpServletRequest request, MultipartFile file) {
+        return uploadService.uploadFile(request, file);
     }
 
 }

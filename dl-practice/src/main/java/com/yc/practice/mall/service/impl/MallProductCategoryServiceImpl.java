@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yc.common.global.error.Error;
 import com.yc.common.global.error.ErrorException;
 import com.yc.core.mall.entity.MallProductCategory;
-import com.yc.core.mall.mapper.MallProductCategoryClassMapper;
+import com.yc.core.mall.mapper.MallProductCategoryMapper;
 import com.yc.practice.mall.service.MallProductCategoryService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class MallProductCategoryServiceImpl extends ServiceImpl<MallProductCategoryClassMapper, MallProductCategory> implements MallProductCategoryService {
+public class MallProductCategoryServiceImpl extends ServiceImpl<MallProductCategoryMapper, MallProductCategory> implements MallProductCategoryService {
 
     @Override
     public List<Tree<String>> mallProductTree() {

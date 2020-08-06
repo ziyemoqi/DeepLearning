@@ -38,19 +38,20 @@ public class WordUtil {
 
     /**
      * 导出Word
+     *
      * @param response 响应
-     * @param map 数据
+     * @param map      数据
      * @param fileName 导出文件名称
-     * @param path 模板名称
+     * @param path     模板名称
      * @throws IOException
      */
-    public static void exportWord(HttpServletResponse response, Map<String,Object> map, String fileName, String path) throws IOException {
+    public static void exportWord(HttpServletResponse response, Map<String, Object> map, String fileName, String path) throws IOException {
         Template freemarkerTemplate = configuration.getTemplate(path);
         File file = null;
         InputStream fin = null;
         ServletOutputStream out = null;
         try {
-            file = createDoc(map,freemarkerTemplate,fileName);
+            file = createDoc(map, freemarkerTemplate, fileName);
             fin = new FileInputStream(file);
 
             response.setCharacterEncoding("utf-8");
@@ -61,25 +62,25 @@ public class WordUtil {
 
             out = response.getOutputStream();
             byte[] buffer = new byte[512];
-            int bytesToRead ;
+            int bytesToRead;
             // 通过循环将读入的Word文件的内容输出到浏览器中
-            while((bytesToRead = fin.read(buffer)) != -1) {
+            while ((bytesToRead = fin.read(buffer)) != -1) {
                 out.write(buffer, 0, bytesToRead);
             }
         } finally {
-            if(fin != null){
+            if (fin != null) {
                 fin.close();
             }
-            if(out != null){
+            if (out != null) {
                 out.close();
             }
-            if(file != null){
+            if (file != null) {
                 file.delete();
             }
         }
     }
 
-    private static File createDoc(Map<?, ?> dataMap, Template template,String fileName) {
+    private static File createDoc(Map<?, ?> dataMap, Template template, String fileName) {
         File file = new File(fileName);
         try {
             Writer w = new OutputStreamWriter(new FileOutputStream(file), CommonConstant.CHARSET_UTF_8);
