@@ -29,39 +29,51 @@ public interface SysRoleService extends IService<SysRole> {
     /**
      * 加载有效角色
      *
-     * @return
+     * @return list
      */
     List<SysRole> roleList();
 
     /**
      * 分页查询所有角色
      *
-     * @param page
-     * @param roleQuery
-     * @return
+     * @param page      分页信息
+     * @param roleQuery 入参
+     * @return page
      */
     Page<SysRole> rolePage(Page<SysRole> page, RoleQuery roleQuery);
 
     /**
      * 角色代码唯一性校验
      *
-     * @param roleCode
+     * @param roleCode 角色码
      */
     void duplicate(String roleCode);
 
     /**
      * 查询角色拥有的权限
      *
-     * @param roleId
-     * @return
+     * @param roleId 角色ID
+     * @return list
      */
     List<String> queryRolePermission(String roleId);
 
     /**
      * 保存角色授权
-     *
-     * @return
      */
     void saveRolePermission(JSONObject json);
+
+    /**
+     * 删除角色
+     *
+     * @param sysRoleId 角色ID
+     */
+    void deleteRole(String sysRoleId);
+
+    /**
+     * 批量删除角色
+     *
+     * @param ids 角色IDs
+     */
+    void deleteBatch(String ids);
 
 }

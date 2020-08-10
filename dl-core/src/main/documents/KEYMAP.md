@@ -16,6 +16,7 @@
     6.移动光标向上/向下         Alt + Shift + 方向
     7.格式化代码              ctrl + Alt + L
     8.大小写转换              ctrl + shift + U
+    9.批量修改                ctrl + shift + alt + J
 
 [快捷]
     1.最大化编辑区域           ctrl + shift + f12
@@ -24,10 +25,5 @@
     4.生成get/set,构造函数,toString()  Alt + Insert	
     
     
-	1.Alt+Enter：创建该接口的实现类/实现未实现的方法
-	3.【重构】
-		F2：修改名称/重构变量
-		Alt+Enter:指定函数修改参数后可使用此快捷键重构关联函数
-	4.【其他】
 		ctrl + O 重写父类方法       
 		ctrl + shift + x 打开文件所在工作空间

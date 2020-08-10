@@ -71,23 +71,14 @@ public class SysRoleController {
     @ApiOperation(value = "角色删除", notes = "角色删除")
     @WriteLog(opPosition = "角色删除", optype = CommonConstant.OPTYPE_DELETE)
     public void delete(String sysRoleId) {
-        SysRole sysRole = new SysRole();
-        sysRole.setSysRoleId(sysRoleId);
-        sysRole.setDelFlag(CommonEnum.DelFlag.DEL.getCode());
-        service.updateById(sysRole);
+        service.deleteRole(sysRoleId);
     }
 
     @DeleteMapping(value = "/deleteBatch")
     @ApiOperation(value = "角色批量删除", notes = "角色批量删除")
     @WriteLog(opPosition = "角色批量删除", optype = CommonConstant.OPTYPE_DELETE)
     public void deleteBatch(String ids) {
-        List<String> listIds = Arrays.asList(ids.split(","));
-        listIds.forEach(curr -> {
-            SysRole sysRole = new SysRole();
-            sysRole.setSysRoleId(curr);
-            sysRole.setDelFlag(CommonEnum.DelFlag.DEL.getCode());
-            service.updateById(sysRole);
-        });
+        service.deleteBatch(ids);
     }
 
     @GetMapping("/duplicate")

@@ -57,8 +57,8 @@ public class MallProductCategoryController {
      * @return page
      */
     @GetMapping("/children")
-    public Page<MallProductCategory> childrenClass(Page<MallProductCategory> page, String parentId) {
-        return iMallGoodClassService.childrenClass(page, parentId);
+    public Page<MallProductCategory> children(Page<MallProductCategory> page, String parentId) {
+        return iMallGoodClassService.children(page, parentId);
     }
 
     /**
