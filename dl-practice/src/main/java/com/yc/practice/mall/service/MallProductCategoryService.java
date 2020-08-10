@@ -37,7 +37,7 @@ public interface MallProductCategoryService extends IService<MallProductCategory
      * @param parentId 父级类别ID
      * @return page
      */
-    Page<MallProductCategory> childrenClass(Page<MallProductCategory> page, String parentId);
+    Page<MallProductCategory> children(Page<MallProductCategory> page, String parentId);
 
     /**
      * 删除类目

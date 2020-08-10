@@ -3,6 +3,7 @@ package com.yc.practice.system.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yc.common.constant.CommonEnum;
@@ -10,10 +11,14 @@ import com.yc.common.global.error.Error;
 import com.yc.common.global.error.ErrorException;
 import com.yc.core.system.entity.SysRole;
 import com.yc.core.system.entity.SysRolePermission;
+import com.yc.core.system.entity.SysUser;
+import com.yc.core.system.entity.SysUserRole;
 import com.yc.core.system.mapper.SysRoleMapper;
+import com.yc.core.system.mapper.SysUserRoleMapper;
 import com.yc.core.system.model.query.RoleQuery;
 import com.yc.practice.system.service.SysRolePermissionService;
 import com.yc.practice.system.service.SysRoleService;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,22 +28,19 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * 功能描述:
+ * 功能描述: 角色管理
  *
  * @Author: xieyc && 紫色年华
  * @Date 2019-09-19
  * @Version: 1.0.0
  */
 @Service
+@RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements SysRoleService {
 
+    private final SysUserRoleMapper sysUserRoleMapper;
     private final SysRolePermissionService sysRolePermissionService;
-
-    @Autowired
-    public SysRoleServiceImpl(SysRolePermissionService sysRolePermissionService) {
-        this.sysRolePermissionService = sysRolePermissionService;
-    }
 
     @Override
     public Page<SysRole> rolePage(Page<SysRole> page, RoleQuery roleQuery) {
@@ -114,6 +116,34 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
                         .eq(SysRolePermission::getRoleId, roleId)
                         .eq(SysRolePermission::getPermissionId, permissionId));
             }
+        }
+    }
+
+    @Override
+    public void deleteRole(String sysRoleId) {
+        // 验证有用户在使用
+        int count = sysUserRoleMapper.selectCount(Wrappers.<SysUserRole>lambdaQuery()
+                .eq(SysUserRole::getRoleId, sysRoleId)
+        );
+        if (count > 0) {
+            throw new ErrorException(Error.ParameterNotFound, "当前角色有关联用户");
+        }
+        // 删除多余数据
+        sysUserRoleMapper.delete(Wrappers.<SysUserRole>lambdaQuery()
+                .eq(SysUserRole::getRoleId, sysRoleId)
+        );
+        // 逻辑删除角色
+        baseMapper.update(null, Wrappers.<SysRole>lambdaUpdate()
+                .eq(SysRole::getSysRoleId, sysRoleId)
+                .set(SysRole::getDelFlag, CommonEnum.DelFlag.DEL.getCode())
+        );
+    }
+
+    @Override
+    public void deleteBatch(String ids) {
+        List<String> listIds = Arrays.asList(ids.split(","));
+        for (String id : listIds) {
+            this.deleteRole(id);
         }
     }
 
