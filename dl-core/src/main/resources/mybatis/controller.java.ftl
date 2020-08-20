@@ -1,8 +1,7 @@
 package ${package.Controller};
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 <#if restControllerStyle>
 import org.springframework.web.bind.annotation.RestController;
 <#else>
@@ -25,8 +24,8 @@ import ${superControllerClassPackage};
 <#else>
 @Controller
 </#if>
+@RequiredArgsConstructor
 @RequestMapping("<#if package.ModuleName??>/${package.ModuleName}</#if>/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>")
-@Slf4j
 <#if kotlin>
 class ${table.controllerName}<#if superControllerClass??> : ${superControllerClass}()</#if>
 <#else>
@@ -36,8 +35,7 @@ public class ${table.controllerName} extends ${superControllerClass} {
 public class ${table.controllerName} {
 </#if>
 
-    @Autowired
-    public ${table.serviceName} i${entity}Service;
+    public final ${table.serviceName} i${entity}Service;
 
 }
 </#if>

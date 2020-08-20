@@ -4,8 +4,10 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/dl-common" />
     <file type="web" url="file://$PROJECT_DIR$/dl-core" />
+    <file type="web" url="file://$PROJECT_DIR$/dl-mini" />
     <file type="web" url="file://$PROJECT_DIR$/dl-practice" />
     <file type="web" url="file://$PROJECT_DIR$/dl-system" />
+    <file type="web" url="file://$PROJECT_DIR$/dl-task" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -15,6 +17,11 @@
         <option value="$PROJECT_DIR$/dl-core/pom.xml" />
         <option value="$PROJECT_DIR$/dl-practice/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/dl-task/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">

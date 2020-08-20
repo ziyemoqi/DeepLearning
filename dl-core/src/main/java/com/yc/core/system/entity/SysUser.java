@@ -134,8 +134,6 @@ public class SysUser implements Serializable {
      */
     private LocalDateTime updateTime;
 
-    /////////////////////////////// 非表字段 ///////////////////////////////
-
     /**
      * 通过此注解表明不对应数据库中的字段
      */

@@ -12,15 +12,15 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="dl-system" target="1.8" />
+      <module name="dl-mini" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="dl-common" options="-parameters" />
       <module name="dl-core" options="-parameters" />
+      <module name="dl-mini" options="-parameters" />
       <module name="dl-practice" options="-parameters" />
-      <module name="dl-system" options="-parameters" />
     </option>
   </component>
 </project>

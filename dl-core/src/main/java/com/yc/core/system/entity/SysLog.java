@@ -76,6 +76,4 @@ public class SysLog implements Serializable {
     private LocalDateTime createTime;
 
 
-    /////////////////////////////// 非表字段 ///////////////////////////////
-
 }
