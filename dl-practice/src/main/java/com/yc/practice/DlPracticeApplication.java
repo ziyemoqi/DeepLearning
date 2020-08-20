@@ -30,8 +30,5 @@ public class DlPracticeApplication extends SpringBootServletInitializer {
         return builder.sources(DlPracticeApplication.class);
     }
 
-    // TODO: 2020/8/1 订单完成后整合两部分不同订单
-    // TODO: 2020/5/24 秒杀
-    // TODO: 2020/5/24 优惠券
     // TODO: 2020/7/12 单点登录
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * 功能描述:
+ * 功能描述: 商品管理服务类
  *
  * @Author: xieyc && 紫色年华
  * @Date 2020-04-08

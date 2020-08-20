@@ -167,9 +167,9 @@ public class MallOrderServiceImpl extends ServiceImpl<MallOrderMapper, MallOrder
     @Override
     public void syncCallBackPay(HttpServletRequest request) {
         try {
-            request.setCharacterEncoding(CommonConstant.CHARSET_UTF_8);
+            request.setCharacterEncoding(StandardCharsets.UTF_8);
             BufferedReader streamReader = new BufferedReader(new InputStreamReader(request.getInputStream(),
-                    CommonConstant.CHARSET_UTF_8));
+                    StandardCharsets.UTF_8));
             StringBuilder responseStrBuilder = new StringBuilder();
             String inputStr;
             while ((inputStr = streamReader.readLine()) != null) {

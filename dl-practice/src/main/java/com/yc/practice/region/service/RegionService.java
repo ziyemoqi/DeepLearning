@@ -7,7 +7,7 @@ import com.yc.core.region.entity.Region;
 import java.util.List;
 
 /**
- * 功能描述:
+ * 功能描述: 行政区域 接口
  *
  * @Author: xieyc && 紫色年华
  * @Date 2019-09-20
@@ -20,5 +20,13 @@ public interface RegionService extends IService<Region> {
      *
      * @return case list
      */
-    List<Tree<String>> listRegion();
+    List<Tree<String>> listAll();
+
+    /**
+     * 子级区域级联信息
+     *
+     * @param regionPcode 父级code
+     * @return list children
+     */
+    List<Tree<String>> listChildren(String regionPcode);
 }

@@ -68,6 +68,4 @@ public class SysRole implements Serializable {
     private LocalDateTime updateTime;
 
 
-    /////////////////////////////// 非表字段 ///////////////////////////////
-
 }

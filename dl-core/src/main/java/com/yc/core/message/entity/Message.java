@@ -72,7 +72,4 @@ public class Message implements Serializable {
      */
     private LocalDateTime createTime;
 
-
-    /////////////////////////////// 非表字段 ///////////////////////////////
-
 }

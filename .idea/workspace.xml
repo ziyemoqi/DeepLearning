@@ -1,18 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c95f92a3-142a-47dd-9a2a-f9a88015b1ca" name="Default Changelist" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
+    <list default="true" id="c95f92a3-142a-47dd-9a2a-f9a88015b1ca" name="Default Changelist" comment="Update Continue">
+      <change beforePath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/message/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/message/entity/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/region/entity/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/region/entity/Region.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysDict.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysDict.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysPermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysPermission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-core/src/main/resources/mybatis/controller.java.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/dl-core/src/main/resources/mybatis/controller.java.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/DlPracticeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/DlPracticeApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/impl/MallOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/impl/MallOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/impl/MallProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/impl/MallProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/controller/RegionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/controller/RegionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/service/RegionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/service/RegionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/service/impl/RegionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/service/impl/RegionServiceImpl.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
-    <ignored path="$PROJECT_DIR$/dl-common/target/" />
     <ignored path="$PROJECT_DIR$/dl-core/target/" />
+    <ignored path="$PROJECT_DIR$/dl-common/target/" />
     <ignored path="$PROJECT_DIR$/dl-practice/target/" />
-    <ignored path="$PROJECT_DIR$/dl-system/target/" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/dl-mini/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - deeplearning@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - deeplearning@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - deeplearning@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="deeplearning: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - deeplearning@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="deeplearning: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -23,105 +78,205 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fastjson</find>
-      <find>com.lh</find>
-      <find>dl-system</find>
-      <find>lh</find>
-      <find>remindMessageService</find>
-      <find>securityManager</find>
-      <find>SecurityManager</find>
-      <find>iRedisPubSubService</find>
+      <find>remove</find>
+      <find>jsonArray</find>
+      <find>mallGoodId</find>
+      <find>/mallSeckill</find>
+      <find>MALL_SECKILL_</find>
+      <find>USER_BY_ID_</find>
+      <find>yyyy-</find>
+      <find>number</find>
+      <find>firstNReduce</find>
+      <find>percentOfFirstNReduce</find>
+      <find>totalMoneyTimes</find>
+      <find>firstBarginTotal</find>
+      <find>firstBargin</find>
+      <find>frontBarginTotal</find>
+      <find>totalBargin</find>
+      <find>锁</find>
+      <find>余额</find>
+      <find>金额</find>
+      <find>订单类型</find>
+      <find>收货地址</find>
+      <find>@Update(</find>
+      <find>killTime</find>
+      <find>@Update(&quot;</find>
+      <find>SYS_USERS_CACHE</find>
+      <find>delFlag</find>
+      <find>PWD_STRONG</find>
+      <find>generateCode</find>
+      <find>非表</find>
+      <find>goodLucky</find>
+      <find>CommonConstant.CHARSET_UTF_8</find>
     </findStrings>
     <replaceStrings>
-      <replace>com.yc</replace>
+      <replace>mallProductCategoryId</replace>
+      <replace>mallProduct</replace>
+      <replace>save(</replace>
+      <replace>add(</replace>
+      <replace>this。save</replace>
+      <replace>this.save</replace>
+      <replace>紫色年华</replace>
+      <replace>功能描述:</replace>
+      <replace>@Author: xieyc &amp;&amp; 紫色年华</replace>
+      <replace />
+      <replace>@Date:</replace>
+      <replace>@Author:  xieyc &amp;&amp; 紫色年华</replace>
+      <replace>*</replace>
+      <replace>xieyc &amp;&amp; 紫色年华</replace>
+      <replace>IdType.ASSIGN_UUID</replace>
+      <replace>floor</replace>
+      <replace>addd</replace>
+      <replace>sysUser</replace>
+      <replace>user</replace>
+      <replace>miniUser</replace>
+      <replace>MALL_SECKILL</replace>
+      <replace>USER_BY_ID</replace>
+      <replace>firstBargin</replace>
+      <replace>frontBarginOfPercent</replace>
+      <replace>totalBargin</replace>
+      <replace>frontBarginTotal</replace>
+      <replace>frontBarginNum</replace>
+      <replace>frontBarginMoney</replace>
+      <replace>totalBarginNum</replace>
+      <replace>StandardCharsets.UTF_8</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\workSpace\DeepLearning\dl-common\src\main\java\com\yc\common\utils</dir>
-      <dir>D:\workSpace\DeepLearning</dir>
       <dir>D:\workSpace\DeepLearning\dl-common\src\main\java\com\yc\common</dir>
+      <dir>D:\workSpace\DeepLearning\dl-practice\src\main\java\com\yc\practice\config</dir>
+      <dir>D:\workSpace\DeepLearning\dl-practice\src\main\java\com\yc\practice\config\security</dir>
+      <dir>D:\workSpace\DeepLearning\dl-core</dir>
+      <dir>D:\workSpace\DeepLearning\dl-practice\src\main\java\com\yc\practice\system</dir>
+      <dir>D:\workSpace\DeepLearning\dl-practice\src\main\java\com\yc\practice\mall\controller</dir>
+      <dir>D:\workSpace\DeepLearning\dl-core\src\main\resources</dir>
+      <dir>D:\workSpace\DeepLearning\dl-common\src\main\java\com\yc\common\global\response</dir>
+      <dir>D:\workSpace\DeepLearning\dl-practice</dir>
+      <dir>D:\workSpace\DeepLearning\dl-practice\src\main\java\com\yc\practice</dir>
+      <dir>D:\workSpace\DeepLearning\dl-practice\src\main\java\com\yc\practice\demo\controller</dir>
+      <dir>D:\workSpace\DeepLearning\dl-core\src\main\java\com\yc\core</dir>
+      <dir>D:\workSpace\DeepLearning\dl-practice\src</dir>
+      <dir>D:\workSpace\DeepLearning\dl-mini</dir>
+      <dir>D:\workSpace\DeepLearning</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev_1" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/TestTemp/service/TestService.java" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/resources/mapper/community/CommunityMapper.xml" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/resources/mapper/redisPractice/RedisPubSubMapper.xml" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/resources/mapper/redisPractice/RedisUserMapper.xml" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/resources/mapper/region/RegionMapper.xml" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/resources/mapper/test/TestMapper.xml" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/resources/logback-spring.xml" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/tree/Tree.java" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/mapper/SysDeptMapper.java" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/resources/mapper/system/SysDeptMapper.xml" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/mapper/SysDictMapper.java" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/resources/mapper/system/SysDictMapper.xml" />
-        <option value="$PROJECT_DIR$/dl-core/pom.xml" />
+        <option value="$PROJECT_DIR$/dl-practice/src/test/java/com/yc/practice/TempTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/dl-practice/pom.xml" />
-        <option value="$PROJECT_DIR$/dl-core/src/test/java/com/yc/core/DlCoreApplicationTests.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/remind/service/RemindMessageService.java" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/resources/mapper/remind/RemindMessageMapper.xml" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/remind/mapper/RemindMessageMapper.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/remind/service/impl/RemindMessageServiceImpl.java" />
-        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/webSocket/WebSocket.java" />
-        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/response/ResponseBean.java" />
-        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/response/GlobalResponseBodyAdviceHandle.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/SysDictService.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/shiro/ShiroRealm.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/filter/JwtUtil.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/remind/controller/RemindMessageReceiveController.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/remind/controller/RemindMessageController.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysDictController.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysPermissionController.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/upload/controller/UploadController.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/upload/service/UploadService.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/upload/service/impl/UploadServiceImpl.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/webMvc/WebMvcConfigurerSelf.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/constant/CommonEnum.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/datasource/DruidConfig.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/global/error/Error.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/global/error/ErrorException.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/properties/SecurityProperties.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/Base64FileUtil.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/ImageValidateUtil.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/LocalHostUtil.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/PasswordCheckUtil.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/YouBianCodeUtil.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/webSocket/WebSocket.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/webSocket/WebSocketConfig.java" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/resources/config/application-test.yml" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/redis/RedisConfig.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysRolePermission.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/mall/entity/MallProduct.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/documents/KEYMAP.md" />
         <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysRoleController.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/SysDeptService.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysLogController.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysUserController.java" />
-        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/SpringContextUtils.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysDeptController.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/shiro/ShiroConfig.java" />
-        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/dao/DaoApi.java" />
-        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/webMvcConfig/WebMvcConfiguration.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysUserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/resources/config/application-dev.yml" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/SysRoleService.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysUserRole.java" />
         <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysRoleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysPermissionServiceImpl.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysLogServiceImpl.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysDictServiceImpl.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysDeptServiceImpl.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/redisPractice/controller/RedisPubSubController.java" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/controller/MallProductCategoryController.java" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/MallProductCategoryService.java" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/impl/MallProductCategoryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/impl/MallProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysPermission.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysUser.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysRole.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysDict.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysLog.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/message/entity/Message.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/region/entity/Region.java" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/controller/RegionController.java" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/service/RegionService.java" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/service/impl/RegionServiceImpl.java" />
+        <option value="$PROJECT_DIR$/dl-core/src/main/resources/mybatis/controller.java.ftl" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/resources/application-common.yml" />
         <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/DlPracticeApplication.java" />
-        <option value="$PROJECT_DIR$/dl-core/src/main/documents/FAQ.md" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/community/controller/CommunityController.java" />
-        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/TestTemp/controller/TestShiroController.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/constant/CommonConstant.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/EncoderUtil.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/HttpClientUtil.java" />
+        <option value="$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/WordUtil.java" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/security/filter/JwtAuthenticationTokenFilter.java" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/redis/config/MyRedisChannelListener.java" />
+        <option value="$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/security/filter/UsernamePasswordAuthenticationFilterSelf.java" />
       </list>
     </option>
+  </component>
+  <component name="JRebelWorkspace">
+    <option name="jrebelEnabledAutocompile" value="true" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\apache-maven-3.3.9\respository" />
+        <option name="localRepository" value="D:\apache-maven-3.3.9\repository" />
         <option name="mavenHome" value="D:/apache-maven-3.3.9" />
         <option name="userSettingsFile" value="D:\apache-maven-3.3.9\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="DeepLearning" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="DeepLearning" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="dl-mini" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="920" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="916" />
   </component>
+  <component name="ProjectId" id="1axZN6bhPasjTS4AVFO8ULrjggR" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -130,6 +285,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -141,6 +297,57 @@
             <path>
               <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
               <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
+              <item name="dl-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
+              <item name="dl-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
+              <item name="dl-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
+              <item name="dl-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
+              <item name="dl-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
+              <item name="dl-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
+              <item name="dl-common" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
               <item name="dl-practice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -181,7 +388,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="community" type="462c0819:PsiDirectoryNode" />
+              <item name="redis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
@@ -191,96 +398,19 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="community" type="462c0819:PsiDirectoryNode" />
+              <item name="redis" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
+              <item name="dl-practice" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="practice" type="462c0819:PsiDirectoryNode" />
+              <item name="redis" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
-              <item name="dl-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="community" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
-              <item name="dl-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="community" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
-              <item name="dl-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="redisPractice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
-              <item name="dl-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="redisPractice" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
-              <item name="dl-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="TestTemp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
-              <item name="dl-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="TestTemp" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
-              <item name="dl-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="TestTemp" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DeepLearning" type="462c0819:PsiDirectoryNode" />
-              <item name="dl-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="TestTemp" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
@@ -299,43 +429,93 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nio" type="462c0819:PsiDirectoryNode" />
+              <item name="charset" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/workSpace_company/zhyq" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spring-boot-awesome/spring-boot-datasource" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.yc.common.utils" />
-      <recent name="com.yc.practice.redisPractice.constant" />
-      <recent name="com.yc.core" />
-      <recent name="com.yc.practice.config.swagger" />
-      <recent name="com.yc.system.utils" />
+      <recent name="com.yc.practice" />
+      <recent name="com.yc.mini.security.utils" />
+      <recent name="com.yc.common.propertie" />
+      <recent name="com.yc.common.weixin" />
+      <recent name="com.yc.mini" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workSpace\DeepLearning\dl-core\src\main\java\com\yc\core" />
-      <recent name="D:\workSpace\DeepLearning\dl-practice\src\main\resources\config" />
-      <recent name="D:\workSpace\DeepLearning\dl-practice\src\main\resources" />
-      <recent name="D:\workSpace\DeepLearning\dl-practice\src\main\java\com\yc\practice" />
-      <recent name="D:\workSpace\DeepLearning\dl-core\src\main\resources\mybatis" />
+      <recent name="D:\workSpace\DeepLearning\dl-practice\src\test\java\com\yc\practice" />
+      <recent name="D:\workSpace\DeepLearning\dl-mini\src\main\java\com\yc\mini" />
+      <recent name="D:\workSpace\DeepLearning\dl-mini\src\main\java\com\yc\mini\config" />
+      <recent name="D:\workSpace\DeepLearning\dl-mini\src\main\java\com\yc\mini\mall\service" />
+      <recent name="D:\workSpace\DeepLearning\dl-core\src\main\documents\Data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -351,9 +531,86 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.DlPracticeApplication">
-    <configuration name="DlCommonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="dl-common" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yc.common.DlCommonApplication" />
+    <configuration name="BarginThreeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yc.practice.BarginThreeTest" />
+      <module name="dl-practice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yc.practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyBatisGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yc.core.MyBatisGenerator" />
+      <module name="dl-core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yc.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TempTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dl-practice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yc.practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yc.practice" />
+      <option name="MAIN_CLASS_NAME" value="com.yc.practice.TempTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TempTest.testd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dl-practice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yc.practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yc.practice" />
+      <option name="MAIN_CLASS_NAME" value="com.yc.practice.TempTest" />
+      <option name="METHOD_NAME" value="testd" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TempTest.testredisList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dl-practice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yc.practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yc.practice" />
+      <option name="MAIN_CLASS_NAME" value="com.yc.practice.TempTest" />
+      <option name="METHOD_NAME" value="testredisList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DlMiniApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="dl-mini" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yc.mini.DlMiniApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -361,14 +618,31 @@
     <configuration name="DlPracticeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="dl-practice" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.yc.practice.DlPracticeApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.DlCommonApplication" />
+      <item itemvalue="Application.BarginThreeTest" />
+      <item itemvalue="Application.MyBatisGenerator" />
+      <item itemvalue="JUnit.TempTest.testredisList" />
+      <item itemvalue="JUnit.TempTest.test" />
+      <item itemvalue="JUnit.TempTest.testd" />
       <item itemvalue="Spring Boot.DlPracticeApplication" />
+      <item itemvalue="Spring Boot.DlMiniApplication" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TempTest.testd" />
+        <item itemvalue="JUnit.TempTest.test" />
+        <item itemvalue="JUnit.TempTest.testredisList" />
+        <item itemvalue="Application.MyBatisGenerator" />
+        <item itemvalue="Application.BarginThreeTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -383,24 +657,607 @@
       <workItem from="1580808632554" duration="9704000" />
       <workItem from="1580866655509" duration="17087000" />
       <workItem from="1580904868298" duration="2369000" />
+      <workItem from="1587619186597" duration="81000" />
+      <workItem from="1587623557720" duration="1088000" />
+      <workItem from="1587681251707" duration="16579000" />
+      <workItem from="1587731304239" duration="14593000" />
+      <workItem from="1587802423265" duration="1868000" />
+      <workItem from="1587818052111" duration="25316000" />
+      <workItem from="1587941693378" duration="26336000" />
+      <workItem from="1588033737123" duration="66000" />
+      <workItem from="1588038014909" duration="12592000" />
+      <workItem from="1588063305772" duration="2017000" />
+      <workItem from="1588072165648" duration="5751000" />
+      <workItem from="1588120591581" duration="19363000" />
+      <workItem from="1588200824266" duration="21039000" />
+      <workItem from="1588377501480" duration="285000" />
+      <workItem from="1588380318454" duration="13529000" />
+      <workItem from="1588564625952" duration="2340000" />
+      <workItem from="1588685884631" duration="2613000" />
+      <workItem from="1588724520824" duration="15365000" />
+      <workItem from="1588821208315" duration="8532000" />
+      <workItem from="1588856089198" duration="19154000" />
+      <workItem from="1588948017614" duration="4853000" />
+      <workItem from="1588991612193" duration="617000" />
+      <workItem from="1589016579501" duration="1097000" />
+      <workItem from="1589029764876" duration="6332000" />
+      <workItem from="1589069080760" duration="601000" />
+      <workItem from="1589077992131" duration="1254000" />
+      <workItem from="1589118751200" duration="2840000" />
+      <workItem from="1589156917701" duration="5575000" />
+      <workItem from="1589200387981" duration="2914000" />
+      <workItem from="1589243007058" duration="10305000" />
+      <workItem from="1589266546056" duration="776000" />
+      <workItem from="1589285024494" duration="743000" />
+      <workItem from="1589330099136" duration="803000" />
+      <workItem from="1589358868838" duration="18000" />
+      <workItem from="1589360587756" duration="2101000" />
+      <workItem from="1589438424080" duration="1308000" />
+      <workItem from="1589446066505" duration="64000" />
+      <workItem from="1589448349068" duration="584000" />
+      <workItem from="1589496217718" duration="18175000" />
+      <workItem from="1589589222374" duration="6670000" />
+      <workItem from="1589605827528" duration="10552000" />
+      <workItem from="1589633706830" duration="2135000" />
+      <workItem from="1589675728572" duration="615000" />
+      <workItem from="1589680590383" duration="13536000" />
+      <workItem from="1589762056439" duration="15161000" />
+      <workItem from="1589793936396" duration="953000" />
+      <workItem from="1589803280522" duration="3463000" />
+      <workItem from="1589847938132" duration="332000" />
+      <workItem from="1589865681660" duration="1335000" />
+      <workItem from="1589874730347" duration="3060000" />
+      <workItem from="1589935071405" duration="827000" />
+      <workItem from="1589951172661" duration="2337000" />
+      <workItem from="1589953541284" duration="665000" />
+      <workItem from="1589957903772" duration="6483000" />
+      <workItem from="1590021355458" duration="19846000" />
+      <workItem from="1590058842874" duration="2695000" />
+      <workItem from="1590107999270" duration="6406000" />
+      <workItem from="1590202102666" duration="13984000" />
+      <workItem from="1590320561649" duration="4384000" />
+      <workItem from="1590366577412" duration="4030000" />
+      <workItem from="1590374125168" duration="575000" />
+      <workItem from="1590375292270" duration="5660000" />
+      <workItem from="1590411527381" duration="2998000" />
+      <workItem from="1590453026231" duration="620000" />
+      <workItem from="1590464874784" duration="8289000" />
+      <workItem from="1590484089315" duration="1837000" />
+      <workItem from="1590492987436" duration="3704000" />
+      <workItem from="1590507676725" duration="2732000" />
+      <workItem from="1590539566952" duration="81000" />
+      <workItem from="1590547183157" duration="694000" />
+      <workItem from="1590548394467" duration="932000" />
+      <workItem from="1590580798537" duration="3047000" />
+      <workItem from="1590585812502" duration="2106000" />
+      <workItem from="1590625696751" duration="2522000" />
+      <workItem from="1590634832475" duration="5249000" />
+      <workItem from="1590657199883" duration="672000" />
+      <workItem from="1590660258134" duration="5465000" />
+      <workItem from="1590713056473" duration="326000" />
+      <workItem from="1590714499457" duration="2723000" />
+      <workItem from="1590736371968" duration="3725000" />
+      <workItem from="1590802635162" duration="10349000" />
+      <workItem from="1590830295245" duration="724000" />
+      <workItem from="1590832713736" duration="627000" />
+      <workItem from="1590887267190" duration="594000" />
+      <workItem from="1590901415316" duration="2273000" />
+      <workItem from="1590923698358" duration="3468000" />
+      <workItem from="1590989714976" duration="3710000" />
+      <workItem from="1591078785520" duration="1489000" />
+      <workItem from="1591090946540" duration="1110000" />
+      <workItem from="1591102686033" duration="4131000" />
+      <workItem from="1591153173536" duration="2464000" />
+      <workItem from="1591164291092" duration="538000" />
+      <workItem from="1591192177734" duration="5943000" />
+      <workItem from="1591233242371" duration="10619000" />
+      <workItem from="1591263076935" duration="890000" />
+      <workItem from="1591272701838" duration="799000" />
+      <workItem from="1591317848479" duration="3387000" />
+      <workItem from="1591334331600" duration="1132000" />
+      <workItem from="1591339767097" duration="3889000" />
+      <workItem from="1591366278334" duration="1658000" />
+      <workItem from="1591396070558" duration="12186000" />
+      <workItem from="1591424845179" duration="5781000" />
+      <workItem from="1591542805979" duration="7641000" />
+      <workItem from="1591603325352" duration="10982000" />
+      <workItem from="1591680751603" duration="2757000" />
+      <workItem from="1591690511031" duration="4930000" />
+      <workItem from="1591753324220" duration="1626000" />
+      <workItem from="1591755265835" duration="57584000" />
+      <workItem from="1591958862202" duration="18949000" />
+      <workItem from="1592094478067" duration="3461000" />
+      <workItem from="1592122729918" duration="1178000" />
+      <workItem from="1592127073382" duration="602000" />
+      <workItem from="1592181033437" duration="19474000" />
+      <workItem from="1592277278401" duration="78000" />
+      <workItem from="1592446703670" duration="2930000" />
+      <workItem from="1592456960243" duration="42787000" />
+      <workItem from="1592575453009" duration="8901000" />
+      <workItem from="1592641882259" duration="1023000" />
+      <workItem from="1592646516772" duration="190000" />
+      <workItem from="1592692590713" duration="726000" />
+      <workItem from="1592785730845" duration="9385000" />
+      <workItem from="1592865331386" duration="11950000" />
+      <workItem from="1592893958607" duration="1645000" />
+      <workItem from="1592896485676" duration="6248000" />
+      <workItem from="1592960373478" duration="1212000" />
+      <workItem from="1592983393722" duration="3216000" />
+      <workItem from="1593132493952" duration="14433000" />
+      <workItem from="1593262617296" duration="12734000" />
+      <workItem from="1593344854215" duration="1764000" />
+      <workItem from="1593390107661" duration="901000" />
+      <workItem from="1593396899271" duration="1026000" />
+      <workItem from="1593414158074" duration="2993000" />
+      <workItem from="1593419070920" duration="1256000" />
+      <workItem from="1593437193906" duration="4077000" />
+      <workItem from="1593477397371" duration="16109000" />
+      <workItem from="1593569474809" duration="17380000" />
+      <workItem from="1593655034953" duration="849000" />
+      <workItem from="1593672180014" duration="11639000" />
+      <workItem from="1593742136280" duration="408000" />
+      <workItem from="1593742557051" duration="6856000" />
+      <workItem from="1593825092439" duration="12616000" />
+      <workItem from="1593908905021" duration="14004000" />
+      <workItem from="1594020145139" duration="32116000" />
+      <workItem from="1594168057914" duration="8304000" />
+      <workItem from="1594210957766" duration="1765000" />
+      <workItem from="1594254408688" duration="548000" />
+      <workItem from="1594261882148" duration="12480000" />
+      <workItem from="1594364346978" duration="10087000" />
+      <workItem from="1594427815597" duration="5122000" />
+      <workItem from="1594437242456" duration="4849000" />
+      <workItem from="1594537032019" duration="11505000" />
+      <workItem from="1594594521208" duration="5358000" />
+      <workItem from="1594609130161" duration="1440000" />
+      <workItem from="1594629474227" duration="441000" />
+      <workItem from="1594638932893" duration="6070000" />
+      <workItem from="1594686464102" duration="7114000" />
+      <workItem from="1594718999507" duration="323000" />
+      <workItem from="1594734298695" duration="6381000" />
+      <workItem from="1594779890097" duration="2195000" />
+      <workItem from="1594803829732" duration="313000" />
+      <workItem from="1594805156549" duration="3742000" />
+      <workItem from="1594853709435" duration="14230000" />
+      <workItem from="1594946802550" duration="3839000" />
+      <workItem from="1595033350893" duration="1076000" />
+      <workItem from="1595054893815" duration="7071000" />
+      <workItem from="1595161881085" duration="6684000" />
+      <workItem from="1595204475593" duration="124000" />
+      <workItem from="1595227211385" duration="6326000" />
+      <workItem from="1595253440964" duration="825000" />
+      <workItem from="1595291042281" duration="741000" />
+      <workItem from="1595403511150" duration="596000" />
+      <workItem from="1595410128313" duration="21000" />
+      <workItem from="1595481019166" duration="1901000" />
+      <workItem from="1595550045904" duration="3228000" />
+      <workItem from="1595640215957" duration="15287000" />
+      <workItem from="1595752389897" duration="2295000" />
+      <workItem from="1595756374163" duration="10512000" />
+      <workItem from="1595895595893" duration="2595000" />
+      <workItem from="1595981546539" duration="4460000" />
+      <workItem from="1596116395491" duration="3573000" />
+      <workItem from="1596157674917" duration="6587000" />
+      <workItem from="1596203577642" duration="17359000" />
+      <workItem from="1596266937801" duration="4278000" />
+      <workItem from="1596327891532" duration="10165000" />
+      <workItem from="1596414256205" duration="1364000" />
+      <workItem from="1596501633241" duration="1312000" />
+      <workItem from="1596527562192" duration="813000" />
+      <workItem from="1596591557106" duration="6000" />
+      <workItem from="1596611036083" duration="1068000" />
+      <workItem from="1596612370229" duration="682000" />
+      <workItem from="1596613269881" duration="329000" />
+      <workItem from="1596614784955" duration="1234000" />
+      <workItem from="1596617703795" duration="445000" />
+      <workItem from="1596691492598" duration="14310000" />
+      <workItem from="1596720341143" duration="788000" />
+      <workItem from="1596759992148" duration="998000" />
+      <workItem from="1596780184521" duration="81000" />
+      <workItem from="1596781303838" duration="605000" />
+      <workItem from="1596856374507" duration="2365000" />
+      <workItem from="1597018868059" duration="229000" />
+      <workItem from="1597021229384" duration="92000" />
+      <workItem from="1597023133136" duration="1261000" />
+      <workItem from="1597037544798" duration="2093000" />
+      <workItem from="1597192291849" duration="381000" />
+      <workItem from="1597711100533" duration="7297000" />
+      <workItem from="1597883692879" duration="5014000" />
     </task>
-    <task id="LOCAL-00001" summary="project init">
-      <created>1580907068588</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+    <task id="LOCAL-00022" summary="Mall 收货地址">
+      <created>1589591305381</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1580907068588</updated>
+      <updated>1589591305381</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00023" summary="Mall 收货地址">
+      <created>1589591370217</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1589591370217</updated>
+    </task>
+    <task id="LOCAL-00024" summary="分配类目">
+      <created>1589599710774</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1589599710774</updated>
+    </task>
+    <task id="LOCAL-00025" summary="mall 类目管理">
+      <created>1589610461122</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1589610461122</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Chat 聊天室">
+      <created>1589619777453</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1589619777453</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Chat 聊天室">
+      <created>1589724349812</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1589724349813</updated>
+    </task>
+    <task id="LOCAL-00028" summary="生成订单，订单列表">
+      <created>1589787893256</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1589787893256</updated>
+    </task>
+    <task id="LOCAL-00029" summary="取消订单">
+      <created>1589803600661</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1589803600661</updated>
+    </task>
+    <task id="LOCAL-00030" summary="取消订单">
+      <created>1589848220689</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1589848220690</updated>
+    </task>
+    <task id="LOCAL-00031" summary="数据库调整">
+      <created>1589935822475</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1589935822476</updated>
+    </task>
+    <task id="LOCAL-00032" summary="数据库调整">
+      <created>1589967400186</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1589967400188</updated>
+    </task>
+    <task id="LOCAL-00033" summary="添加相关文档">
+      <created>1590027589366</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1590027589367</updated>
+    </task>
+    <task id="LOCAL-00034" summary="富文本编辑器">
+      <created>1590053953029</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1590053953029</updated>
+    </task>
+    <task id="LOCAL-00035" summary="接口安全机制">
+      <created>1590218390907</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1590218390909</updated>
+    </task>
+    <task id="LOCAL-00036" summary="商品下单流程">
+      <created>1590330507073</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1590330507073</updated>
+    </task>
+    <task id="LOCAL-00037" summary="商品查询关联商品类目">
+      <created>1590374668035</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1590374668035</updated>
+    </task>
+    <task id="LOCAL-00038" summary="商品查询关联商品类目">
+      <created>1590374684680</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1590374684680</updated>
+    </task>
+    <task id="LOCAL-00039" summary="接口安全机制:对称加密">
+      <created>1590474503208</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1590474503208</updated>
+    </task>
+    <task id="LOCAL-00040" summary="接口安全机制:非对称加密">
+      <created>1590485330849</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1590485330849</updated>
+    </task>
+    <task id="LOCAL-00041" summary="支付联调">
+      <created>1590547847402</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1590547847402</updated>
+    </task>
+    <task id="LOCAL-00042" summary="支付联调">
+      <created>1590590101288</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1590590101288</updated>
+    </task>
+    <task id="LOCAL-00043" summary="前端隐藏路由">
+      <created>1590628115129</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1590628115129</updated>
+    </task>
+    <task id="LOCAL-00044" summary="收货地址修改后省市区错误">
+      <created>1590636078551</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1590636078551</updated>
+    </task>
+    <task id="LOCAL-00045" summary="定时器订单取消">
+      <created>1590644479463</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1590644479463</updated>
+    </task>
+    <task id="LOCAL-00046" summary="continue update">
+      <created>1590820294671</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1590820294671</updated>
+    </task>
+    <task id="LOCAL-00047" summary="continue update">
+      <created>1590820335737</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1590820335737</updated>
+    </task>
+    <task id="LOCAL-00048" summary="秒杀 init">
+      <created>1591019296040</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1591019296040</updated>
+    </task>
+    <task id="LOCAL-00049" summary="秒杀 crud">
+      <created>1591230581376</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1591230581376</updated>
+    </task>
+    <task id="LOCAL-00050" summary="部署">
+      <created>1591431649116</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1591431649117</updated>
+    </task>
+    <task id="LOCAL-00051" summary="秒杀init">
+      <created>1591636258043</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1591636258044</updated>
+    </task>
+    <task id="LOCAL-00052" summary="秒杀并发 V1(redis + 存储过程)">
+      <created>1591861331053</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1591861331054</updated>
+    </task>
+    <task id="LOCAL-00053" summary="全局参数校验">
+      <created>1591946974562</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1591946974562</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Update Continue">
+      <created>1592031530434</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1592031530435</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Update Continue">
+      <created>1592211290044</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1592211290044</updated>
+    </task>
+    <task id="LOCAL-00056" summary="文件模板/代码风格">
+      <created>1593153973255</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1593153973256</updated>
+    </task>
+    <task id="LOCAL-00057" summary="mini init">
+      <created>1593303843768</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1593303843769</updated>
+    </task>
+    <task id="LOCAL-00058" summary="代码风格调整">
+      <created>1593517545505</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1593517545506</updated>
+    </task>
+    <task id="LOCAL-00059" summary="代码风格调整">
+      <created>1593603005137</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1593603005138</updated>
+    </task>
+    <task id="LOCAL-00060" summary="小程序端 轮播图,导航栏,商品层">
+      <created>1594092526786</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1594092526787</updated>
+    </task>
+    <task id="LOCAL-00061" summary="格式化">
+      <created>1594103604407</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1594103604407</updated>
+    </task>
+    <task id="LOCAL-00062" summary="init miniapp">
+      <created>1594459433551</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1594459433552</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Update Continue">
+      <created>1594690299208</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1594690299208</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Update Continue">
+      <created>1594692176348</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1594692176348</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Update Continue">
+      <created>1594692232189</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1594692232189</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Update Continue">
+      <created>1595162011607</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1595162011608</updated>
+    </task>
+    <task id="LOCAL-00067" summary="RocketMQ 初始化">
+      <created>1595812043577</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1595812043577</updated>
+    </task>
+    <task id="LOCAL-00068" summary="下单功能初始化">
+      <created>1596211470240</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1596211470241</updated>
+    </task>
+    <task id="LOCAL-00069" summary="格式化">
+      <created>1596720972027</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1596720972028</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Update Continue">
+      <created>1597044487643</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1597044487643</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="TempTest_testd - 2020.08.01 at 15h 38m 19s.xml">
+      <configuration name="TempTest.testd" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TempTest_testd - 2020.08.01 at 15h 38m 28s.xml">
+      <configuration name="TempTest.testd" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TempTest_testd - 2020.08.01 at 15h 38m 46s.xml">
+      <configuration name="TempTest.testd" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TempTest_testd - 2020.08.01 at 15h 39m 29s.xml">
+      <configuration name="TempTest.testd" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TempTest_testd - 2020.08.01 at 15h 39m 41s.xml">
+      <configuration name="TempTest.testd" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TempTest_testd - 2020.08.01 at 15h 40m 18s.xml">
+      <configuration name="TempTest.testd" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TempTest_testd - 2020.08.01 at 15h 40m 32s.xml">
+      <configuration name="TempTest.testd" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TempTest_testd - 2020.08.01 at 15h 48m 36s.xml">
+      <configuration name="TempTest.testd" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TempTest_testd - 2020.08.01 at 15h 49m 12s.xml">
+      <configuration name="TempTest.testd" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TempTest_testd - 2020.08.06 at 13h 42m 59s.xml">
+      <configuration name="TempTest.testd" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29160000" />
+    <option name="totallyTimeSpent" value="1175027000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25641027" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22551547" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -410,484 +1267,550 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.30786517" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.23595506" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.22365591" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946582" weight="0.26292136" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49935567" weight="0.29866666" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.2084507" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32921347" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.45280898" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.56179774" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" weight="0.5224719" />
-      <window_info anchor="bottom" id="JRebel Console" order="15" side_tool="true" />
-      <window_info anchor="bottom" id="JRebel Executor" order="16" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5006443" side_tool="true" weight="0.16478874" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32957748" />
+      <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32957748" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="13" visible="true" weight="0.384" />
+      <window_info anchor="bottom" id="JRebel Executor" order="14" />
+      <window_info anchor="bottom" id="JRebel Console" order="15" sideWeight="0.5005342" side_tool="true" weight="0.24719101" />
+      <window_info anchor="bottom" id="Messages" order="16" sideWeight="0.49946582" weight="0.3236559" />
+      <window_info anchor="bottom" id="Problems" order="17" />
+      <window_info anchor="bottom" id="Database Console" order="18" weight="0.30337077" />
+      <window_info anchor="bottom" id="Thumbnails" order="19" weight="0.32957748" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.36752138" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Mybatis datasource" order="6" side_tool="true" />
-      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Database" order="6" weight="0.17788461" />
+      <window_info anchor="right" id="Mybatis datasource" order="7" side_tool="true" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info anchor="right" id="RestServices" order="11" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22551547" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="JRebel" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Web" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.22365591" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946582" weight="0.26292136" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49935567" visible="true" weight="0.29866666" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.2084507" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.45280898" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5006443" side_tool="true" weight="0.16478874" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32957748" />
+      <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32957748" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.144" />
+      <window_info anchor="bottom" id="JRebel Executor" order="14" />
+      <window_info anchor="bottom" id="JRebel Console" order="15" sideWeight="0.5005342" side_tool="true" weight="0.24719101" />
+      <window_info anchor="bottom" id="Messages" order="16" sideWeight="0.49946582" weight="0.3236559" />
+      <window_info anchor="bottom" id="Problems" order="17" />
+      <window_info anchor="bottom" id="Database Console" order="18" weight="0.30337077" />
+      <window_info anchor="bottom" id="Thumbnails" order="19" weight="0.32957748" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.36752138" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" weight="0.17788461" />
+      <window_info anchor="right" id="Mybatis datasource" order="7" side_tool="true" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info anchor="right" id="RestServices" order="11" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="project init" />
-    <option name="LAST_COMMIT_MESSAGE" value="project init" />
+    <MESSAGE value="接口安全机制" />
+    <MESSAGE value="商品下单流程" />
+    <MESSAGE value="商品查询关联商品类目" />
+    <MESSAGE value="接口安全机制:对称加密" />
+    <MESSAGE value="接口安全机制:非对称加密" />
+    <MESSAGE value="支付联调" />
+    <MESSAGE value="前端隐藏路由" />
+    <MESSAGE value="收货地址修改后省市区错误" />
+    <MESSAGE value="定时器订单取消" />
+    <MESSAGE value="continue update" />
+    <MESSAGE value="秒杀 init" />
+    <MESSAGE value="秒杀 crud" />
+    <MESSAGE value="部署" />
+    <MESSAGE value="秒杀init" />
+    <MESSAGE value="秒杀并发 V1(redis + 存储过程)" />
+    <MESSAGE value="全局参数校验" />
+    <MESSAGE value="文件模板/代码风格" />
+    <MESSAGE value="mini init" />
+    <MESSAGE value="代码风格调整" />
+    <MESSAGE value="小程序端 轮播图,导航栏,商品层" />
+    <MESSAGE value="init miniapp" />
+    <MESSAGE value="RocketMQ 初始化" />
+    <MESSAGE value="下单功能初始化" />
+    <MESSAGE value="格式化" />
+    <MESSAGE value="Update Continue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Continue" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
+    <state x="740" y="274" key="FileChooserDialogImpl" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
+    <state width="1873" height="288" key="GridCell.Tab.0.bottom" />
+    <state width="1873" height="288" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
+    <state width="1873" height="288" key="GridCell.Tab.0.center" />
+    <state width="1873" height="288" key="GridCell.Tab.0.center/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
+    <state width="1873" height="288" key="GridCell.Tab.0.left" />
+    <state width="1873" height="288" key="GridCell.Tab.0.left/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
+    <state width="1873" height="288" key="GridCell.Tab.0.right" />
+    <state width="1873" height="288" key="GridCell.Tab.0.right/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
+    <state width="1873" height="288" key="GridCell.Tab.1.bottom" />
+    <state width="1873" height="288" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
+    <state width="1873" height="288" key="GridCell.Tab.1.center" />
+    <state width="1873" height="288" key="GridCell.Tab.1.center/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
+    <state width="1873" height="288" key="GridCell.Tab.1.left" />
+    <state width="1873" height="288" key="GridCell.Tab.1.left/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
+    <state width="1873" height="288" key="GridCell.Tab.1.right" />
+    <state width="1873" height="288" key="GridCell.Tab.1.right/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
+    <state x="491" y="163" width="1268" height="714" key="SettingsEditor" />
+    <state x="491" y="163" width="1268" height="714" key="SettingsEditor/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
+    <state x="625" y="303" key="git4idea.merge.GitPullDialog" />
+    <state x="625" y="303" key="git4idea.merge.GitPullDialog/0.0.1920.1040/-1600.182.1600.860@0.0.1920.1040" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/response/ResponseBean.java">
+    <entry file="file://$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
-          <folding>
-            <element signature="e#388#389#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="443">
+          <caret line="148" column="31" lean-forward="true" selection-start-line="136" selection-start-column="3" selection-end-line="148" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/SysDictService.java">
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/test/java/com/yc/practice/TempTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+        <state relative-caret-position="222">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/shiro/ShiroRealm.java">
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/test/java/com/yc/practice/PracticeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1526">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+        <state relative-caret-position="100">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/filter/JwtUtil.java">
+    <entry file="file://$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/timer/entity/TimerRecord.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-core/src/main/resources/mapper/mall/MallOrderMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/mall/mapper/MallOrderMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1350">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state relative-caret-position="325">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/remind/controller/RemindMessageReceiveController.java">
+    <entry file="file://$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/region/mapper/RegionMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#819#820#0" expanded="true" />
-            <element signature="e#857#858#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="325">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/remind/controller/RemindMessageController.java">
+    <entry file="file://$PROJECT_DIR$/dl-core/src/main/resources/mapper/region/RegionMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="125">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysDictController.java">
+    <entry file="file://$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/mall/entity/MallProduct.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1048#1049#0" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="350">
+          <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysLogController.java">
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/swagger/SwaggerWebMvcConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-903">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        <state relative-caret-position="175">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysPermissionController.java">
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/swagger/SwaggerConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-425">
-          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-600">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysRoleController.java">
+    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/webMvc/WebMvcConfigurerSelf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="857">
-          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="300">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/security/filter/UsernamePasswordAuthenticationFilterSelf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="150" column="61" lean-forward="true" selection-start-line="150" selection-start-column="61" selection-end-line="150" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/security/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="91" column="42" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/security/filter/JwtAuthenticationTokenFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="67" column="36" lean-forward="true" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/resources/config/application-test.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysUserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-spring/1.4.0/shiro-spring-1.4.0-sources.jar!/org/apache/shiro/spring/web/ShiroFilterFactoryBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="152" column="16" selection-start-line="152" selection-start-column="16" selection-end-line="152" selection-end-column="16" />
-          <folding>
-            <element signature="e#7097#7098#0" expanded="true" />
-            <element signature="e#7151#7152#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/SpringContextUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/SysDeptService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        <state relative-caret-position="156">
+          <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysDeptController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="231">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/SecurityManager.java">
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/resources/config/application-prod.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1174">
-          <caret line="226" column="6" selection-start-line="226" selection-start-column="6" selection-end-line="226" selection-end-column="6" />
-        </state>
+        <state relative-caret-position="-300" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/config/shiro/ShiroConfig.java">
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/resources/config/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="58" lean-forward="true" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/remind/service/RemindMessageReceiveService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/dao/DaoApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/redis/RedisConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="79" column="10" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/WordUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/response/GlobalResponseBodyAdviceHandle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="58" column="79" selection-start-line="58" selection-start-column="79" selection-end-line="58" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/webMvcConfig/WebMvcConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1300">
-          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/webSocket/WebSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="140" column="36" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/config/webSocket/WebSocketConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysUserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="63" column="26" lean-forward="true" selection-start-line="62" selection-start-column="3" selection-end-line="63" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/resources/config/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="35" />
+        <state>
+          <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dl-practice/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        <state relative-caret-position="352">
+          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/resources/config/application-prod.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysRoleServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="350">
+          <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysPermissionServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/system/entity/SysUserRole.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+        <state relative-caret-position="440">
+          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysDictServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysDeptServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="40" column="2" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysLogServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/SysUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/community/service/CommunityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/community/service/impl/CommunityServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-core/src/main/resources/mapper/test/TestMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/TestTemp/mapper/TestMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-core/src/main/documents/FAQ.md">
+    <entry file="file://$PROJECT_DIR$/dl-core/src/main/documents/KEYMAP.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="225">
-            <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="100">
+            <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/redisPractice/service/RedisPubSubService.java">
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/impl/MallProductServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        <state relative-caret-position="125">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/redisPractice/mapper/RedisPubSubMapper.java">
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/impl/MallProductCategoryServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        <state relative-caret-position="512">
+          <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/TestTemp/service/TestService.java">
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/impl/ProductCategoryServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+        <state relative-caret-position="225">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/impl/SysRoleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/MallProductCategoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/controller/MallProductCategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/service/SysRoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/system/controller/SysRoleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="72" column="42" selection-start-line="72" selection-start-column="42" selection-end-line="72" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2423#2424#0" expanded="true" />
+            <element signature="e#2639#2640#0" expanded="true" />
+            <element signature="e#2679#2680#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/TestTemp/service/impl/TestServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/dl-core/src/main/java/com/yc/core/region/entity/Region.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="24" selection-start-line="24" selection-end-line="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="225">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/service/impl/RegionServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/service/RegionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/region/controller/RegionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="838">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-core/src/main/resources/mybatis/controller.java.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/redis/service/impl/RedisPubSubServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="34" column="35" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/resources/banner.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="8" column="45" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/mall/service/impl/MallOrderLogServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/redis/controller/RedisPubSubController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/resources/config/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="13" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-common/src/main/resources/application-common.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/DlPracticeApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="200">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/redisPractice/service/impl/RedisPubSubServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/constant/CommonConstant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="22" column="17" lean-forward="true" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+        <state relative-caret-position="157">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/community/controller/CommunityController.java">
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/redis/config/MyRedisChannelListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="126">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/redis/config/ChannelMessageConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="27" column="58" lean-forward="true" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/EncoderUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="887">
+          <caret line="149" column="26" selection-start-line="149" selection-start-column="26" selection-end-line="149" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/HttpClientUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="91" column="82" lean-forward="true" selection-start-line="91" selection-start-column="82" selection-end-line="91" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/nio/charset/StandardCharsets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="51" column="65" lean-forward="true" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dl-common/src/main/java/com/yc/common/utils/WordUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
           <folding>
-            <element signature="e#738#739#0" expanded="true" />
-            <element signature="e#776#777#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/redisPractice/controller/RedisCounterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/redisPractice/controller/RedisPubSubController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/redisPractice/controller/RedisRankController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dl-practice/src/main/java/com/yc/practice/TestTemp/controller/TestShiroController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1237#1238#0" expanded="true" />
-            <element signature="e#1271#1272#0" expanded="true" />
-            <element signature="e#1331#1332#0" expanded="true" />
-            <element signature="e#1368#1369#0" expanded="true" />
-            <element signature="e#1430#1431#0" expanded="true" />
-            <element signature="e#1460#1461#0" expanded="true" />
-            <element signature="e#1520#1521#0" expanded="true" />
-            <element signature="e#1551#1552#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -895,6 +1818,29 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
           <splitter-proportions>
@@ -913,6 +1859,19 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>dl-core</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
