@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yc.common.constant.CommonEnum;
-import com.yc.common.webSocket.WebSocket;
+import com.yc.common.utils.WebSocketUtil;
 import com.yc.core.message.entity.Message;
 import com.yc.core.message.entity.MessageReceive;
 import com.yc.core.message.mapper.MessageMapper;
@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * 功能描述:
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date 2019-10-08
  * @Version: 1.0.0
  */
@@ -32,12 +32,12 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> implements MessageService {
 
-    private WebSocket webSocket;
+    private WebSocketUtil webSocket;
     private MessageReceiveService messageReceiveService;
     private SysUserMapper sysUserMapper;
 
     @Autowired
-    public MessageServiceImpl(WebSocket webSocket, MessageReceiveService messageReceiveService, SysUserMapper sysUserMapper) {
+    public MessageServiceImpl(WebSocketUtil webSocket, MessageReceiveService messageReceiveService, SysUserMapper sysUserMapper) {
         this.webSocket = webSocket;
         this.sysUserMapper = sysUserMapper;
         this.messageReceiveService = messageReceiveService;

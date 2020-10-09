@@ -1,7 +1,7 @@
 package com.yc.common.utils;
 
 import com.google.common.collect.Iterables;
-import com.yc.core.validate.ValidateResult;
+import com.yc.common.validate.ValidateResult;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * 功能描述:
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-06-12
  * @Version: 1.0.0
  */

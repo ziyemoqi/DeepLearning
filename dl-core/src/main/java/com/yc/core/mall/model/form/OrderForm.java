@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * 功能描述:订单提交form
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-04-09
  * @Version: 1.0.0
  */

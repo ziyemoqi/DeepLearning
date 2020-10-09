@@ -11,7 +11,7 @@ package com.yc.common.global.error;
  * 401:缺乏有效身份认证凭证,多指未登录
  * 403:服务器拒绝响应,权限不足
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-03-22
  * @Version: 1.0.0
  */

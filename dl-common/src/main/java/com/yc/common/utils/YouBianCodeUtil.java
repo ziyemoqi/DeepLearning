@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
  * A001
  * A001A002
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-10-31 13:48
  */
 public class YouBianCodeUtil {

@@ -7,10 +7,7 @@ import lombok.EqualsAndHashCode;
 /**
  * 功能描述:日志查询入参
  *
-
- *
-
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-01-08 17:21
  * @Version: 1.0.0
  */
@@ -37,7 +34,6 @@ public class LogQuery extends SysLog {
      * 结束时间
      */
     private String endTime;
-
 
 
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 功能描述:登录控制器
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-03-21
  * @Version: 1.0.0
  */

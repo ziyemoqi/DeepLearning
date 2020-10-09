@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2020-08-19 17:28:50
+Date: 2020-09-06 16:20:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,6 +36,32 @@ CREATE TABLE `banner` (
 
 -- ----------------------------
 -- Records of banner
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for cart_item
+-- ----------------------------
+DROP TABLE IF EXISTS `cart_item`;
+CREATE TABLE `cart_item` (
+  `order_cart_item_id` varchar(32) NOT NULL COMMENT '购物车ID',
+  `user_id` varchar(32) NOT NULL COMMENT '用户ID',
+  `product_id` varchar(32) NOT NULL COMMENT '商品ID',
+  `product_sku_id` varchar(32) NOT NULL COMMENT '商品SKUID',
+  `product_name` varchar(32) NOT NULL COMMENT '商品名称',
+  `product_sku_name` varchar(32) DEFAULT NULL COMMENT '商品SKU名称',
+  `product_pic` varchar(128) NOT NULL COMMENT '商品主图',
+  `product_num` tinyint(4) NOT NULL COMMENT '商品数量',
+  `join_price` decimal(11,2) NOT NULL COMMENT '商品价格',
+  `is_choose` bit(1) NOT NULL COMMENT '是否勾选',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`order_cart_item_id`),
+  KEY `idx_user_id` (`user_id`),
+  KEY `idx_product` (`product_id`,`product_sku_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='购物车';
+
+-- ----------------------------
+-- Records of cart_item
 -- ----------------------------
 
 -- ----------------------------
@@ -75,6 +101,8 @@ CREATE TABLE `logistics` (
 -- ----------------------------
 -- Records of logistics
 -- ----------------------------
+INSERT INTO `logistics` VALUES ('1221', '按重量计费', '2', '2020-09-02 08:37:14', '2020-09-02 08:37:14');
+INSERT INTO `logistics` VALUES ('2222', '按件计费', '1', '2020-09-02 08:37:27', '2020-09-02 08:37:27');
 
 -- ----------------------------
 -- Table structure for logistics_area
@@ -97,6 +125,8 @@ CREATE TABLE `logistics_area` (
 -- ----------------------------
 -- Records of logistics_area
 -- ----------------------------
+INSERT INTO `logistics_area` VALUES ('0763ad64758e44e18cadd5ea1275a799', '1221', '1', '37', '1.00', '15.00', '1.00', '5.00', '2020-09-02 08:40:06', '2020-09-02 08:41:52');
+INSERT INTO `logistics_area` VALUES ('121', '2222', '2', '37', '1.00', '12.00', '1.00', '3.00', '2020-09-02 08:40:31', '2020-09-02 08:53:37');
 
 -- ----------------------------
 -- Table structure for logistics_company
@@ -569,65 +599,69 @@ CREATE TABLE `notice` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for order
+-- Table structure for order_info
 -- ----------------------------
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order` (
-  `order_id` varchar(32) NOT NULL DEFAULT '' COMMENT '订单id',
+DROP TABLE IF EXISTS `order_info`;
+CREATE TABLE `order_info` (
+  `order_info_id` varchar(32) NOT NULL DEFAULT '' COMMENT '订单id',
   `order_no` varchar(64) NOT NULL COMMENT '订单编号',
-  `total_amount` decimal(10,2) DEFAULT NULL COMMENT '订单总金额',
-  `pay_amount` decimal(10,2) NOT NULL COMMENT '支付金额',
-  `postage` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '运费',
-  `pay_type` tinyint(1) DEFAULT NULL COMMENT '支付方式：0->支付宝；1->微信',
-  `state` tinyint(1) NOT NULL COMMENT '订单状态：0-已取消 5. 未确认 10-未付款，20-已付款(待发货)，40-已发货，50-交易成功(已收货)，60-交易关闭(超时)  70-无效 80-退款',
-  `order_type` tinyint(11) NOT NULL DEFAULT '0' COMMENT '订单类型：0->正常订单；1->秒杀订单',
+  `state` tinyint(1) NOT NULL COMMENT '订单状态：0-待付款，5-待发货(已付款)，10-已发货，15-交易成功(已收货)，20-交易关闭 ',
+  `total_amount` decimal(10,2) NOT NULL COMMENT '订单金额',
+  `discount_amount` decimal(10,2) NOT NULL COMMENT '优惠金额',
+  `real_pay_amount` decimal(10,2) NOT NULL COMMENT '实际支付金额',
+  `postage_amount` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '运费',
+  `order_type` tinyint(11) NOT NULL DEFAULT '0' COMMENT '订单类型：0->正常订单；1->其他订单',
+  `pay_order_no` varchar(32) DEFAULT NULL COMMENT '支付单号',
   `pay_time` datetime DEFAULT NULL COMMENT '支付时间',
-  `send_time` datetime DEFAULT NULL COMMENT '发货时间',
-  `end_time` datetime DEFAULT NULL COMMENT '交易完成时间',
-  `close_time` datetime DEFAULT NULL COMMENT '交易关闭时间',
   `receiver_name` varchar(32) NOT NULL COMMENT '收货人',
   `receiver_phone` varchar(11) NOT NULL COMMENT '联系电话',
   `receiver_province` varchar(20) NOT NULL COMMENT '收货省份',
-  `receiver_city` varchar(20) NOT NULL COMMENT '收货城市',
   `receiver_area` varchar(20) NOT NULL COMMENT '收货区域',
-  `region_code` varchar(255) NOT NULL COMMENT '行政编码',
-  `receiver_address` varchar(255) NOT NULL COMMENT '详细地址',
-  `confirm_state` tinyint(1) NOT NULL DEFAULT '0' COMMENT '确认收货状态：0->未确认；1->已确认',
-  `confirm_time` datetime DEFAULT NULL COMMENT '订单确认时间',
-  `coupon_id` varchar(32) DEFAULT NULL COMMENT '优惠券ID',
-  `coupon_money` decimal(10,2) DEFAULT NULL COMMENT '优惠券金额',
-  `use_balance` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '使用余额',
+  `receiver_city` varchar(20) NOT NULL COMMENT '收货城市',
+  `receiver_code` varchar(255) NOT NULL COMMENT '行政编码',
+  `receiver_addr` varchar(255) NOT NULL COMMENT '详细地址',
+  `send_time` datetime DEFAULT NULL COMMENT '发货时间',
+  `finish_time` datetime DEFAULT NULL COMMENT '交易完成时间',
+  `timeout_time` datetime NOT NULL COMMENT '交易超时时间',
+  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `create_user_id` varchar(32) NOT NULL COMMENT '创建人',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_user_id` varchar(32) DEFAULT NULL COMMENT '修改人',
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`order_id`) USING BTREE
+  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`order_info_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='订单表';
 
 -- ----------------------------
--- Records of order
+-- Records of order_info
 -- ----------------------------
+INSERT INTO `order_info` VALUES ('44f9f34045db4cfcade249c937eabddd', '20200902090743173000001', '20', '40.00', '0.00', '40.00', '0.00', '0', null, null, '谢！', '15959995995', '山东', '市北', '青岛', '370203', '平度市。。。明朝', null, null, '2020-09-02 11:07:43', null, '7e9a6c929ad19ccd8a0a792359584d1a', '2020-09-02 09:07:43', null, '2020-09-02 09:07:43');
+INSERT INTO `order_info` VALUES ('d05cca33eb4444c5a19ed2b68682c6ad', '20200902093357940000002', '20', '40.00', '0.00', '55.00', '15.00', '0', null, null, '谢！', '15959995995', '山东', '市北', '青岛', '370203', '平度市。。。明朝', null, null, '2020-09-02 11:33:58', null, 'admin', '2020-09-02 09:33:57', null, '2020-09-02 09:33:57');
 
 -- ----------------------------
 -- Table structure for order_item
 -- ----------------------------
 DROP TABLE IF EXISTS `order_item`;
 CREATE TABLE `order_item` (
-  `order_good_id` varchar(32) NOT NULL COMMENT '主键',
-  `sys_user_id` varchar(32) NOT NULL COMMENT '用户id',
-  `order_id` varchar(32) NOT NULL COMMENT '订单id',
-  `order_no` varchar(64) NOT NULL COMMENT '订单编号',
+  `order_item_id` varchar(32) NOT NULL COMMENT '主键',
+  `order_info_id` varchar(32) NOT NULL COMMENT '订单id',
   `product_id` varchar(32) NOT NULL COMMENT '商品id',
   `product_name` varchar(200) NOT NULL COMMENT '商品名称',
-  `product_pic` varchar(500) DEFAULT NULL COMMENT '商品图片',
-  `product_price` decimal(10,2) NOT NULL COMMENT '单价',
-  `product_num` int(11) NOT NULL COMMENT '购买数量',
-  PRIMARY KEY (`order_good_id`) USING BTREE
+  `product_sku_id` varchar(32) NOT NULL COMMENT '商品SKUID',
+  `product_sku_value` varchar(60) NOT NULL COMMENT '商品sku名称',
+  `pic` varchar(128) DEFAULT NULL COMMENT '商品图片',
+  `num` int(11) NOT NULL COMMENT '购买数量',
+  `price` decimal(11,2) NOT NULL COMMENT '单价',
+  `weight` decimal(11,2) NOT NULL DEFAULT '0.00' COMMENT '重量',
+  `discount_amount` decimal(11,2) NOT NULL COMMENT '优惠金额',
+  `subtotal_amount` decimal(11,2) NOT NULL COMMENT '小计金额',
+  PRIMARY KEY (`order_item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='订单详情';
 
 -- ----------------------------
 -- Records of order_item
 -- ----------------------------
+INSERT INTO `order_item` VALUES ('1c701f8185379745cb2864c3a183e6e4', 'd05cca33eb4444c5a19ed2b68682c6ad', '09d4fb247ca5571637ae9ed83', '苹果3', '12', 'we', '20200613140921000001.jpg', '2', '20.00', '1.00', '0.00', '40.00');
+INSERT INTO `order_item` VALUES ('66be665351231142ef09d0aafdb1626e', '44f9f34045db4cfcade249c937eabddd', '09d4fb247ca5571637ae9ed83', '苹果3', '12', 'we', '20200613140921000001.jpg', '2', '20.00', '1.00', '0.00', '40.00');
 
 -- ----------------------------
 -- Table structure for order_log
@@ -635,7 +669,7 @@ CREATE TABLE `order_item` (
 DROP TABLE IF EXISTS `order_log`;
 CREATE TABLE `order_log` (
   `order_log_id` varchar(32) NOT NULL COMMENT '主键',
-  `order_id` varchar(32) NOT NULL COMMENT '订单id',
+  `order_no` varchar(32) NOT NULL COMMENT '订单id',
   `state` tinyint(1) NOT NULL COMMENT '订单状态：0-已取消 5. 未确认 10-未付款，20-已付款(待发货)，40-已发货，50-交易成功(已收货)，60-交易关闭(超时)  70-无效 80-退款',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   `create_user_id` varchar(100) NOT NULL COMMENT '创建人',
@@ -645,6 +679,56 @@ CREATE TABLE `order_log` (
 
 -- ----------------------------
 -- Records of order_log
+-- ----------------------------
+INSERT INTO `order_log` VALUES ('c40e5c265cf7ae4b9db4d13dc17bac6b', '44f9f34045db4cfcade249c937eabddd', '0', '正常订单', 'admin', '2020-09-02 09:07:43');
+INSERT INTO `order_log` VALUES ('cfce61821c4ba09aa697231754fd7808', 'd05cca33eb4444c5a19ed2b68682c6ad', '0', '正常订单', 'admin', '2020-09-02 09:33:58');
+
+-- ----------------------------
+-- Table structure for order_return
+-- ----------------------------
+DROP TABLE IF EXISTS `order_return`;
+CREATE TABLE `order_return` (
+  `order_return_id` varchar(32) NOT NULL COMMENT '订单退货申请ID',
+  `order_id` varchar(32) NOT NULL COMMENT '订单信息ID',
+  `order_item_id` varchar(32) NOT NULL COMMENT '订单明细ID',
+  `product_id` varchar(32) NOT NULL COMMENT '商品ID',
+  `product_sku_id` varchar(32) NOT NULL COMMENT '商品SKUID',
+  `product_name` varchar(32) NOT NULL COMMENT '商品名称',
+  `product_sku_value` varchar(32) NOT NULL COMMENT '商品SKU名称',
+  `product_pic` varchar(128) NOT NULL COMMENT '商品主图',
+  `return_order_no` varchar(32) NOT NULL COMMENT '售后单号',
+  `return_cause` varchar(128) NOT NULL COMMENT '售后原因',
+  `return_method` tinyint(4) NOT NULL COMMENT '售后方式 0: 仅退款 1: 退货退款',
+  `return_num` int(11) NOT NULL COMMENT '退货数量',
+  `return_amount` decimal(11,2) NOT NULL COMMENT '退款金额',
+  `return_postage_amount` decimal(11,2) NOT NULL COMMENT '退款运费金额',
+  `third_refund_order_no` varchar(32) DEFAULT NULL COMMENT '三方退款单号',
+  `phone` varchar(32) NOT NULL COMMENT '用户手机',
+  `return_description` varchar(128) DEFAULT NULL COMMENT '退款说明',
+  `proof_pics` varchar(512) DEFAULT NULL COMMENT '凭证图片',
+  `return_state` tinyint(4) NOT NULL COMMENT '售后状态 0:待处理 1:待发货  -1: 已拒绝 2:已发货 3:已完成  -2：已取消 ',
+  `check_time` datetime DEFAULT NULL COMMENT '审核时间',
+  `refusal_cause` varchar(64) DEFAULT NULL COMMENT '拒绝原因',
+  `receiver_name` varchar(32) DEFAULT NULL COMMENT '收货人姓名',
+  `receiver_phone` varchar(16) DEFAULT NULL COMMENT '收货人电话',
+  `receiver_province` varchar(32) DEFAULT NULL COMMENT '收货省',
+  `receiver_city` varchar(32) DEFAULT NULL COMMENT '收货市',
+  `receiver_county` varchar(32) DEFAULT NULL COMMENT '收货区县',
+  `receiver_region_code` varchar(32) DEFAULT NULL COMMENT '收货地区',
+  `receiver_addr` varchar(128) DEFAULT NULL COMMENT '收货地址',
+  `send_time` datetime DEFAULT NULL COMMENT '发货时间',
+  `timeout_time` datetime DEFAULT NULL COMMENT '超时时间',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`order_return_id`) USING BTREE,
+  KEY `idx_order_info_id` (`order_id`) USING BTREE,
+  KEY `idx_order_item_id` (`order_item_id`) USING BTREE,
+  KEY `idx_product_id` (`product_id`) USING BTREE,
+  KEY `idx_product_sku_id` (`product_sku_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='订单退货';
+
+-- ----------------------------
+-- Records of order_return
 -- ----------------------------
 
 -- ----------------------------
@@ -657,12 +741,12 @@ CREATE TABLE `product` (
   `name` varchar(64) NOT NULL COMMENT '商品名称',
   `sub_title` varchar(150) CHARACTER SET utf8 DEFAULT NULL COMMENT '副标题',
   `pic` varchar(255) NOT NULL COMMENT '图片',
-  `state` tinyint(1) NOT NULL DEFAULT '0' COMMENT '商品状态(0:待审核 1:已通过 2：已拒绝 3:已上架 4-已下架 5-删除)',
+  `state` tinyint(1) NOT NULL DEFAULT '0' COMMENT '商品状态(0:未上架 1:已上架 )',
   `is_recommand` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否推荐',
   `sort` int(5) NOT NULL DEFAULT '100' COMMENT '排序',
   `sale` int(11) NOT NULL DEFAULT '0' COMMENT '销量',
   `start_num` int(11) NOT NULL DEFAULT '1' COMMENT '起售件数',
-  `logistics_unify_price` decimal(10,2) DEFAULT NULL COMMENT '物流统一价',
+  `postage_price` decimal(10,2) DEFAULT NULL COMMENT '物流统一价',
   `logistics_id` varchar(32) DEFAULT NULL COMMENT '物流模板ID',
   `del_flag` tinyint(1) NOT NULL COMMENT '删除状态',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
@@ -675,20 +759,20 @@ CREATE TABLE `product` (
 -- ----------------------------
 -- Records of product
 -- ----------------------------
-INSERT INTO `product` VALUES ('09d4fb247ca5571637ae9ed83', 'A0001A0001', '苹果3', null, '20200613140921000001.jpg', '2', '0', '122', '4', '1', null, null, '0', '全球直采', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('09d4fb247ca5571637ae9ed8312', 'A0001A0001', '苹果1', null, '20200613140921000001.jpg', '2', '0', '122', '4', '1', null, null, '0', '全球直采', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('09d4fb247ca5571637ae9ed8312084eb', 'A0001A0001', '苹果', null, '20200613140921000001.jpg', '2', '0', '122', '4', '1', null, null, '0', '全球直采', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('09d4fb247ca5571637ae9ed8312084ed', 'A0001A0001', '苹果2', null, '20200613140921000001.jpg', '2', '0', '122', '4', '1', null, null, '0', '全球直采', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('09d4fb247ca5571637ae9ed8312084ek', 'A0001A0001', '苹果4', null, '20200613140921000001.jpg', '2', '0', '122', '4', '1', null, null, '0', '全球直采', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('1a291461243feaf147b2ed1d5562cfc7', 'A0002A0001', '1221', null, '20200810152248000001.jpg', '0', '0', '12', '0', '1', null, null, '0', '12', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa10', 'A0001A0001', 'C罗手办', null, '20200613141308000001.jpg', '0', '0', '1', '0', '1', null, null, '0', null, '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa3', 'A0001A0001', 'MacBook', null, '20200613141729000001.jpg', '3', '0', '1', '1', '1', null, null, '0', '外套', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa4', 'A0001A0001', '卡西欧手表', null, '20200613141544000002.jpg', '3', '0', '1', '1', '1', null, null, '0', '外套', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa5', 'A0001A0001', '原味咖喱[新鲜]', null, '20200613141354000002.jpg', '3', '0', '1', '3', '1', null, null, '0', '海鲜', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa6', 'A0001A0001', '福临门寒地大米', null, '20200613141119000001.jpg', '3', '0', '1', '2', '1', null, null, '0', '主食', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa7', 'A0001A0001', '有机花菜[新鲜]', null, '20200613141045000002.jpg', '3', '0', '1', '10', '1', null, null, '0', '蔬菜', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa8', 'A0001A0001', '新鲜鸡蛋', null, '20200613141005000001.jpg', '3', '0', '1', '17', '1', null, null, '0', '蔬菜', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
-INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa9', 'A0001A0001', '小米 9 Pro', null, '20200613141228000001.jpg', '0', '0', '100', '1', '1', null, null, '0', '小米手机', '2020-08-17 17:36:06', '2020-08-17 17:36:06');
+INSERT INTO `product` VALUES ('09d4fb247ca5571637ae9ed83', 'A0001A0001', '苹果3', null, '20200613140921000001.jpg', '1', '0', '122', '8', '1', null, '2222', '0', '全球直采', '2020-08-17 17:36:06', '2020-09-02 09:33:57');
+INSERT INTO `product` VALUES ('09d4fb247ca5571637ae9ed8312', 'A0001A0001', '苹果1', null, '20200613140921000001.jpg', '1', '0', '122', '4', '1', '22.00', null, '0', '全球直采', '2020-08-17 17:36:06', '2020-09-01 13:47:58');
+INSERT INTO `product` VALUES ('09d4fb247ca5571637ae9ed8312084eb', 'A0001A0001', '苹果', null, '20200613140921000001.jpg', '1', '0', '122', '4', '1', '22.00', null, '0', '全球直采', '2020-08-17 17:36:06', '2020-09-01 13:47:58');
+INSERT INTO `product` VALUES ('09d4fb247ca5571637ae9ed8312084ed', 'A0001A0001', '苹果2', null, '20200613140921000001.jpg', '1', '0', '122', '4', '1', '22.00', null, '0', '全球直采', '2020-08-17 17:36:06', '2020-09-01 13:47:59');
+INSERT INTO `product` VALUES ('09d4fb247ca5571637ae9ed8312084ek', 'A0001A0001', '苹果4', null, '20200613140921000001.jpg', '1', '0', '122', '4', '1', '22.00', null, '0', '全球直采', '2020-08-17 17:36:06', '2020-09-01 13:48:00');
+INSERT INTO `product` VALUES ('1a291461243feaf147b2ed1d5562cfc7', 'A0002A0001', '1221', null, '20200810152248000001.jpg', '0', '0', '12', '0', '1', '22.00', null, '0', '12', '2020-08-17 17:36:06', '2020-09-01 13:48:02');
+INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa10', 'A0001A0001', 'C罗手办', null, '20200613141308000001.jpg', '1', '0', '1', '0', '1', null, '2222', '0', null, '2020-08-17 17:36:06', '2020-09-02 08:42:10');
+INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa3', 'A0001A0001', 'MacBook', null, '20200613141729000001.jpg', '1', '0', '1', '1', '1', '22.00', null, '0', '外套', '2020-08-17 17:36:06', '2020-09-01 13:48:04');
+INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa4', 'A0001A0001', '卡西欧手表', null, '20200613141544000002.jpg', '1', '0', '1', '1', '1', '22.00', null, '0', '外套', '2020-08-17 17:36:06', '2020-09-01 13:48:05');
+INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa5', 'A0001A0001', '原味咖喱[新鲜]', null, '20200613141354000002.jpg', '1', '0', '1', '3', '1', '22.00', null, '0', '海鲜', '2020-08-17 17:36:06', '2020-09-01 13:48:06');
+INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa6', 'A0001A0001', '福临门寒地大米', null, '20200613141119000001.jpg', '1', '0', '1', '2', '1', '22.00', null, '0', '主食', '2020-08-17 17:36:06', '2020-09-01 13:48:07');
+INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa7', 'A0001A0001', '有机花菜[新鲜]', null, '20200613141045000002.jpg', '1', '0', '1', '10', '1', '22.00', null, '0', '蔬菜', '2020-08-17 17:36:06', '2020-09-01 13:48:07');
+INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa8', 'A0001A0001', '新鲜鸡蛋', null, '20200613141005000001.jpg', '1', '0', '1', '17', '1', '22.00', null, '0', '蔬菜', '2020-08-17 17:36:06', '2020-09-01 13:48:08');
+INSERT INTO `product` VALUES ('f80e45d3a11618938ca8812f0c28fa9', 'A0001A0001', '小米 9 Pro', null, '20200613141228000001.jpg', '0', '0', '100', '1', '1', '22.00', null, '0', '小米手机', '2020-08-17 17:36:06', '2020-09-01 13:48:09');
 
 -- ----------------------------
 -- Table structure for product_category
@@ -749,7 +833,7 @@ DROP TABLE IF EXISTS `product_pic`;
 CREATE TABLE `product_pic` (
   `product_pic_id` varchar(32) NOT NULL COMMENT '主键',
   `product_id` varchar(32) NOT NULL COMMENT '产品ID',
-  `pic_path` varchar(255) NOT NULL COMMENT '图片路径',
+  `pic_path` varchar(128) NOT NULL COMMENT '图片路径',
   `pic_main_flag` bit(1) NOT NULL DEFAULT b'0' COMMENT '是否主图',
   `sort` int(2) NOT NULL COMMENT '序号',
   `del_flag` bit(1) NOT NULL DEFAULT b'0' COMMENT '是否删除',
@@ -784,6 +868,9 @@ CREATE TABLE `product_sku` (
 -- ----------------------------
 -- Records of product_sku
 -- ----------------------------
+INSERT INTO `product_sku` VALUES ('12', '09d4fb247ca5571637ae9ed83', '221', 'we', '10.00', '20.00', '96', '1.00', '0', '1', '2020-09-01 10:59:10', '2020-09-02 09:33:57');
+INSERT INTO `product_sku` VALUES ('1221', 'f80e45d3a11618938ca8812f0c28fa10', '22', '1', '21.00', '33.00', '12', '2.00', '0', null, '2020-09-01 10:59:54', '2020-09-01 11:00:07');
+INSERT INTO `product_sku` VALUES ('22', 'f80e45d3a11618938ca8812f0c28fa10', '21', '21', '12.00', '22.00', '111', '1.00', '0', '2', '2020-09-01 10:59:33', '2020-09-01 11:00:04');
 
 -- ----------------------------
 -- Table structure for product_sku_spec
@@ -4388,7 +4475,7 @@ INSERT INTO `region` VALUES ('root', '0', '#', '全国', '0', 'Q', null);
 DROP TABLE IF EXISTS `shipping`;
 CREATE TABLE `shipping` (
   `shipping_id` varchar(32) NOT NULL COMMENT '主键',
-  `sys_user_id` varchar(32) NOT NULL COMMENT '用户id',
+  `user_id` varchar(32) NOT NULL COMMENT '用户id',
   `receiver_name` varchar(20) NOT NULL COMMENT '收货姓名',
   `receiver_phone` varchar(20) NOT NULL COMMENT '收货电话',
   `receiver_province` varchar(20) NOT NULL COMMENT '省份',
@@ -4396,6 +4483,7 @@ CREATE TABLE `shipping` (
   `receiver_area` varchar(20) NOT NULL COMMENT '区/县',
   `region_code` varchar(100) NOT NULL COMMENT '行政编码',
   `receiver_address` varchar(200) NOT NULL COMMENT '详细地址',
+  `is_default` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否默认',
   `del_flag` tinyint(1) NOT NULL DEFAULT '0' COMMENT '删除状态',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
@@ -4405,6 +4493,8 @@ CREATE TABLE `shipping` (
 -- ----------------------------
 -- Records of shipping
 -- ----------------------------
+INSERT INTO `shipping` VALUES ('123', 'admin', '谢！', '15959995995', '山东', '青岛', '市北', '370203', '平度市。。。明朝', '1', '0', '2020-09-01 11:08:23', '2020-09-01 11:08:56');
+INSERT INTO `shipping` VALUES ('12322', 'admin', '谢！', '15959995995', '山东', '日照', '市北', '371102', '日照东港区大学城', '0', '0', '2020-09-01 11:08:23', '2020-09-01 13:28:37');
 
 -- ----------------------------
 -- Table structure for sys_dict
@@ -4493,15 +4583,15 @@ DROP TABLE IF EXISTS `sys_permission`;
 CREATE TABLE `sys_permission` (
   `sys_permission_id` varchar(32) NOT NULL COMMENT '主键id',
   `parent_id` varchar(32) DEFAULT NULL COMMENT '父id',
-  `name` varchar(100) NOT NULL COMMENT '菜单标题',
-  `url` varchar(255) DEFAULT NULL COMMENT '路径',
-  `component` varchar(255) DEFAULT NULL COMMENT '组件',
+  `name` varchar(32) NOT NULL COMMENT '菜单标题',
+  `url` varchar(128) DEFAULT NULL COMMENT '路径',
+  `component` varchar(128) DEFAULT NULL COMMENT '组件',
   `menu_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '菜单类型(0:一级菜单; 1:子菜单:2:按钮权限)',
-  `perms_code` varchar(255) DEFAULT NULL COMMENT '菜单权限编码',
+  `perms_code` varchar(128) DEFAULT NULL COMMENT '菜单权限编码',
   `keep_alive` tinyint(1) DEFAULT NULL COMMENT '是否缓存该页面:  0:不是  1:是  ',
   `is_hidden` tinyint(1) DEFAULT NULL COMMENT '是否隐藏路由: 0:否 1 是',
   `sort` int(10) NOT NULL DEFAULT '100' COMMENT '菜单排序',
-  `icon` varchar(100) DEFAULT NULL COMMENT '菜单图标',
+  `icon` varchar(32) DEFAULT NULL COMMENT '菜单图标',
   `is_route` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否路由菜单: 0:不是  1:是',
   `is_leaf` tinyint(1) DEFAULT NULL COMMENT '是否叶子结点:    1:是   0:不是',
   `del_flag` tinyint(1) NOT NULL DEFAULT '0' COMMENT '删除状态 0正常 1已删除',
@@ -4660,11 +4750,11 @@ CREATE TABLE `sys_user` (
   `user_name` varchar(50) NOT NULL COMMENT '真实姓名',
   `login_name` varchar(50) NOT NULL COMMENT '登录名称',
   `pass_word` varchar(60) NOT NULL COMMENT '密码',
-  `head_img` varchar(200) DEFAULT NULL COMMENT '头像',
+  `head_img` varchar(128) DEFAULT NULL COMMENT '头像',
   `phone` varchar(15) DEFAULT NULL COMMENT '手机',
   `state` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态(0正常 1 冻结)',
   `sort` int(11) NOT NULL DEFAULT '100' COMMENT '序号',
-  `remark` varchar(1000) DEFAULT NULL COMMENT '备注',
+  `remark` varchar(300) DEFAULT NULL COMMENT '备注',
   `del_flag` tinyint(1) NOT NULL DEFAULT '0' COMMENT '删除状态(0:未删除 1:已删除)',
   `create_user_id` varchar(32) NOT NULL COMMENT '创建人',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
@@ -4703,17 +4793,82 @@ INSERT INTO `sys_user_role` VALUES ('d5b0af507040afae17f750d5bcb040f6', '4cad2f7
 INSERT INTO `sys_user_role` VALUES ('f242d7cbf09d3d15800453f59d2c2388', '68281b252400a1f64f3b7b0aa7531fb0', 'e51758fa916c881624b046d26bd09230');
 
 -- ----------------------------
+-- Table structure for timer_record
+-- ----------------------------
+DROP TABLE IF EXISTS `timer_record`;
+CREATE TABLE `timer_record` (
+  `timer_record_id` varchar(32) NOT NULL COMMENT '主键',
+  `title` varchar(255) NOT NULL COMMENT '任务名称',
+  `r_id` varchar(32) DEFAULT NULL COMMENT '业务主键',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`timer_record_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='定时器运行记录';
+
+-- ----------------------------
+-- Records of timer_record
+-- ----------------------------
+INSERT INTO `timer_record` VALUES ('0fa5108a4828f7fadaea8a88dc3f9a30', '订单超时监测', '', '2020-08-31 16:31:00');
+INSERT INTO `timer_record` VALUES ('140c50b0ecd84b46ba52233c8175cead', '订单超时监测', '', '2020-09-02 09:30:00');
+INSERT INTO `timer_record` VALUES ('1d1a0510f9f8ca69a9d459d7ae220032', '订单超时监测', '', '2020-09-01 11:00:00');
+INSERT INTO `timer_record` VALUES ('24afbc33909d085b9facab6e26e15d47', '订单超时监测', '4e2217979fbf528c1be9e03063d29373', '2020-08-31 16:07:01');
+INSERT INTO `timer_record` VALUES ('24fde74a69823229163bfbf422422f4a', '订单超时监测', '', '2020-09-02 08:30:00');
+INSERT INTO `timer_record` VALUES ('2b6f1dd4e53e751a2bb3e1ab5946e757', '订单超时监测', 'd0f69a4432920d1bf79d8aa1cc31e5d2', '2020-08-31 16:07:01');
+INSERT INTO `timer_record` VALUES ('357039e0e6b83a0377f287dd4bcf6683', '订单超时监测', '', '2020-08-31 16:25:00');
+INSERT INTO `timer_record` VALUES ('42a96dffd6be0f87ad23709b24ee233f', '订单超时监测', '', '2020-08-31 16:32:00');
+INSERT INTO `timer_record` VALUES ('454f9c70f4bbf68bf7d626eeba86aad0', '订单超时监测', '', '2020-08-31 16:27:00');
+INSERT INTO `timer_record` VALUES ('48a72086aa2d549bc2e24723cc063c3f', '订单超时监测', '', '2020-09-01 13:00:00');
+INSERT INTO `timer_record` VALUES ('49d2fab3e69d6721997282132f7aef31', '订单超时监测', '4e2217979fbf528c1be9e03063d29373', '2020-08-31 16:06:04');
+INSERT INTO `timer_record` VALUES ('51e5629ed43ee9c8c75dda87f71df1cf', '订单超时监测', '', '2020-09-01 15:30:00');
+INSERT INTO `timer_record` VALUES ('55692df51468ca81c3258683a22620ee', '订单超时监测', '', '2020-08-31 16:13:00');
+INSERT INTO `timer_record` VALUES ('5b0f88a950f04958451b51d01d121dab', '订单超时监测', '', '2020-09-01 14:00:00');
+INSERT INTO `timer_record` VALUES ('64c2917ea7a121032dbd7fb75f12944c', '订单超时监测', '', '2020-09-01 14:30:00');
+INSERT INTO `timer_record` VALUES ('6c9e54e0ac2f96d0f0e96ca23a81d0e3', '订单超时监测', 'f639be8231db1f68b264c13333cffb65', '2020-08-31 16:06:04');
+INSERT INTO `timer_record` VALUES ('6f08279dfa89bd62ee1b1b65bb9c2ca0', '订单超时监测', '', '2020-09-01 11:30:00');
+INSERT INTO `timer_record` VALUES ('71fcb7b7c3d02130f42ecedae591341a', '订单超时监测', '', '2020-08-31 16:34:00');
+INSERT INTO `timer_record` VALUES ('77c4c40db39f15536b4063b1097fabbc', '订单超时监测', '', '2020-08-31 16:22:00');
+INSERT INTO `timer_record` VALUES ('796add412e2b6eb965349a59640047c8', '订单超时监测', '', '2020-09-02 09:00:00');
+INSERT INTO `timer_record` VALUES ('823cca6626b298842d87e117698d4ec7', '订单超时监测', '', '2020-08-31 16:16:00');
+INSERT INTO `timer_record` VALUES ('8285cf24e9ea93c0c98d669c96abce84', '订单超时监测', '', '2020-08-31 16:17:00');
+INSERT INTO `timer_record` VALUES ('8fcacfb175c215cc36da680c60f8ab94', '订单超时监测', '', '2020-09-01 15:00:00');
+INSERT INTO `timer_record` VALUES ('948f00cbc4088759145dc4fdc9d01bdf', '订单超时监测', '', '2020-09-01 12:30:00');
+INSERT INTO `timer_record` VALUES ('97c0d006a7f41f29554b9e4f3c504979', '订单超时监测', '', '2020-08-31 16:30:00');
+INSERT INTO `timer_record` VALUES ('a314cdabdb7ca635645a709e58026dbe', '订单超时监测', '', '2020-08-31 16:20:00');
+INSERT INTO `timer_record` VALUES ('a58943b865d1acfe97866bc7934d52e7', '订单超时监测', '', '2020-08-31 16:28:00');
+INSERT INTO `timer_record` VALUES ('a906eb56452a29a01328b3f30caa633d', '订单超时监测', '', '2020-08-31 16:10:02');
+INSERT INTO `timer_record` VALUES ('b6a6973e6cf428cb6622bf33a7336124', '订单超时监测', '', '2020-09-01 12:00:00');
+INSERT INTO `timer_record` VALUES ('b761368b9f0778b7e437d9395afb8aa3', '订单超时监测', '', '2020-08-31 16:23:00');
+INSERT INTO `timer_record` VALUES ('bc8ff78ec4abe69b93b9c24b144e9960', '订单超时监测', '', '2020-08-31 16:12:29');
+INSERT INTO `timer_record` VALUES ('bdde8bb6f7e95f7d6c2f6532e1a4d18b', '订单超时监测', 'd0f69a4432920d1bf79d8aa1cc31e5d2', '2020-08-31 16:06:04');
+INSERT INTO `timer_record` VALUES ('c0938d04ea90d31a4070b5dd92c649bd', '订单超时监测', 'f639be8231db1f68b264c13333cffb65', '2020-08-31 16:07:01');
+INSERT INTO `timer_record` VALUES ('c56ccfa26f1a65a42d39794dfe90db10', '订单超时监测', '', '2020-08-31 16:18:00');
+INSERT INTO `timer_record` VALUES ('c85dec20c0e27a2e2751bfda37da8576', '订单超时监测', '', '2020-08-31 16:21:00');
+INSERT INTO `timer_record` VALUES ('cbc15b07509f29ac60c488f8bd8937e1', '订单超时监测', '', '2020-09-01 22:00:00');
+INSERT INTO `timer_record` VALUES ('cf99b4810726bf53d1049a94fd056207', '订单超时监测', '', '2020-08-31 16:29:00');
+INSERT INTO `timer_record` VALUES ('dc6b0c937d3dcd8d7b14a1b0212ecf05', '订单超时监测', '', '2020-08-31 16:15:27');
+INSERT INTO `timer_record` VALUES ('ebd20181f34867f865bdc597945770f2', '订单超时监测', '', '2020-08-31 16:19:00');
+INSERT INTO `timer_record` VALUES ('f00ea6833cf5b5c105310d9f08d17aa0', '订单超时监测', '', '2020-09-01 13:30:00');
+INSERT INTO `timer_record` VALUES ('f1321eabb3bd8bcd77310e82b1bf12d2', '订单超时监测', '', '2020-09-01 10:30:00');
+INSERT INTO `timer_record` VALUES ('f15c376e02dd5716205ba1cb7a27573c', '订单超时监测', '', '2020-09-01 16:00:00');
+INSERT INTO `timer_record` VALUES ('f22679ad9f3643d53ec553f9497e83e3', '订单超时监测', '', '2020-08-31 16:11:34');
+INSERT INTO `timer_record` VALUES ('f73b54d2206086a055223dc020f21e7f', '订单超时监测', '', '2020-08-31 16:09:30');
+INSERT INTO `timer_record` VALUES ('f8c32a00d956565fb3f42dcaf4a96b72', '订单超时监测', '', '2020-08-31 16:26:00');
+INSERT INTO `timer_record` VALUES ('faf2db6a01463e70f9abd5f416856f2e', '订单超时监测', '', '2020-08-31 16:33:00');
+INSERT INTO `timer_record` VALUES ('ffb4f858cc348e57f1fb44d9378c31b8', '订单超时监测', '', '2020-08-31 16:24:00');
+
+-- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `user_id` varchar(32) NOT NULL COMMENT '用户ID',
   `nick_name` varchar(16) DEFAULT NULL COMMENT '用户昵称',
-  `head_img` varchar(128) DEFAULT NULL COMMENT '用户头像',
+  `head_img` varchar(256) DEFAULT NULL COMMENT '用户头像',
   `real_name` varchar(16) DEFAULT NULL COMMENT '真实姓名',
   `phone` varchar(32) DEFAULT NULL COMMENT '手机号',
-  `wx_open_id` varchar(32) DEFAULT NULL COMMENT '微信OPENID',
-  `wx_session_key` varchar(32) DEFAULT NULL COMMENT '微信SessionKey',
+  `gender` tinyint(1) DEFAULT '0' COMMENT '性别 1:男 2:女 0：未知',
+  `first_flag` tinyint(1) NOT NULL DEFAULT '1' COMMENT '首次登录',
+  `wx_open_id` varchar(32) NOT NULL COMMENT '微信OPENID',
+  `wx_session_key` varchar(32) NOT NULL COMMENT '微信SessionKey',
   `state` tinyint(4) NOT NULL DEFAULT '0' COMMENT '用户状态 0: 正常 1:禁用',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
@@ -4723,3 +4878,4 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` VALUES ('7e9a6c929ad19ccd8a0a792359584d1a', null, null, null, null, null, '1', '234234', '23232', '0', '2020-08-20 15:11:59', '2020-08-20 15:11:59');

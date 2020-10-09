@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 /**
  * 功能描述: 角色管理
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date 2019-09-19
  * @Version: 1.0.0
  */

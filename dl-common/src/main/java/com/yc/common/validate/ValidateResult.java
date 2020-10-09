@@ -1,13 +1,11 @@
-package com.yc.core.validate;
+package com.yc.common.validate;
 
 import lombok.Data;
 
 /**
  * 功能描述:
-
  *
-
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-06-12
  * @Version: 1.0.0
  */

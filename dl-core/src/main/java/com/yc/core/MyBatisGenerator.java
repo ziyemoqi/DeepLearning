@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * 功能描述:MyBatis-plus 代码生成器
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-06-28 17:17
  * @Version: 1.0.0
  */

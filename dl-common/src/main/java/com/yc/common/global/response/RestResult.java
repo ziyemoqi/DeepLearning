@@ -9,7 +9,7 @@ import java.util.HashMap;
 /**
  * 功能描述:封装返回对象
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-08-22
  * @Version: 1.0.0
  */

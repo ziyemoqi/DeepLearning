@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * 功能描述:密码强度检测
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-04-03
  * @Version: 1.0.0
  */

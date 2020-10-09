@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 /**
  * 功能描述:读取本机信息工具包
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-05-09
  */
 public class LocalHostUtil {

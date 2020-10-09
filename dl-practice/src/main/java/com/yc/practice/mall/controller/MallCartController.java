@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * 功能描述:购物车控制层
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-05-17
  * @Version: 1.0.0
  */

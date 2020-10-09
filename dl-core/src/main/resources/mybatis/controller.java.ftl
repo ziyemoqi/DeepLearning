@@ -15,7 +15,7 @@ import ${superControllerClassPackage};
  *
  * 功能描述: ${table.comment!} 前端控制器
  *
- * @Author ${author} && 紫色年华
+ * @Author ${author}
  * @Date ${date}
  * @Version: 1.0.0
  */

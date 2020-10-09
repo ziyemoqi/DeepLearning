@@ -4,7 +4,7 @@ package com.yc.common.constant;
  * 功能描述:公用枚举参数
  * 枚举充当常量
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-04-16
  * @Version: 1.0.0
  */

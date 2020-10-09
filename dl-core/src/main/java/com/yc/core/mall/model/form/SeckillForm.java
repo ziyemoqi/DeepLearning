@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 功能描述:秒杀form
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-06-08
  * @Version: 1.0.0
  */

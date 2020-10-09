@@ -1,9 +1,13 @@
 package com.yc.core.timer.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+
 import java.time.LocalDateTime;
+
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -11,8 +15,7 @@ import lombok.experimental.Accessors;
 /**
  * 功能描述:
  *
-
- * @Author:  xieyc && 紫色年华
+ * @Author: xieyc
  * @Date 2020-04-16
  * @Version: 1.0.0
  */

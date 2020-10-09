@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 功能描述: 订单提交FORM
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-07-30
  */
 @Data

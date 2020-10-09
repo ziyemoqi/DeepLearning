@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * 功能描述:定时器记录 控制层
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date 2020-04-16
  * @Version: 1.0.0
  */
@@ -31,7 +31,7 @@ public class TimerRecordController {
     /**
      * 超时订单取消
      */
-    // @Scheduled(cron = "0 0/5 * * * ?")
+    @Scheduled(cron = "0 0/1 * * * ?")
     public void orderCheck() {
         service.orderCheck();
     }

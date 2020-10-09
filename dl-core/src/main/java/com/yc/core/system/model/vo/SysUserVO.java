@@ -6,10 +6,8 @@ import lombok.EqualsAndHashCode;
 
 /**
  * 功能描述:用户信息展示层
-
  *
-
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-01-07
  * @Version: 1.0.0
  */

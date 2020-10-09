@@ -17,7 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * 功能描述:封装返回数据
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-08-21 17:58
  * @Version: 1.0.0
  */

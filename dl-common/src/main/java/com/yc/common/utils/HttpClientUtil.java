@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * 功能描述:HTTP请求工具类
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-05-10 13:48
  */
 public class HttpClientUtil {

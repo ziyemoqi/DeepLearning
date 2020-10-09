@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * 功能描述: 行政区划
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date 2019-09-20
  * @Version: 1.0.0
  */

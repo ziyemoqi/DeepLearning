@@ -16,7 +16,7 @@ import lombok.experimental.Accessors;
 /**
  * 功能描述: ${table.comment!}
  *
- * @Author ${author} && 紫色年华
+ * @Author ${author}
  * @Date ${date}
  * @Version: 1.0.0
  */

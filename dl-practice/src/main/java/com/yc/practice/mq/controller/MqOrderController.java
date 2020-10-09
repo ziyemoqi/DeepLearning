@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 功能描述: 订单控制层
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-07-30
  */
 @RestController

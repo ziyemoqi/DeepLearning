@@ -8,7 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 /**
  * 功能描述:Security 会话管理
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-04-09
  * @Version: 1.0.0
  */

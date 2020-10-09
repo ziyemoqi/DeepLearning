@@ -1,4 +1,4 @@
-package com.yc.common.datasource;
+package com.yc.common.config.datasource;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
@@ -24,7 +24,7 @@ import java.util.Map;
  * 具体方法是，用winRAR打开jar包，在druid-1.1.6.jar\support\http\resources\js\common.js路径下找到文件，
  * 修改common.js中的代码，删除buildFooter函数中的代码即可
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-06-06
  * @Version: 1.0.0
  */

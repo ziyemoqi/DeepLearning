@@ -12,13 +12,12 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * 功能描述:
  * 主程序类、主入口类
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-05-30
  */
 @SpringBootApplication
 @EnableScheduling
 @ComponentScan({"com.yc"})
-@MapperScan({"com.yc.core.*.mapper"})
 public class DlPracticeApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

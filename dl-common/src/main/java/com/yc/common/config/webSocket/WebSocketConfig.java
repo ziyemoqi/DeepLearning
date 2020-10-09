@@ -1,4 +1,4 @@
-package com.yc.common.webSocket;
+package com.yc.common.config.webSocket;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 /**
  * 功能描述:websocket 配置类
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-10-08
  * @Version: 1.0.0
  */

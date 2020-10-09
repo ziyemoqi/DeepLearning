@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
 * 功能描述: ${table.comment!} 服务实现类
 *
-* @Author ${author} && 紫色年华
+* @Author ${author}
 * @Date ${date}
 * @Version: 1.0.0
 */

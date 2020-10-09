@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 功能描述: 订单商品FORM
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-08-02
  */
 @Data

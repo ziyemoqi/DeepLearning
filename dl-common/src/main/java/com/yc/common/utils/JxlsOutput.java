@@ -13,7 +13,7 @@ import java.net.URLEncoder;
 /**
  * 功能描述:导出Excel工具类
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-04-17
  * @Version: 1.0.0
  */

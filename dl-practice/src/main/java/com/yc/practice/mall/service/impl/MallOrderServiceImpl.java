@@ -52,7 +52,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 功能描述:
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date 2020-04-08
  * @Version: 1.0.0
  */
@@ -167,9 +167,9 @@ public class MallOrderServiceImpl extends ServiceImpl<MallOrderMapper, MallOrder
     @Override
     public void syncCallBackPay(HttpServletRequest request) {
         try {
-            request.setCharacterEncoding(StandardCharsets.UTF_8);
+            request.setCharacterEncoding(CommonConstant.CHARSET_UTF_8);
             BufferedReader streamReader = new BufferedReader(new InputStreamReader(request.getInputStream(),
-                    StandardCharsets.UTF_8));
+                    CommonConstant.CHARSET_UTF_8));
             StringBuilder responseStrBuilder = new StringBuilder();
             String inputStr;
             while ((inputStr = streamReader.readLine()) != null) {

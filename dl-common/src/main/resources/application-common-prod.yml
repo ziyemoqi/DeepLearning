@@ -2,13 +2,16 @@ server:
   tomcat:
     uri-encoding: UTF-8
 spring:
-  #=====Redis 相关========
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
   redis:
     host: 127.0.0.1
     port: 6379
     password:
     database: 0
-    timeout: 10000ms    #
+    timeout: 10000ms
     jedis:
       pool:
         min-idle: 1     # 连接池最小空闲连接
@@ -20,8 +23,12 @@ wx:
   miniapp:
     appid: wxa036b56fa5c829b0
     secret: 6109ef065b5066bc2599c06b2ecb03ee
+  pay:
+    app-id:
+    mch-id:
+    mch-key:
+    key-path:
 
-#===== Mybatis-plus 相关 =====
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*Mapper.xml
   type-aliases-package: com.yc.core.*.entity
@@ -29,3 +36,21 @@ mybatis-plus:
     map-underscore-to-camel-case: true  # 驼峰
   global-config:
     banner: false #关闭MP 3.0 自带的banner
+
+dl:
+  upload:
+    img-save-path: D://upload//image//
+    img-access-path: /image/**
+    file-save-path: D://upload//file//
+    file-access-path: /file/**
+  encode:
+    secretKey: deepLearning-dev@secretKey
+    aesKey: deepLearning-dev@aesKey
+
+application:
+  server-prefix:
+    miniapp:
+      test1: http://127.0.0.1:8081/sideRequest/test1
+      test2: http://127.0.0.1:8081/sideRequest/test2
+      test3: http://127.0.0.1:8081/sideRequest/test3
+      test4: http://127.0.0.1:8081/sideRequest/test4

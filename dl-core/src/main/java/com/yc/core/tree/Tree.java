@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 功能描述:
- *  构建树形数据
+ * 功能描述: 构建树形数据
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-03-25
  * @Version: 1.0.0
  */
@@ -16,7 +15,7 @@ public class Tree {
     /**
      * 构建树形数据
      *
-     * @param topId 顶级元素父ID
+     * @param topId      顶级元素父ID
      * @param entityList list
      * @return tree list
      */
@@ -40,7 +39,7 @@ public class Tree {
     /**
      * 获取子数据集合
      *
-     * @param id id
+     * @param id         id
      * @param entityList list
      * @return 子集合
      */

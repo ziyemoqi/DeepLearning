@@ -1,14 +1,13 @@
-package com.yc.core.validate;
+package com.yc.common.validate;
 
 /**
  * 功能描述:
-
  *
-
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-06-12
  * @Version: 1.0.0
  */
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;

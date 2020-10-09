@@ -1,5 +1,6 @@
 package com.yc.common.upload.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.yc.common.upload.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 功能描述:上传文件 控制层
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-04-26
  * @Version: 1.0.0
  */
@@ -38,6 +39,22 @@ public class UploadController {
     @PostMapping("/img")
     public String uploadImg(HttpServletRequest request, MultipartFile file) {
         return uploadService.uploadImg(request, file);
+    }
+
+    /**
+     * 多图片上传
+     *
+     * @param files 多文件
+     * @return 多文件地址
+     */
+    @PostMapping("/imgs")
+    public JSONArray multiple(HttpServletRequest request, @RequestParam("file") MultipartFile[] files) {
+        JSONArray jsonArray = new JSONArray();
+        for (MultipartFile file : files) {
+            String path = uploadService.uploadImg(request, file);
+            jsonArray.add(path);
+        }
+        return jsonArray;
     }
 
     /**
