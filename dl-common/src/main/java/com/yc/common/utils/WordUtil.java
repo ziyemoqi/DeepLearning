@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * 功能描述:word 操作工具类
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-12-19 17:24
  * @Version: 1.0.0
  */

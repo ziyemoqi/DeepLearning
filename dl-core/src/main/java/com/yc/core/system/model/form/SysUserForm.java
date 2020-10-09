@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 功能描述:表单提交数据
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-03-27
  * @Version: 1.0.0
  */

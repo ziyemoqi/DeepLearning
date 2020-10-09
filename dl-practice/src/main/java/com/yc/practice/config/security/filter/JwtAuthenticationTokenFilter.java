@@ -34,7 +34,7 @@ import java.nio.charset.Charset;
  * 解决在使用SpringSecurity过程中，SpringSecurity中的Filter被加载了两次或多次的情况
  * ]
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-03-20
  * @Version: 1.0.0
  */

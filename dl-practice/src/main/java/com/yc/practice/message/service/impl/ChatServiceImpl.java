@@ -3,7 +3,7 @@ package com.yc.practice.message.service.impl;
 import cn.hutool.core.date.DateUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.yc.common.constant.CommonConstant;
-import com.yc.common.webSocket.WebSocket;
+import com.yc.common.utils.WebSocketUtil;
 import com.yc.practice.common.UserUtil;
 import com.yc.practice.message.service.ChatService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ import java.util.Set;
 /**
  * 功能描述:
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-05-12
  * @Version: 1.0.0
  */
@@ -29,11 +29,11 @@ import java.util.Set;
 @Transactional(rollbackFor = Exception.class)
 public class ChatServiceImpl implements ChatService {
 
-    private WebSocket webSocket;
+    private WebSocketUtil webSocket;
     private final RedisTemplate redisTemplate;
 
     @Autowired
-    public ChatServiceImpl(RedisTemplate redisTemplate, WebSocket webSocket) {
+    public ChatServiceImpl(RedisTemplate redisTemplate, WebSocketUtil webSocket) {
         this.redisTemplate = redisTemplate;
         this.webSocket = webSocket;
     }

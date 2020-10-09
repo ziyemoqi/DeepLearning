@@ -11,10 +11,8 @@ import java.util.Map;
 
 /**
  * 功能描述:树形列表VO
-
  *
-
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-10-28
  * @Version: 1.0.0
  */
@@ -35,7 +33,7 @@ public class TreeModel implements Serializable {
 
     private Integer ruleFlag;
 
-    private Map<String,String> scopedSlots;
+    private Map<String, String> scopedSlots;
 
     private String parentId;
 
@@ -45,33 +43,34 @@ public class TreeModel implements Serializable {
 
     private List<TreeModel> children;
 
-    public TreeModel() { }
+    public TreeModel() {
+    }
 
     public TreeModel(SysPermission permission) {
         this.key = permission.getSysPermissionId();
         this.icon = permission.getIcon();
         this.parentId = permission.getParentId();
         this.title = permission.getName();
-        this.slotTitle =  permission.getName();
+        this.slotTitle = permission.getName();
         this.value = permission.getSysPermissionId();
         this.isLeaf = permission.getIsLeaf();
         this.label = permission.getName();
-        if(!permission.getIsLeaf()) {
+        if (!permission.getIsLeaf()) {
             this.children = new ArrayList<TreeModel>();
         }
     }
 
-    public TreeModel(String key,String parentId,String slotTitle,Integer ruleFlag,boolean isLeaf) {
+    public TreeModel(String key, String parentId, String slotTitle, Integer ruleFlag, boolean isLeaf) {
         this.key = key;
         this.parentId = parentId;
-        this.ruleFlag=ruleFlag;
-        this.slotTitle =  slotTitle;
-        Map<String,String> map = new HashMap<String,String>();
+        this.ruleFlag = ruleFlag;
+        this.slotTitle = slotTitle;
+        Map<String, String> map = new HashMap<String, String>();
         map.put("title", "hasDatarule");
         this.scopedSlots = map;
         this.isLeaf = isLeaf;
         this.value = key;
-        if(!isLeaf) {
+        if (!isLeaf) {
             this.children = new ArrayList<TreeModel>();
         }
     }

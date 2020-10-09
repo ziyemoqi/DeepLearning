@@ -14,7 +14,7 @@ import java.util.Date;
 /**
  * 功能描述: 生成jwtToken
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-03-20
  * @Version: 1.0.0
  */

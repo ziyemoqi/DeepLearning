@@ -1,6 +1,7 @@
-package com.yc.common.webSocket;
+package com.yc.common.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -15,17 +16,17 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
- * 功能描述:websocket 操作类
+ * 功能描述: websocket 操作类
  *
- * @ServerEndpoint：此注解相当于设置访问URL
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-10-08
  * @Version: 1.0.0
  */
-@Component
 @Slf4j
+@Component
+@EqualsAndHashCode(callSuper = false)
 @ServerEndpoint("/websocket/{userId}")
-public class WebSocket {
+public class WebSocketUtil {
 
     /**
      * 与某个客户端的连接会话，需要通过它来给客户端发送数据
@@ -40,14 +41,14 @@ public class WebSocket {
     /**
      * concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象
      */
-    private static CopyOnWriteArraySet<WebSocket> webSockets = new CopyOnWriteArraySet<>();
+    private static CopyOnWriteArraySet<WebSocketUtil> webSockets = new CopyOnWriteArraySet<>();
     private static Map<String, Session> sessionPool = new HashMap<String, Session>();
 
     /**
      * 连接建立成功
      * 【适当添加业务逻辑：监听用户登录后推送未成功接受的历史消息】
      *
-     * @param session
+     * @param session 会话
      * @param userId  用户id
      */
     @OnOpen
@@ -72,13 +73,14 @@ public class WebSocket {
             webSockets.remove(this);
             log.info("【websocket消息】连接断开，总数为:" + webSockets.size());
         } catch (Exception e) {
+            log.error("websocket 链接断开异常");
         }
     }
 
     /**
      * 收到客户端消息
      *
-     * @param message
+     * @param message 消息
      */
     @OnMessage
     public void onMessage(String message) {
@@ -98,7 +100,7 @@ public class WebSocket {
      */
     public void sendAllMessage(String message) {
         log.info("【websocket消息】广播消息:" + message);
-        for (WebSocket webSocket : webSockets) {
+        for (WebSocketUtil webSocket : webSockets) {
             try {
                 if (webSocket.session.isOpen()) {
                     webSocket.session.getAsyncRemote().sendText(message);
@@ -118,21 +120,17 @@ public class WebSocket {
      * @return 是否推送成功 true: 成功
      */
     public boolean sendOneMessage(String userId, String message) {
-        boolean flag = false;
         Session session = sessionPool.get(userId);
         if (session != null && session.isOpen()) {
             try {
                 log.info("【websocket消息】 单点消息:" + message);
                 session.getAsyncRemote().sendText(message);
-                flag = true;
+                return true;
             } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                return flag;
+                log.info("【websocket消息】 单点消息异常:" + e.getMessage());
             }
-        } else {
-            return false;
         }
+        return false;
     }
 
     /**

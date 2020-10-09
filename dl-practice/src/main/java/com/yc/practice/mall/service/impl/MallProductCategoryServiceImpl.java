@@ -11,7 +11,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yc.common.global.error.Error;
 import com.yc.common.global.error.ErrorException;
 import com.yc.core.mall.entity.MallProductCategory;
-import com.yc.core.mall.entity.ProductCategory;
 import com.yc.core.mall.mapper.MallProductCategoryMapper;
 import com.yc.practice.mall.service.MallProductCategoryService;
 import org.apache.commons.lang3.StringUtils;
@@ -24,7 +23,7 @@ import java.util.stream.Collectors;
 /**
  * 功能描述: 商品分类 业务类
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date 2020-05-08
  * @Version: 1.0.0
  */

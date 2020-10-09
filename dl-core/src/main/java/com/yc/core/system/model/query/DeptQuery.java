@@ -8,10 +8,7 @@ import java.io.Serializable;
 /**
  * 功能描述: 部门查询入参
  *
-
- *
-
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-01-04 09:34
  * @Version: 1.0.0
  */

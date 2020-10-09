@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 功能描述: 订单实现层
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-07-30
  */
 @Slf4j

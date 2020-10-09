@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 功能描述:日志前端控制器
  *
- * @Author: xieyc && 紫色年华
- * @Date 2019-09-21
+ * @Author: xieyc
+ * @Date: 2019-09-21
  * @Version: 1.0.0
  */
 @RestController

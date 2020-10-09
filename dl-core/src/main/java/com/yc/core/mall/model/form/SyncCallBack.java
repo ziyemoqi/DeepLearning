@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 功能描述:异步回调支付
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-05-26
  * @Version: 1.0.0
  */

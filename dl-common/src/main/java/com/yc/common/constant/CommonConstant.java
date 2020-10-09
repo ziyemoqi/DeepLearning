@@ -3,7 +3,7 @@ package com.yc.common.constant;
 /**
  * 功能描述:全局常量
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-09-21
  * @Version: 1.0.0
  */

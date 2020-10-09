@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * 功能描述:商品类别
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date 2020-05-08
  * @Version: 1.0.0
  */

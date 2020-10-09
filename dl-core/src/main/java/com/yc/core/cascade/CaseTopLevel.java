@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 功能描述:顶级级联 List
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-04-10
  * @Version: 1.0.0
  */

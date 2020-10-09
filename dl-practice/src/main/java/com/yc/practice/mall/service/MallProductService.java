@@ -8,7 +8,7 @@ import com.yc.core.mall.model.query.GoodQuery;
 /**
  * 功能描述:
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date 2020-04-08
  * @Version: 1.0.0
  */

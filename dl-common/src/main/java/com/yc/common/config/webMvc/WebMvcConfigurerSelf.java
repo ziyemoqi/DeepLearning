@@ -1,7 +1,7 @@
 package com.yc.common.config.webMvc;
 
 import com.yc.common.properties.UploadProperties;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -17,19 +17,15 @@ import java.util.List;
 /**
  * 功能描述:Spring Boot 2.0 跨域相关
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-09-27
  * @Version: 1.0.0
  */
 @Configuration
+@RequiredArgsConstructor
 public class WebMvcConfigurerSelf implements WebMvcConfigurer {
 
     private final UploadProperties uploadProperties;
-
-    @Autowired
-    public WebMvcConfigurerSelf(UploadProperties uploadProperties) {
-        this.uploadProperties = uploadProperties;
-    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -43,7 +39,7 @@ public class WebMvcConfigurerSelf implements WebMvcConfigurer {
     /**
      * 跨域设置
      *
-     * @return
+     * @return source
      */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {

@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 /**
  * 功能描述: 用户余额变动记录
  *
- * @Author xieyc && 紫色年华
+ * @Author xieyc
  * @Date 2020-07-27
  * @Version: 1.0.0
  */

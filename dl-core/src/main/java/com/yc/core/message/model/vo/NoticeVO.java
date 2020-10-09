@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 /**
  * 功能描述:我的通知公告
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-05-21
  * @Version: 1.0.0
  */

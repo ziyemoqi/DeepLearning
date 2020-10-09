@@ -1,7 +1,10 @@
 server:
-  port: 8080
+  port: 20080
+  servlet:
+    context-path: /api
 spring:
-  #===== DataBase 相关 ===========
+  profiles:
+    include: common-test
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource

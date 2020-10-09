@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * 功能描述:安全认证配置
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-03-23
  * @Version: 1.0.0
  */

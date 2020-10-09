@@ -11,7 +11,7 @@ import java.net.URL;
 /**
  * 功能描述:base64工具类
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-04-29
  * @Version: 1.0.0
  */

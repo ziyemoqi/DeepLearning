@@ -14,7 +14,7 @@ import java.util.Random;
 /**
  * 功能描述:工作台 控制层
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date 2020-04-15
  * @Version: 1.0.0
  */

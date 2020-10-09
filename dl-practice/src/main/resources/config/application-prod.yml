@@ -1,5 +1,11 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /api
+
 spring:
-  #=====DataBase 相关 ===========
+  profiles:
+    include: common-prod
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/deeplearning?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root

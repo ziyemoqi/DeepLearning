@@ -5,7 +5,7 @@ import com.yc.core.mq.model.MqOrderFrom;
 /**
  * 功能描述: mq订单接口
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-07-30
  */
 public interface MqOrderService {

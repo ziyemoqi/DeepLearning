@@ -20,7 +20,7 @@ import java.security.spec.X509EncodedKeySpec;
 /**
  * 功能描述:关于加解密、加解码的工具类
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-05-10 13:48
  */
 @Slf4j

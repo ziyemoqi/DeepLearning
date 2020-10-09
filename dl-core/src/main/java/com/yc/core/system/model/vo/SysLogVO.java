@@ -7,10 +7,7 @@ import lombok.EqualsAndHashCode;
 /**
  * 功能描述: 日志列表
  *
-
- *
-
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-01-08 17:01
  * @Version: 1.0.0
  */

@@ -11,7 +11,7 @@ import lombok.experimental.Accessors;
 /**
  * 功能描述: 订单记录变更表
  *
- * @Author:  xieyc && 紫色年华
+ * @Author:  xieyc
  * @Date 2020-04-14
  * @Version: 1.0.0
  */

@@ -10,10 +10,8 @@ import java.util.List;
 
 /**
  * 功能描述:菜单按钮VO类
-
  *
-
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2019-10-25
  * @Version: 1.0.0
  */
@@ -115,6 +113,7 @@ public class SysPermissionTree implements Serializable {
 
     /**
      * 将SysPermission对象转换成SysPermissionTree对象
+     *
      * @param permission
      */
     public SysPermissionTree(SysPermission permission) {
@@ -137,7 +136,7 @@ public class SysPermissionTree implements Serializable {
         this.isRoute = permission.getIsRoute();
         this.isHidden = permission.getIsHidden();
         this.keepAlive = permission.getKeepAlive();
-        this.title=permission.getName();
+        this.title = permission.getName();
         if (!permission.getIsLeaf()) {
             this.children = new ArrayList<SysPermissionTree>();
         }

@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 功能描述:商品查询入参
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-04-11
  * @Version: 1.0.0
  */

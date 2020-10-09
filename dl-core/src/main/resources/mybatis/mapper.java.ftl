@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
  *
  * 功能描述: ${table.comment!} Mapper 接口
  *
- * @Author ${author} && 紫色年华
+ * @Author ${author}
  * @Date ${date}
  * @Version: 1.0.0
  */

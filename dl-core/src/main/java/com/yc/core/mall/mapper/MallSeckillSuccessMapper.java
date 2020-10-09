@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
  *
  * 功能描述:
  *
- * @author  xieyc && 紫色年华
+ * @author  xieyc
  * @Date 2020-06-01
  * @version 1.0.0
  */

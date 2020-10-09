@@ -27,7 +27,7 @@ import org.springframework.web.cors.CorsUtils;
 /**
  * 功能描述:Security 核心配置类
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-03-20
  * @Version: 1.0.0
  */

@@ -4,7 +4,7 @@ import cn.hutool.crypto.digest.DigestUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.yc.common.constant.CommonConstant;
 import com.yc.common.properties.EncodeProperties;
-import com.yc.common.properties.OutSideUrlProperties;
+import com.yc.common.properties.ApplicationServerPrefixProperties;
 import com.yc.common.utils.EncoderUtil;
 import com.yc.common.utils.HttpClientUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * 功能描述:对外请求测试
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-05-23
  * @Version: 1.0.0
  */
@@ -25,7 +25,7 @@ import java.util.Map;
 public class OutSideRequestTest extends PracticeTest {
 
     @Autowired
-    private OutSideUrlProperties outSideUrlProperties;
+    private ApplicationServerPrefixProperties outSideUrlProperties;
 
     @Autowired
     private EncodeProperties encodeProperties;
@@ -33,7 +33,7 @@ public class OutSideRequestTest extends PracticeTest {
     @Test
     public void getNoParam() {
         log.info("==========开始调用==========");
-        String result = HttpClientUtil.doGet(outSideUrlProperties.getTest1(),null);
+        String result = HttpClientUtil.doGet(outSideUrlProperties.getMiniapp().getTest1(),null);
         log.info(result);
         log.info("==========调用結束==========");
     }
@@ -43,7 +43,7 @@ public class OutSideRequestTest extends PracticeTest {
         log.info("==========开始调用==========");
         Map<String,String> params = new HashMap<>();
         params.put("PayInfoId", "你好");
-        String result = HttpClientUtil.doGet(outSideUrlProperties.getTest1(),params);
+        String result = HttpClientUtil.doGet(outSideUrlProperties.getMiniapp().getTest1(),params);
         log.info(result);
         log.info("==========调用結束==========");
     }
@@ -53,7 +53,7 @@ public class OutSideRequestTest extends PracticeTest {
         log.info("==========开始调用==========");
         Map<String,String> params = new HashMap<>();
         params.put("PayInfoId", "你好");
-        String result = HttpClientUtil.doPostMap(outSideUrlProperties.getTest2(),null);
+        String result = HttpClientUtil.doPostMap(outSideUrlProperties.getMiniapp().getTest2(),null);
         log.info(result);
         log.info("==========调用結束==========");
     }
@@ -63,7 +63,7 @@ public class OutSideRequestTest extends PracticeTest {
         log.info("==========开始调用==========");
         Map<String,String> params = new HashMap<>();
         params.put("PayInfoId", "你好");
-        String result = HttpClientUtil.doPostMap(outSideUrlProperties.getTest2(),params);
+        String result = HttpClientUtil.doPostMap(outSideUrlProperties.getMiniapp().getTest2(),params);
         log.info(result);
         log.info("==========调用結束==========");
     }
@@ -73,7 +73,7 @@ public class OutSideRequestTest extends PracticeTest {
         log.info("==========开始调用==========");
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("PayInfoId","werwe");
-        String result = HttpClientUtil.doPostJson(outSideUrlProperties.getTest2(),jsonObject.toJSONString());
+        String result = HttpClientUtil.doPostJson(outSideUrlProperties.getMiniapp().getTest2(),jsonObject.toJSONString());
         log.info(result);
         log.info("==========调用結束==========");
     }
@@ -97,7 +97,7 @@ public class OutSideRequestTest extends PracticeTest {
         JSONObject jsonObject1 = new JSONObject();
         jsonObject1.put("signData", sign);
         jsonObject1.put("requestData", requestData);
-        String result = HttpClientUtil.doPostJson(outSideUrlProperties.getTest3(),jsonObject1.toJSONString());
+        String result = HttpClientUtil.doPostJson(outSideUrlProperties.getMiniapp().getTest3(),jsonObject1.toJSONString());
         log.info(result);
     }
 
@@ -120,7 +120,7 @@ public class OutSideRequestTest extends PracticeTest {
         JSONObject jsonObject1 = new JSONObject();
         jsonObject1.put("signData", sign);
         jsonObject1.put("requestData", requestData);
-        String result = HttpClientUtil.doPostJson(outSideUrlProperties.getTest4(),jsonObject1.toJSONString());
+        String result = HttpClientUtil.doPostJson(outSideUrlProperties.getMiniapp().getTest4(),jsonObject1.toJSONString());
         log.info(result);
     }
 

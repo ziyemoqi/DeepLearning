@@ -1,16 +1,15 @@
-package com.yc.core.validate;
+package com.yc.common.validate;
 
 import cn.hutool.core.util.ReUtil;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.regex.Pattern;
 
 /**
  * 功能描述:
-
  *
-
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-06-12
  * @Version: 1.0.0
  */
@@ -30,7 +29,7 @@ public class PhoneValidator implements ConstraintValidator<PhoneValidatorAnnotat
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        return ReUtil.isMatch(PHONE_REGEXP,value);
+        return ReUtil.isMatch(PHONE_REGEXP, value);
     }
 
 }

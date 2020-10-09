@@ -5,7 +5,7 @@ import com.yc.common.global.response.RestResult;
 /**
  * 功能描述:接口服务通用异常
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-03-22
  * @Version: 1.0.0
  */

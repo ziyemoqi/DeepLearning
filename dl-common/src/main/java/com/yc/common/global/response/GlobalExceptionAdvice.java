@@ -18,7 +18,7 @@ import javax.validation.ConstraintViolationException;
 /**
  * 功能描述:APP异常返回处理
  *
- * @Author: xieyc && 紫色年华
+ * @Author: xieyc
  * @Date: 2020-03-30
  * @Version: 1.0.0
  */

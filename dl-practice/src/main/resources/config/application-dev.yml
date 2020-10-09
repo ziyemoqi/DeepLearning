@@ -1,7 +1,11 @@
 server:
   port: 8082
+  servlet:
+    context-path: /api
+
 spring:
-  #===== DataBase 相关 ===========
+  profiles:
+    include: common-dev
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/deeplearning?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
@@ -47,17 +51,3 @@ dl:
     - /mallSeckill/**
     - /mqOrder/**
     - /demo/**
-  #===== 文件相关 =====
-  upload:
-    img-save-path: D://upload//image//
-    img-access-path: /image/**
-    file-save-path: D://upload//file//
-    file-access-path: /file/**
-  encode:
-    secretKey: deepLearning-dev@secretKey
-    aesKey: deepLearning-dev@aesKey
-  url:
-    test1: http://127.0.0.1:8081/sideRequest/test1
-    test2: http://127.0.0.1:8081/sideRequest/test2
-    test3: http://127.0.0.1:8081/sideRequest/test3
-    test4: http://127.0.0.1:8081/sideRequest/test4
