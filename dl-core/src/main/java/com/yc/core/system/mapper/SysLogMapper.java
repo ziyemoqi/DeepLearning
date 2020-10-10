@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  * 功能描述:
  *
  * @Author:  xieyc
- * @Date 2019-09-21
+ * @Date: 2019-09-21
  * @Version: 1.0.0
  */
 @Repository

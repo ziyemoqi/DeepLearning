@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  * 功能描述:
  *
  * @Author: xieyc
- * @Date 2019-09-21
+ * @Date: 2019-09-21
  * @Version: 1.0.0
  */
 public interface SysLogService extends IService<SysLog> {

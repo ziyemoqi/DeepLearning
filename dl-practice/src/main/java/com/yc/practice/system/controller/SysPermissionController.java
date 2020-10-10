@@ -21,7 +21,7 @@ import java.util.Map;
  * 功能描述:权限控制器 (菜单 按钮)
  *
  * @Author: xieyc
- * @Date 2019-09-20
+ * @Date: 2019-09-20
  * @Version: 1.0.0
  */
 @RestController

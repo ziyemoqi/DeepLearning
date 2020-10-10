@@ -8,7 +8,7 @@ import com.yc.core.redispractice.entity.RedisPubSub;
  * 功能描述:
  *
  * @Author: xieyc
- * @Date 2020-01-29
+ * @Date: 2020-01-29
  * @Version: 1.0.0
  */
 public interface RedisPubSubService extends IService<RedisPubSub> {

@@ -7,7 +7,7 @@ import com.yc.core.mall.entity.MallOrderItem;
  * 功能描述:
  *
  * @Author: xieyc
- * @Date 2020-05-08
+ * @Date: 2020-05-08
  * @Version: 1.0.0
  */
 public interface MallOrderItemService extends IService<MallOrderItem> {

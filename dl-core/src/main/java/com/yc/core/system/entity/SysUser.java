@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
  * 功能描述: 用户信息
  *
  * @Author: xieyc
- * @Date 2019-09-19
+ * @Date: 2019-09-19
  * @Version: 1.0.0
  * <p>
  * mybatisPlus会默认使用实体类的类名到数据库中找对应的表

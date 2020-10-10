@@ -12,7 +12,7 @@ import java.io.Serializable;
  * 功能描述: 角色权限
  *
  * @Author xieyc
- * @Date 2019-09-20
+ * @Date: 2019-09-20
  * @Version: 1.0.0
  */
 @Data
