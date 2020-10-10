@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * 功能描述:消息提醒接受表
  *
  * @Author: xieyc
- * @Date 2019-10-08
+ * @Date: 2019-10-08
  * @Version: 1.0.0
  */
 @RestController

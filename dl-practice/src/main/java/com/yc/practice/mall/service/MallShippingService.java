@@ -10,7 +10,7 @@ import java.util.List;
  * 功能描述:
  *
  * @Author: xieyc
- * @Date 2020-05-08
+ * @Date: 2020-05-08
  * @Version: 1.0.0
  */
 public interface MallShippingService extends IService<MallShipping> {

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * 功能描述:redis Practice API 暴露接口
  *
  * @Author: xieyc
- * @Date 2020-01-19
+ * @Date: 2020-01-19
  * @Version: 1.0.0
  */
 @RestController

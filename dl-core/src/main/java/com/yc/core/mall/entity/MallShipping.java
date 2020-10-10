@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
  * 功能描述:收货地址
  *
  * @Author:  xieyc
- * @Date 2020-05-08
+ * @Date: 2020-05-08
  * @Version: 1.0.0
  */
 @Data

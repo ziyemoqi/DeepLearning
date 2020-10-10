@@ -9,7 +9,7 @@ import com.yc.core.redispractice.model.RedisUserQuery;
  * 功能描述:
  *
  * @Author: xieyc
- * @Date 2020-01-19
+ * @Date: 2020-01-19
  * @Version: 1.0.0
  */
 public interface RedisUserService extends IService<RedisUser> {
