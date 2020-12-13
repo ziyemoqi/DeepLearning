@@ -31,7 +31,7 @@ public class TimerRecordController {
     /**
      * 超时订单取消
      */
-    @Scheduled(cron = "0 0/1 * * * ?")
+    // @Scheduled(cron = "0 0/1 * * * ?")
     public void orderCheck() {
         service.orderCheck();
     }
@@ -39,7 +39,7 @@ public class TimerRecordController {
     /**
      * 刷新ComponentAccessToken(1小时50分钟)
      */
-    @Scheduled(cron = "0 50 0/2 * * ?")
+    // @Scheduled(cron = "0 50 0/2 * * ?")
     public void refreshComponentAccessToken() {
         log.info("=========== 刷新ComponentAccessToken START ===========");
         System.out.println(new Date());

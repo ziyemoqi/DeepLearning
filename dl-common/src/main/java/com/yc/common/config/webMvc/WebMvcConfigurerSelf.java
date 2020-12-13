@@ -34,6 +34,14 @@ public class WebMvcConfigurerSelf implements WebMvcConfigurer {
         // 映射本地存储路径 "file:D:/upload/"
         registry.addResourceHandler(uploadProperties.getImgAccessPath()).addResourceLocations("file:" + uploadProperties.getImgSavePath());
         registry.addResourceHandler(uploadProperties.getFileAccessPath()).addResourceLocations("file:" + uploadProperties.getFileSavePath());
+        // swagger + knif4j
+        registry.addResourceHandler("doc.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        // swagger
+        // registry.addResourceHandler("swagger-ui.html")
+        //         .addResourceLocations("classpath:/META-INF/resources/");
+        // registry.addResourceHandler("/webjars/**")
+        //         .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
     /**

@@ -23,6 +23,7 @@
     2.打开设置               ctrl + alt + s
     3.关闭当前编辑文件          ctrl + F4
     4.生成get/set,构造函数,toString()  Alt + Insert	
+    5. new User().var       快速实例化对象
     
     
 		ctrl + O 重写父类方法       

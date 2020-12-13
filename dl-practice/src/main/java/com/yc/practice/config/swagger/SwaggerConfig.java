@@ -26,9 +26,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @Date: 2019-07-07
  * @Version: 1.0.0
  */
-@Configuration
-@EnableWebMvc
-@EnableSwagger2
+// @Configuration
+// @EnableWebMvc
+// @EnableSwagger2
 public class SwaggerConfig implements WebMvcConfigurer {
 
     /**
@@ -38,59 +38,59 @@ public class SwaggerConfig implements WebMvcConfigurer {
      *
      * @return Docket
      */
-    @Bean
-    public Docket createRestApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("业务接口")
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.yc.practice.mall"))
-                .paths(PathSelectors.any())
-                .build();
-    }
-
-    /**
-     * 指定接口基础信息
-     * apiInfo:定义项目描述信息
-     * apis:   指定接口层中的位置
-     * <p>
-     * [将多个controller拼装到一个分组
-     * .apis(Predicates.or(selector1,selector2))   ]
-     * [只监控user相关接口
-     * .paths(PathSelectors.regex("/user.*"))  ]
-     * [为有@Api注解的Controller生成API文档
-     * .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))   ]
-     * [为有@ApiOperation注解的方法生成API文档
-     * .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))  ]
-     *
-     * @return Docket
-     */
-    @Bean
-    public Docket createSystemRestApi() {
-        //分组展示
-        Predicate<RequestHandler> selector1 = RequestHandlerSelectors.basePackage("com.yc.practice.system.controller");
-        // Predicate<RequestHandler> selector2 = RequestHandlerSelectors.basePackage("com.lh.modules");
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("系统接口")
-                .apiInfo(apiInfo())
-                .select()
-                .apis(Predicates.or(selector1))
-                .paths(PathSelectors.any())
-                .build();
-    }
-
-    /**
-     * 定义项目描述信息
-     *
-     * @return 定义项目描述信息
-     */
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("接口文档")
-                .description("Restful风格接口文档")
-                .version("1.0")
-                .build();
-    }
+    // @Bean
+    // public Docket createRestApi() {
+    //     return new Docket(DocumentationType.SWAGGER_2)
+    //             .groupName("业务接口")
+    //             .apiInfo(apiInfo())
+    //             .select()
+    //             .apis(RequestHandlerSelectors.basePackage("com.yc.practice.mall"))
+    //             .paths(PathSelectors.any())
+    //             .build();
+    // }
+    //
+    // /**
+    //  * 指定接口基础信息
+    //  * apiInfo:定义项目描述信息
+    //  * apis:   指定接口层中的位置
+    //  * <p>
+    //  * [将多个controller拼装到一个分组
+    //  * .apis(Predicates.or(selector1,selector2))   ]
+    //  * [只监控user相关接口
+    //  * .paths(PathSelectors.regex("/user.*"))  ]
+    //  * [为有@Api注解的Controller生成API文档
+    //  * .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))   ]
+    //  * [为有@ApiOperation注解的方法生成API文档
+    //  * .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))  ]
+    //  *
+    //  * @return Docket
+    //  */
+    // @Bean
+    // public Docket createSystemRestApi() {
+    //     //分组展示
+    //     Predicate<RequestHandler> selector1 = RequestHandlerSelectors.basePackage("com.yc.practice.system.controller");
+    //     // Predicate<RequestHandler> selector2 = RequestHandlerSelectors.basePackage("com.lh.modules");
+    //     return new Docket(DocumentationType.SWAGGER_2)
+    //             .groupName("系统接口")
+    //             .apiInfo(apiInfo())
+    //             .select()
+    //             .apis(Predicates.or(selector1))
+    //             .paths(PathSelectors.any())
+    //             .build();
+    // }
+    //
+    // /**
+    //  * 定义项目描述信息
+    //  *
+    //  * @return 定义项目描述信息
+    //  */
+    // private ApiInfo apiInfo() {
+    //     return new ApiInfoBuilder()
+    //             .title("接口文档")
+    //             .description("Restful风格接口文档")
+    //             .version("1.0")
+    //             .build();
+    // }
 
 }
 
