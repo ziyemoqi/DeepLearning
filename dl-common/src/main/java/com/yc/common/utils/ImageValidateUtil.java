@@ -40,7 +40,7 @@ public class ImageValidateUtil {
      * @param sources    验证码字符源
      * @return code
      */
-    public static String generateVerifyCode(int verifySize, String sources) {
+    private static String generateVerifyCode(int verifySize, String sources) {
         if (sources == null || sources.length() == 0) {
             sources = VERIFY_CODES;
         }
