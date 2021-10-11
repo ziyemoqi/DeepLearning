@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan("com.yc.core.*.mapper")
 public class MybatisPlusConfig {
 
+
     /**
      * 分页插件
      */
