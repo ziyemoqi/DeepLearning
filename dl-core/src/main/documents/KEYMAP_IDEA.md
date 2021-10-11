@@ -13,7 +13,7 @@
     3.对当前文本内容进行替换    ctrl + R
     4.对全局文本内容进行替换    ctrl + shift + R
     5.删除当前行或选中行        ctrl + Y
-    6.移动光标向上/向下         Alt + Shift + 方向
+    6.移动当前行向上/向下         Alt + Shift + 方向
     7.格式化代码              ctrl + Alt + L
     8.大小写转换              ctrl + shift + U
     9.批量修改                ctrl + shift + alt + J
@@ -23,7 +23,8 @@
     2.打开设置               ctrl + alt + s
     3.关闭当前编辑文件          ctrl + F4
     4.生成get/set,构造函数,toString()  Alt + Insert	
-    5. new User().var       快速实例化对象
+    5.new User().var       快速实例化对象
+    6.向上向下跳转方法         ALT + 方向
     
     
 		ctrl + O 重写父类方法       
