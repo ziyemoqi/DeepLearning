@@ -22,6 +22,7 @@ public class ChannelMessageConfig {
         return new MessageListenerAdapter(new MyRedisChannelListener());
     }
 
+
     @Bean
     RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
