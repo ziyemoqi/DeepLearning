@@ -10,10 +10,10 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * 功能描述:
+ * 功能描述: 优惠券
  *
  * @Author xieyc
- * @Date: 2020-07-27
+ * @Date 2021-11-24
  * @Version: 1.0.0
  */
 @Data
@@ -51,6 +51,7 @@ public class MallCoupon implements Serializable {
      * 创建时间
      */
     private LocalDateTime createTime;
+
 
 
 }

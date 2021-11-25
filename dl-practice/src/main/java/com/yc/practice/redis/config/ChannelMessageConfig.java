@@ -14,13 +14,13 @@ import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
  * @Date: 2020-01-29
  * @Version: 1.0.0
  */
-@Configuration
+//@Configuration
 public class ChannelMessageConfig {
 
-    @Bean
-    MessageListenerAdapter listenerAdapter() {
-        return new MessageListenerAdapter(new MyRedisChannelListener());
-    }
+    //@Bean
+    //MessageListenerAdapter listenerAdapter() {
+    //    return new MessageListenerAdapter(new MyRedisChannelListener());
+    //}
 
 
     @Bean
