@@ -25,6 +25,7 @@ public class Test1Controller {
     public void test(@NotBlank(message = "用户名不能为空") String param) {
         System.out.println(param);
         System.out.println(1);
+        System.out.println(1);
     }
 
 }
