@@ -26,7 +26,6 @@ public class TestController {
     @GetMapping
     public void test(@NotBlank(message = "用户名不能为空") String param) {
         System.out.println(param);
-        System.out.println(param);
     }
 
 }
