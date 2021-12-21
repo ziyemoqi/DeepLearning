@@ -96,5 +96,13 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
         webSocket.sendAllMessage(obj.toJSONString());
     }
 
+    @Override
+    public void test() {
+        JSONObject obj = new JSONObject();
+        obj.put("content", "您有一条新的消息!");
+        webSocket.sendAllMessage(obj.toJSONString());
+    }
+
 
 }
+

@@ -26,7 +26,8 @@
     <properties>
         <java.version>1.8</java.version>
         <druid-spring-boot-starter.version>1.1.22</druid-spring-boot-starter.version>
-        <mybatis-plus.version>3.3.2</mybatis-plus.version>
+        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.3.2</mybatis-plus-generator.version>
         <swagger.version>2.7.0</swagger.version>
         <fastjson.version>1.2.58</fastjson.version>
         <jwt.version>3.7.0</jwt.version>

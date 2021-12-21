@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * 功能描述:JWT登录授权过滤器
@@ -69,13 +70,13 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             String errorMsg = RestResult.error(e.getCode(), e.getMsg()).toJSONString();
             log.error(errorMsg);
             ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
-                    Charset.forName(CommonConstant.CHARSET_UTF_8)));
+                    StandardCharsets.UTF_8));
             return;
         } catch (Exception e) {
             String errorMsg = RestResult.error(40103, e.getMessage()).toJSONString();
             log.error(errorMsg);
             ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
-                    Charset.forName(CommonConstant.CHARSET_UTF_8)));
+                    StandardCharsets.UTF_8));
             return;
         }
         SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);

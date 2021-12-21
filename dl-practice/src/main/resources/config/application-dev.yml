@@ -54,3 +54,4 @@ dl:
     - /mqOrder/**
     - /demo/**
     - /mq/**
+    - /message/sendTest

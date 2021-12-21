@@ -29,5 +29,7 @@ public interface MessageService extends IService<Message> {
      */
     void sendAllUser(Message message);
 
+    void test();
+
 
 }

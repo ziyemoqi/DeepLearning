@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -70,14 +71,14 @@ public class UsernamePasswordAuthenticationFilterSelf extends UsernamePasswordAu
                 String errorMsg = RestResult.error(Error.ParameterNotFound.getCode(),
                         Error.ParameterNotFound.getMsg()).toJSONString();
                 ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
-                        Charset.forName(CommonConstant.CHARSET_UTF_8)));
+                        StandardCharsets.UTF_8));
                 return null;
             }
         } catch (IOException e) {
             log.error(e.getMessage(), e);
             String errorMsg = RestResult.error(Error.ParameterNotFound.getCode(), Error.ParameterNotFound.getMsg()).toJSONString();
             ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
-                    Charset.forName(CommonConstant.CHARSET_UTF_8)));
+                    StandardCharsets.UTF_8));
             return null;
         }
 
@@ -87,19 +88,19 @@ public class UsernamePasswordAuthenticationFilterSelf extends UsernamePasswordAu
         String verifyCode = loginData.getString("verifyCode");
         String verifyKey = loginData.getString("verifyKey");
 
-        if (redisTemplate.hasKey(verifyKey)) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(verifyKey))) {
             if (!StringUtils.equalsIgnoreCase(redisTemplate.opsForValue().get(verifyKey), verifyCode)) {
                 String errorMsg =
                         RestResult.error(Error.CheckCodeError.getCode(), Error.CheckCodeError.getMsg()).toJSONString();
                 ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
-                        Charset.forName(CommonConstant.CHARSET_UTF_8)));
+                        StandardCharsets.UTF_8));
                 return null;
             }
         } else {
             String errorMsg =
                     RestResult.error(Error.GetCodeAgain.getCode(), Error.GetCodeAgain.getMsg()).toJSONString();
             ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
-                    Charset.forName(CommonConstant.CHARSET_UTF_8)));
+                    StandardCharsets.UTF_8));
             return null;
         }
         // 失败次数拦截
@@ -110,7 +111,7 @@ public class UsernamePasswordAuthenticationFilterSelf extends UsernamePasswordAu
                 String errorMsg =
                         RestResult.error(Error.AccountLock.getCode(), Error.AccountLock.getMsg()).toJSONString();
                 ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
-                        Charset.forName(CommonConstant.CHARSET_UTF_8)));
+                        StandardCharsets.UTF_8));
                 return null;
             }
         }
@@ -140,7 +141,7 @@ public class UsernamePasswordAuthenticationFilterSelf extends UsernamePasswordAu
         sysLogService.addLog(request, "用户名: " + username + ",登录成功！", CommonConstant.LOG_TYPE_1, username, "/login",
                 "loginName:" + username + ",password:" + password);
         ServletUtil.write(response, successMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
-                Charset.forName(CommonConstant.CHARSET_UTF_8)));
+                StandardCharsets.UTF_8));
         // 在线用户放入redis 1.登出时消除缓存 2.随jwtToken一起存在，续签时重新续期缓存
         redisTemplate.opsForValue().set(CommonConstant.SYS_USERS_CACHE + sysUser.getSysUserId(), sysUser.getSysUserId(),
                 securityProperties.getJwtActiveTime(), TimeUnit.MILLISECONDS);
@@ -164,7 +165,7 @@ public class UsernamePasswordAuthenticationFilterSelf extends UsernamePasswordAu
         sysLogService.addLog(request, "用户名: " + username + ",登录失败！", CommonConstant.LOG_TYPE_1, username, "/login",
                 "loginName:" + username + ",password:" + password);
         ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
-                Charset.forName(CommonConstant.CHARSET_UTF_8)));
+                StandardCharsets.UTF_8));
     }
 
 }
