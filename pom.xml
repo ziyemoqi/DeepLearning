@@ -34,7 +34,7 @@
         <hutool.version>5.3.7</hutool.version>
         <okhttp.version>3.11.0</okhttp.version>
         <guava.version>26.0-jre</guava.version>
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <net.coobird.version>0.4.8</net.coobird.version>
         <fasterxml.jackson.datatype.version>2.9.8</fasterxml.jackson.datatype.version>
         <weixin-java-miniapp.version>3.6.0</weixin-java-miniapp.version>
