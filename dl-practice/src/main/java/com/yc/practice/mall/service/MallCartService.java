@@ -1,6 +1,6 @@
 package com.yc.practice.mall.service;
 
-import com.yc.core.mall.model.form.CartForm;
+import com.yc.core.mall.model.CartForm;
 
 /**
  * 功能描述:

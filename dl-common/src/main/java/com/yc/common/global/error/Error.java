@@ -20,32 +20,32 @@ public enum Error implements IError {
     /**
      * 安全认证
      */
-    AuthError(401, 40100, "您的账号已在异地登录,请注意个人信息安全!"),
-    TokenError(401, 99999, "登录信息已失效，请重新登录！"),
-    CheckCodeError(403, 40101, "验证码错误"),
-    ParameterNotFound(403, 40102, "请求参数错误"),
-    GetCodeAgain(403, 40104, "验证码已失效!"),
-    IllegalRequest(403, 40105, "非法请求"),
+    AUTHERROR(401, 40100, "您的账号已在异地登录,请注意个人信息安全!"),
+    TOKENERROR(401, 99999, "登录信息已失效，请重新登录！"),
+    CHECKCODEERROR(403, 40101, "验证码错误"),
+    PARAMETERNOTFOUND(403, 40102, "请求参数错误"),
+    GETCODEAGAIN(403, 40104, "验证码已失效!"),
+    ILLEGALREQUEST(403, 40105, "非法请求"),
 
     /**
      * 用户异常
      */
-    LoginNameOrPwdError(403, 42010, "用户名或密码错误"),
-    LoginPwdError(403, 42011, "用户密码错误"),
-    UserDeleted(403, 42000, "用户已注销"),
-    UserDisabled(403, 42004, "用户已禁用"),
-    UserExisted(403, 40203, "用户已存在"),
-    UserNotFound(403, 40403, "用户不存在"),
-    LoginNameIsNull(403, 42002, "用户名不能为空"),
-    AccountLock(403, 42001, "该账号密码输入错误五次，请10分钟以后重试"),
+    LOGINNAMEORPWDERROR(403, 42010, "用户名或密码错误"),
+    LOGINPWDERROR(403, 42011, "用户密码错误"),
+    USERDELETED(403, 42000, "用户已注销"),
+    USERDISABLED(403, 42004, "用户已禁用"),
+    USEREXISTED(403, 40203, "用户已存在"),
+    USERNOTFOUND(403, 40403, "用户不存在"),
+    LOGINNAMEISNULL(403, 42002, "用户名不能为空"),
+    ACCOUNTLOCK(403, 42001, "该账号密码输入错误五次，请10分钟以后重试"),
 
     /**
      * 字典管理
      */
-    PathIsNull(200, 40004, "字典路径不能为空，禁止读取根字典信息!"),
-    PathIsError(200, 40005, "字典路径格式有误"),
-    DictExisted(200, 20004, "存在重复字典项,请重新填写"),
-    DictNotFound(200, 40406, "字典不存在"),
+    PATHISNULL(200, 40004, "字典路径不能为空，禁止读取根字典信息!"),
+    PATHISERROR(200, 40005, "字典路径格式有误"),
+    DICTEXISTED(200, 20004, "存在重复字典项,请重新填写"),
+    DICTNOTFOUND(200, 40406, "字典不存在"),
 
     /**
      * 角色\权限管理

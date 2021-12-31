@@ -20,6 +20,9 @@ import java.net.URLEncoder;
 @Slf4j
 public class JxlsOutput {
 
+    private JxlsOutput(){
+
+    }
     /**
      * 输出到浏览器
      *

@@ -1,6 +1,7 @@
 package com.yc.practice.mall.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.yc.common.constant.CommonConstant;
 import com.yc.common.constant.CommonEnum;
@@ -8,7 +9,7 @@ import com.yc.common.global.error.Error;
 import com.yc.common.global.error.ErrorException;
 import com.yc.core.mall.entity.MallProduct;
 import com.yc.core.mall.mapper.MallProductMapper;
-import com.yc.core.mall.model.form.CartForm;
+import com.yc.core.mall.model.CartForm;
 import com.yc.practice.common.UserUtil;
 import com.yc.practice.mall.service.MallCartService;
 import org.apache.commons.lang3.StringUtils;
@@ -33,8 +34,8 @@ import java.util.Map;
 @Transactional(rollbackFor = Exception.class)
 public class MallCartServiceImpl implements MallCartService {
 
+    private final StringRedisTemplate redisTemplate;
     private final MallProductMapper mallProductMapper;
-    private StringRedisTemplate redisTemplate;
 
 
     @Autowired
@@ -51,7 +52,7 @@ public class MallCartServiceImpl implements MallCartService {
         Map<String, String> entries = opsForHash.entries(redisKey);
         List<CartForm> list = new ArrayList<>();
         for (Map.Entry<String, String> entry : entries.entrySet()) {
-            CartForm item = JSONObject.parseObject(entry.getValue(), CartForm.class);
+            CartForm item = JSON.parseObject(entry.getValue(), CartForm.class);
             // 查询商品实时信息
             list.add(item);
         }
@@ -83,7 +84,7 @@ public class MallCartServiceImpl implements MallCartService {
             form = JSONObject.parseObject(value, CartForm.class);
             form.setNum(form.getNum() + 1);
         }
-        opsForHash.put(key, form.getMallProductId(), JSONObject.toJSONString(form));
+        opsForHash.put(key, form.getMallProductId(), JSON.toJSONString(form));
         return this.list();
     }
 
@@ -95,8 +96,8 @@ public class MallCartServiceImpl implements MallCartService {
         if (StringUtils.isEmpty(value)) {
             throw new ErrorException(Error.GoodError);
         }
-        CartForm cart = JSONObject.parseObject(value, CartForm.class);
-        opsForHash.put(redisKey, cartForm.getMallProductId(), JSONObject.toJSONString(cart));
+        CartForm cart = JSON.parseObject(value, CartForm.class);
+        opsForHash.put(redisKey, cartForm.getMallProductId(), JSON.toJSONString(cart));
         return list();
     }
 

@@ -2,20 +2,17 @@ package com.yc.core.message.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import javax.naming.Name;
 import java.io.Serializable;
-import java.sql.Clob;
 import java.time.LocalDateTime;
 
 /**
  * 功能描述:
  *
- * @Author:  xieyc
+ * @Author: xieyc
  * @Date: 2019-10-08
  * @Version: 1.0.0
  */

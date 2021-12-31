@@ -4,7 +4,7 @@ import cn.hutool.core.lang.tree.Tree;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yc.core.system.entity.SysDict;
-import com.yc.core.system.model.query.DictQuery;
+import com.yc.core.system.model.DictQuery;
 
 import java.util.List;
 

@@ -13,7 +13,7 @@ import com.yc.common.global.error.ErrorException;
 import com.yc.common.utils.YouBianCodeUtil;
 import com.yc.core.system.entity.SysDept;
 import com.yc.core.system.mapper.SysDeptMapper;
-import com.yc.core.system.model.query.DeptQuery;
+import com.yc.core.system.model.DeptQuery;
 import com.yc.practice.common.UserUtil;
 import com.yc.practice.system.service.SysDeptService;
 import io.netty.util.internal.StringUtil;
@@ -66,7 +66,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
 
     @Override
     public void deleteAlone(String id) {
-        List<String> idList = new ArrayList<String>();
+        List<String> idList = new ArrayList<>();
         SysDept sysDept = this.getById(id);
         if (sysDept == null) {
             throw new ErrorException(Error.DeptNotFound);
@@ -87,7 +87,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
     @Override
     public void deleteBatch(String ids) {
         if (StringUtils.isBlank(ids)) {
-            throw new ErrorException(Error.ParameterNotFound);
+            throw new ErrorException(Error.PARAMETERNOTFOUND);
         } else {
             List<String> list = Arrays.asList(ids.split(","));
             list.forEach(this::deleteAlone);
@@ -124,7 +124,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
                 .eq(SysDept::getParentId, id)
                 .eq(SysDept::getDelFlag, CommonEnum.DelFlag.NO_DEL.getCode())
         );
-        if (departList != null && departList.size() > 0) {
+        if (departList != null && !departList.isEmpty()) {
             for (SysDept depart : departList) {
                 idList.add(depart.getSysDeptId());
                 this.checkChildrenExists(depart.getSysDeptId(), idList);
@@ -168,7 +168,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
             SysDept depart = this.getById(parentId);
             strArray[1] = String.valueOf(depart.getAdminLevel() + 1);
             // 处理同级部门为null的情况
-            if (parentList == null || parentList.size() == 0) {
+            if (parentList == null || parentList.isEmpty()) {
                 // 直接生成当前的部门编码并返回
                 strArray[0] = YouBianCodeUtil.getSubYouBianCode(depart.getUniqueCoding(), null);
             } else { //处理有同级部门的情况

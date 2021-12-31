@@ -12,8 +12,8 @@ import com.yc.core.mall.entity.MallSeckill;
 import com.yc.core.mall.entity.MallSeckillSuccess;
 import com.yc.core.mall.mapper.MallSeckillMapper;
 import com.yc.core.mall.mapper.MallSeckillSuccessMapper;
-import com.yc.core.mall.model.form.SeckillForm;
-import com.yc.core.mall.model.vo.SeckillVO;
+import com.yc.core.mall.model.SeckillForm;
+import com.yc.core.mall.model.SeckillVO;
 import com.yc.practice.common.UserUtil;
 import com.yc.practice.mall.service.MallSeckillService;
 import lombok.extern.slf4j.Slf4j;
@@ -39,8 +39,8 @@ import java.util.Map;
 @Service
 public class MallSeckillServiceImpl extends ServiceImpl<MallSeckillMapper, MallSeckill> implements MallSeckillService {
 
-    private MallSeckillSuccessMapper mallSeckillSuccessMapper;
     private final RedisTemplate redisTemplate;
+    private final MallSeckillSuccessMapper mallSeckillSuccessMapper;
 
     @Autowired
     public MallSeckillServiceImpl(MallSeckillSuccessMapper mallSeckillSuccessMapper, RedisTemplate redisTemplate) {
@@ -83,7 +83,7 @@ public class MallSeckillServiceImpl extends ServiceImpl<MallSeckillMapper, MallS
     public SeckillVO mallSeckill(String mallSeckillId) {
         SeckillVO seckillVO = new SeckillVO();
         String key = CommonConstant.MALL_SECKILL + mallSeckillId;
-        if (redisTemplate.hasKey(key)) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
             seckillVO.setSeckillStartTime(LocalDateTime.parse(redisTemplate.opsForHash().get(key, "seckillStartTime").toString()));
             seckillVO.setSeckillEndTime(LocalDateTime.parse(redisTemplate.opsForHash().get(key, "seckillEndTime").toString()));
             seckillVO.setMallProductName(redisTemplate.opsForHash().get(key, "mallProductName").toString());
@@ -132,7 +132,7 @@ public class MallSeckillServiceImpl extends ServiceImpl<MallSeckillMapper, MallS
         // 验签
         String md5 = DigestUtil.md5Hex(seckillForm.getMallSeckillId() + CommonConstant.SLAT);
         if (!StringUtils.equals(md5, seckillForm.getMd5())) {
-            throw new ErrorException(Error.IllegalRequest);
+            throw new ErrorException(Error.ILLEGALREQUEST);
         }
         // 执行秒杀逻辑: 1.减库存.2.记录购买行为
         MallSeckillSuccess mallSeckillSuccess = new MallSeckillSuccess();
@@ -162,13 +162,12 @@ public class MallSeckillServiceImpl extends ServiceImpl<MallSeckillMapper, MallS
         // 验签
         String md5 = DigestUtil.md5Hex(seckillForm.getMallSeckillId() + CommonConstant.SLAT);
         if (!StringUtils.equals(md5, seckillForm.getMd5())) {
-            throw new ErrorException(Error.IllegalRequest);
+            throw new ErrorException(Error.ILLEGALREQUEST);
         }
         // 记录购买信息,减库存
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("mallSeckillId", seckillForm.getMallSeckillId());
         map.put("killTime", LocalDateTime.now().toString());
-        // map.put("sysUserId", UserUtil.getUserId());
         map.put("sysUserId", LocalDateTime.now().toString());
         map.put("result", null);
         // 执行存储过程 赋值result

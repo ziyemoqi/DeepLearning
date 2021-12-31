@@ -3,7 +3,7 @@ package com.yc.core.mall.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yc.core.mall.entity.MallOrder;
-import com.yc.core.mall.model.query.OrderQuery;
+import com.yc.core.mall.model.OrderQuery;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 /**

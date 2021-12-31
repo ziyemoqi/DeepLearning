@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -36,12 +37,12 @@ public class RedisCounterServiceImpl implements RedisCounterService {
     @Override
     public String importDevice() {
         String key = CommonConstant.DEVICE_REPAIR;
-        if (redisTemplate.hasKey(key)) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
             if ((int) (redisTemplate.opsForValue().get(key)) > 5) {
                 return "操作过于频繁，请稍后再试！";
             }
         }
-        String order = "";
+        StringBuilder order = new StringBuilder();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateString = sdf.format(new Date());
         Long incr = this.incr(key, 1);
@@ -52,7 +53,7 @@ public class RedisCounterServiceImpl implements RedisCounterService {
         DecimalFormat df = new DecimalFormat("00000");
         String[] drs = dateString.split("-");
         for (int i = 1; i < drs.length; i++) {
-            order += drs[i];
+            order.append(drs[i]);
         }
         return "X" + order + df.format(incr);
     }
@@ -65,10 +66,10 @@ public class RedisCounterServiceImpl implements RedisCounterService {
      * @return
      */
     private Long incr(String key, long liveTime) {
-        RedisAtomicLong entityIdCounter = new RedisAtomicLong(key, redisTemplate.getConnectionFactory());
-        Long increment = entityIdCounter.getAndIncrement();
+        RedisAtomicLong entityIdCounter = new RedisAtomicLong(key, Objects.requireNonNull(redisTemplate.getConnectionFactory()));
+        long increment = entityIdCounter.getAndIncrement();
         // 初始设置过期时间
-        if ((null == increment || increment.longValue() == 0) && liveTime > 0) {
+        if ((increment == 0) && liveTime > 0) {
             entityIdCounter.expire(liveTime, TimeUnit.MINUTES);
         }
         return increment;

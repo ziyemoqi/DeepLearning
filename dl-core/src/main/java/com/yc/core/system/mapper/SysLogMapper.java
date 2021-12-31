@@ -3,8 +3,8 @@ package com.yc.core.system.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yc.core.system.entity.SysLog;
-import com.yc.core.system.model.query.LogQuery;
-import com.yc.core.system.model.vo.SysLogVO;
+import com.yc.core.system.model.LogQuery;
+import com.yc.core.system.model.SysLogVO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

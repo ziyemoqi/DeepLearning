@@ -3,8 +3,8 @@ package com.yc.practice.mall.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yc.core.mall.entity.MallSeckill;
-import com.yc.core.mall.model.form.SeckillForm;
-import com.yc.core.mall.model.vo.SeckillVO;
+import com.yc.core.mall.model.SeckillForm;
+import com.yc.core.mall.model.SeckillVO;
 
 /**
  * 功能描述:

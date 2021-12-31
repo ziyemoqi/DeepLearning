@@ -1,6 +1,7 @@
 package com.yc.core.tree;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,6 +12,10 @@ import java.util.List;
  * @Version: 1.0.0
  */
 public class Tree {
+
+    private Tree() {
+
+    }
 
     /**
      * 构建树形数据
@@ -58,8 +63,8 @@ public class Tree {
             entity.setChildren(getSubList(entity.getId(), entityList));
         }
         // 递归退出条件
-        if (childList.size() == 0) {
-            return null;
+        if (childList.isEmpty()) {
+            return Collections.emptyList();
         }
         return childList;
     }

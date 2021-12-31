@@ -37,11 +37,11 @@ public class CusJxlsHelper extends JxlsHelper {
 
         areaBuilder.setTransformer(transformer);
         List<Area> xlsAreaList = areaBuilder.build();
-        Iterator var4 = xlsAreaList.iterator();
+        Iterator<Area> var4 = xlsAreaList.iterator();
 
         Area xlsArea;
         while (var4.hasNext()) {
-            xlsArea = (Area) var4.next();
+            xlsArea = var4.next();
             xlsArea.applyAt(new CellRef(xlsArea.getStartCellRef().getCellName()), context);
         }
 
@@ -49,8 +49,8 @@ public class CusJxlsHelper extends JxlsHelper {
             var4 = xlsAreaList.iterator();
 
             while (var4.hasNext()) {
-                xlsArea = (Area) var4.next();
-                this.setFormulaProcessor(xlsArea);
+                xlsArea = var4.next();
+                this.handleFormulaProcessor(xlsArea);
                 xlsArea.processFormulas();
             }
         }
@@ -62,7 +62,7 @@ public class CusJxlsHelper extends JxlsHelper {
         transformer.write();
     }
 
-    private Area setFormulaProcessor(Area xlsArea) {
+    public void handleFormulaProcessor(Area xlsArea) {
         FormulaProcessor fp = this.getFormulaProcessor();
         if (fp == null) {
             if (this.isUseFastFormulaProcessor()) {
@@ -71,8 +71,6 @@ public class CusJxlsHelper extends JxlsHelper {
                 fp = new StandardFormulaProcessor();
             }
         }
-
-        xlsArea.setFormulaProcessor((FormulaProcessor) fp);
-        return xlsArea;
+        xlsArea.setFormulaProcessor(fp);
     }
 }

@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 /**
@@ -17,7 +18,7 @@ import java.util.Collection;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class UserDetailsSelf extends SysUser implements UserDetails {
+public class UserDetailsSelf extends SysUser implements UserDetails, Serializable {
 
     /**
      * 密码

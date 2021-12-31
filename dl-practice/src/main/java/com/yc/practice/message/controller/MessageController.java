@@ -2,7 +2,6 @@ package com.yc.practice.message.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yc.common.constant.CommonConstant;
-import com.yc.common.utils.WebSocketUtil;
 import com.yc.core.message.entity.Message;
 import com.yc.practice.common.log.WriteLog;
 import com.yc.practice.message.service.MessageService;
@@ -11,8 +10,6 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
 
 /**
  * 功能描述:消息提醒

@@ -49,7 +49,7 @@ public class ExportController {
      */
     @PostMapping("/exportExcel")
     public void exportExcel(HttpServletResponse response) {
-        List<SysUser> list = sysUserService.list(new LambdaQueryWrapper<SysUser>());
+        List<SysUser> list = sysUserService.list(new LambdaQueryWrapper<>());
         Context context = new Context();
         context.putVar("list", list);
         JxlsOutput.out(response,
@@ -57,7 +57,6 @@ public class ExportController {
                 CommonEnum.Reports.DEMO_REPORT.getPath(),
                 context);
     }
-
 
 
 }

@@ -2,7 +2,7 @@ package com.yc.practice.mall.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yc.core.mall.entity.MallProduct;
-import com.yc.core.mall.model.query.GoodQuery;
+import com.yc.core.mall.model.GoodQuery;
 import com.yc.practice.mall.service.MallProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

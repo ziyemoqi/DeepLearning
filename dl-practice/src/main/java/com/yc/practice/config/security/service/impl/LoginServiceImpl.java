@@ -37,7 +37,8 @@ public class LoginServiceImpl implements LoginService {
     public JSONObject getImageVerify() {
         String verifyKey = IdUtil.simpleUUID();
         String verifyCode = ImageValidateUtil.generateVerifyCode(4);
-        int w = 200, h = 80;
+        int w = 200;
+        int h = 80;
         String fileName = IdUtil.simpleUUID();
         String tempPath = System.getProperty("java.io.tmpdir");
         String filePath = StringUtils.join(tempPath, File.separator, fileName, ".jpg");
@@ -52,6 +53,6 @@ public class LoginServiceImpl implements LoginService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return new JSONObject();
     }
 }

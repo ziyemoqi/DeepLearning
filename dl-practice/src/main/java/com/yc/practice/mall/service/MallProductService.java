@@ -3,7 +3,7 @@ package com.yc.practice.mall.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yc.core.mall.entity.MallProduct;
-import com.yc.core.mall.model.query.GoodQuery;
+import com.yc.core.mall.model.GoodQuery;
 
 /**
  * 功能描述:

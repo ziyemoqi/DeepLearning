@@ -16,9 +16,11 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * 功能描述:HTTP请求工具类
@@ -27,6 +29,10 @@ import java.util.Map;
  * @Date: 2019-05-10 13:48
  */
 public class HttpClientUtil {
+
+    private HttpClientUtil() {
+
+    }
 
     /**
      * Get方式请求
@@ -43,8 +49,8 @@ public class HttpClientUtil {
             // 创建uri
             URIBuilder builder = new URIBuilder(url);
             if (param != null) {
-                for (String key : param.keySet()) {
-                    builder.addParameter(key, param.get(key));
+                for (Map.Entry<String, String> stringStringEntry : param.entrySet()) {
+                    builder.addParameter(stringStringEntry.getKey(), stringStringEntry.getValue());
                 }
             }
             URI uri = builder.build();
@@ -52,16 +58,16 @@ public class HttpClientUtil {
             HttpGet httpGet = new HttpGet(uri);
             response = httpclient.execute(httpGet);
             if (response.getStatusLine().getStatusCode() == CommonConstant.SUCCESS_CODE) {
-                resultString = EntityUtils.toString(response.getEntity(), CommonConstant.CHARSET_UTF_8);
+                resultString = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
+                httpclient.close();
                 if (response != null) {
                     response.close();
                 }
-                httpclient.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -84,21 +90,22 @@ public class HttpClientUtil {
             HttpPost httpPost = new HttpPost(url);
             // 处理参数
             if (param != null) {
-                List<NameValuePair> paramList = new ArrayList<NameValuePair>();
-                for (String key : param.keySet()) {
-                    paramList.add(new BasicNameValuePair(key, param.get(key)));
+                List<NameValuePair> paramList = new ArrayList<>();
+                for (Map.Entry<String, String> stringStringEntry : param.entrySet()) {
+                    paramList.add(new BasicNameValuePair(stringStringEntry.getKey(), stringStringEntry.getValue()));
                 }
                 // 模拟表单
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(paramList);
                 httpPost.setEntity(entity);
             }
             response = httpClient.execute(httpPost);
-            resultString = EntityUtils.toString(response.getEntity(), CommonConstant.CHARSET_UTF_8);
+            resultString = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
-                response.close();
+                httpClient.close();
+                Objects.requireNonNull(response).close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -126,12 +133,13 @@ public class HttpClientUtil {
             httpPost.setEntity(entity);
             // 执行http请求
             response = httpClient.execute(httpPost);
-            resultString = EntityUtils.toString(response.getEntity(), CommonConstant.CHARSET_UTF_8);
+            resultString = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
-                response.close();
+                httpClient.close();
+                Objects.requireNonNull(response).close();
             } catch (IOException e) {
                 e.printStackTrace();
             }

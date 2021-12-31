@@ -13,6 +13,10 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class PasswordCheckUtil {
 
+    private PasswordCheckUtil() {
+
+    }
+
     public enum LEVEL {
         EASY, MIDIUM, STRONG, VERY_STRONG, EXTREMELY_STRONG
     }
@@ -29,10 +33,10 @@ public class PasswordCheckUtil {
     /**
      * 简单的密码字典
      */
-    private final static String[] DICTIONARY = {"password", "abc123", "iloveyou", "adobe123", "123123",
+    private static final String[] DICTIONARY = {"password", "abc123", "iloveyou", "adobe123", "123123",
             "111111", "a1b2c3", "123qwe", "aaa111", "qweasd", "admin", "123456"};
 
-    private final static int[] SIZE_TABLE = {9, 99, 999, 9999, 99999, 999999, 9999999, 99999999, 999999999,
+    private static final int[] SIZE_TABLE = {9, 99, 999, 9999, 99999, 999999, 9999999, 99999999, 999999999,
             Integer.MAX_VALUE};
 
     /**
@@ -74,7 +78,7 @@ public class PasswordCheckUtil {
      */
     public static int getPwdLevel(String password) {
         if (StringUtils.isBlank(password)) {
-            throw new ErrorException(Error.ParameterNotFound);
+            throw new ErrorException(Error.PARAMETERNOTFOUND);
         }
         int len = password.length();
         int level = 0;
@@ -157,13 +161,13 @@ public class PasswordCheckUtil {
             }
         }
         // 减少点
-        if ("abcdefghijklmnopqrstuvwxyz".indexOf(password) > 0 || "ABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(password) > 0) {
+        if ("abcdefghijklmnopqrstuvwxyz".contains(password) || "ABCDEFGHIJKLMNOPQRSTUVWXYZ".contains(password)) {
             level--;
         }
-        if ("qwertyuiop".indexOf(password) > 0 || "asdfghjkl".indexOf(password) > 0 || "zxcvbnm".indexOf(password) > 0) {
+        if ("qwertyuiop".contains(password) || "asdfghjkl".contains(password) || "zxcvbnm".contains(password)) {
             level--;
         }
-        if (StringUtils.isNumeric(password) && ("01234567890".indexOf(password) > 0 || "09876543210".indexOf(password) > 0)) {
+        if (StringUtils.isNumeric(password) && ("01234567890".contains(password) || "09876543210".contains(password))) {
             level--;
         }
         if (countLetter(password, NUM) == len || countLetter(password, SMALL_LETTER) == len
@@ -200,9 +204,9 @@ public class PasswordCheckUtil {
                 level--;
             }
         }
-        if (null != DICTIONARY && DICTIONARY.length > 0) {// dictionary
-            for (int i = 0; i < DICTIONARY.length; i++) {
-                if (password.equals(DICTIONARY[i]) || DICTIONARY[i].indexOf(password) >= 0) {
+        if (null != DICTIONARY) {// dictionary
+            for (String s : DICTIONARY) {
+                if (password.equals(s) || s.contains(password)) {
                     level--;
                     break;
                 }

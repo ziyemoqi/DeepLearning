@@ -15,9 +15,9 @@ import com.yc.core.system.entity.SysUser;
 import com.yc.core.system.entity.SysUserRole;
 import com.yc.core.system.mapper.SysUserMapper;
 import com.yc.core.system.mapper.SysUserRoleMapper;
-import com.yc.core.system.model.form.SysUserForm;
-import com.yc.core.system.model.query.UserQuery;
-import com.yc.core.system.model.vo.SysUserVO;
+import com.yc.core.system.model.SysUserForm;
+import com.yc.core.system.model.SysUserVO;
+import com.yc.core.system.model.UserQuery;
 import com.yc.practice.common.UserUtil;
 import com.yc.practice.system.service.SysLogService;
 import com.yc.practice.system.service.SysUserService;
@@ -118,8 +118,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         List<SysUser> list = this.baseMapper.selectList(new LambdaQueryWrapper<SysUser>()
                 .eq(SysUser::getLoginName, loginName)
         );
-        if (list != null && list.size() > 0) {
-            throw new ErrorException(Error.UserExisted);
+        if (list != null && !list.isEmpty()) {
+            throw new ErrorException(Error.USEREXISTED);
         }
     }
 
@@ -148,11 +148,11 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public List<String> queryUserRole(String userId) {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         List<SysUserRole> userRole = sysUserRoleMapper.selectList(new LambdaQueryWrapper<SysUserRole>()
                 .eq(SysUserRole::getUserId, userId));
         if (ObjectUtil.isNull(userRole)) {
-            throw new ErrorException(Error.UserNotFound);
+            throw new ErrorException(Error.USERNOTFOUND);
         } else {
             for (SysUserRole sysUserRole : userRole) {
                 list.add(sysUserRole.getRoleId());
@@ -184,7 +184,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     public Page<SysUserVO> chatPage(Page<SysUser> page) {
         Page<SysUserVO> pRecord = this.baseMapper.chatPage(page);
         pRecord.getRecords().forEach(i -> {
-            if (redisTemplate.hasKey(CommonConstant.SYS_USERS_CACHE + i.getSysUserId())) {
+            if (Boolean.TRUE.equals(redisTemplate.hasKey(CommonConstant.SYS_USERS_CACHE + i.getSysUserId()))) {
                 i.setOnline("1");
             } else {
                 i.setOnline("0");

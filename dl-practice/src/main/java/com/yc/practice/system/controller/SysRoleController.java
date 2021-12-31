@@ -3,9 +3,8 @@ package com.yc.practice.system.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yc.common.constant.CommonConstant;
-import com.yc.common.constant.CommonEnum;
 import com.yc.core.system.entity.SysRole;
-import com.yc.core.system.model.query.RoleQuery;
+import com.yc.core.system.model.RoleQuery;
 import com.yc.practice.common.UserUtil;
 import com.yc.practice.common.log.WriteLog;
 import com.yc.practice.system.service.SysRoleService;
@@ -17,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**

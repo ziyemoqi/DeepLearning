@@ -3,6 +3,7 @@ package com.yc.practice.redis.controller;
 import com.yc.practice.redis.service.RedisRankService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +45,7 @@ public class RedisRankController {
      * @return set
      */
     @GetMapping("/getData")
-    public Set getData() {
+    public Set<ZSetOperations.TypedTuple<String>> getData() {
         return iRedisRankService.getData();
     }
 
@@ -62,7 +63,7 @@ public class RedisRankController {
      * @return set
      */
     @GetMapping("/scoreTop10")
-    public Set top10(String type) {
+    public Set<ZSetOperations.TypedTuple<String>> top10(String type) {
         return iRedisRankService.top10(type);
     }
 
@@ -80,7 +81,7 @@ public class RedisRankController {
      * @return
      */
     @GetMapping("/userInfo")
-    public Map userInfo() {
+    public Map<String, Object> userInfo() {
         return iRedisRankService.userInfo();
     }
 

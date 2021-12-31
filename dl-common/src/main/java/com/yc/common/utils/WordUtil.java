@@ -9,6 +9,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
@@ -20,13 +21,13 @@ import java.util.Map;
  */
 public class WordUtil {
 
-    private static Configuration configuration;
+    private static final Configuration CONFIGURATION;
 
     static {
-        configuration = new Configuration();
-        configuration.setDefaultEncoding(CommonConstant.CHARSET_UTF_8);
+        CONFIGURATION = new Configuration();
+        CONFIGURATION.setDefaultEncoding(CommonConstant.CHARSET_UTF_8);
         try {
-            configuration.setClassForTemplateLoading(WordUtil.class, "/ftl/");
+            CONFIGURATION.setClassForTemplateLoading(WordUtil.class, "/ftl/");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,7 +47,7 @@ public class WordUtil {
      * @throws IOException
      */
     public static void exportWord(HttpServletResponse response, Map<String, Object> map, String fileName, String path) throws IOException {
-        Template freemarkerTemplate = configuration.getTemplate(path);
+        Template freemarkerTemplate = CONFIGURATION.getTemplate(path);
         File file = null;
         InputStream fin = null;
         ServletOutputStream out = null;
@@ -83,7 +84,7 @@ public class WordUtil {
     private static File createDoc(Map<?, ?> dataMap, Template template, String fileName) {
         File file = new File(fileName);
         try {
-            Writer w = new OutputStreamWriter(new FileOutputStream(file), CommonConstant.CHARSET_UTF_8);
+            Writer w = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
             template.process(dataMap, w);
             w.close();
         } catch (Exception ex) {

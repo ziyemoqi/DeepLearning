@@ -11,6 +11,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Objects;
 
 /**
  * 功能描述: 系统日志切面
@@ -38,7 +39,7 @@ public class LogAspect {
     @Around("within(com.yc..*) && @annotation(log)")
     public Object around(ProceedingJoinPoint jp, WriteLog log) {
         long startTimeMillis = System.currentTimeMillis();
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
         try {
             Object result = jp.proceed();
             long costTimeMillis = System.currentTimeMillis() - startTimeMillis;

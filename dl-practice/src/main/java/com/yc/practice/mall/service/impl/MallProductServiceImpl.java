@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yc.core.mall.entity.MallProduct;
 import com.yc.core.mall.mapper.MallProductMapper;
-import com.yc.core.mall.model.query.GoodQuery;
+import com.yc.core.mall.model.GoodQuery;
 import com.yc.practice.mall.service.MallProductService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;

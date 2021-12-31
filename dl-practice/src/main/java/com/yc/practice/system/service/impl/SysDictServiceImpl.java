@@ -14,7 +14,7 @@ import com.yc.common.global.error.Error;
 import com.yc.common.global.error.ErrorException;
 import com.yc.core.system.entity.SysDict;
 import com.yc.core.system.mapper.SysDictMapper;
-import com.yc.core.system.model.query.DictQuery;
+import com.yc.core.system.model.DictQuery;
 import com.yc.practice.common.UserUtil;
 import com.yc.practice.system.service.SysDictService;
 import lombok.extern.slf4j.Slf4j;
@@ -67,10 +67,10 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
 
     @Override
     public void deleteAlone(String id) {
-        List<String> idList = new ArrayList<String>();
+        List<String> idList = new ArrayList<>();
         SysDict sysDict = this.getById(id);
         if (sysDict == null) {
-            throw new ErrorException(Error.DictNotFound);
+            throw new ErrorException(Error.DICTNOTFOUND);
         } else {
             //逻辑删除子级字典
             idList.add(id);
@@ -88,7 +88,7 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
     @Override
     public void deleteBatch(String ids) {
         if (ids == null || "".equals(ids.trim())) {
-            throw new ErrorException(Error.ParameterNotFound);
+            throw new ErrorException(Error.PARAMETERNOTFOUND);
         } else {
             List<String> list = Arrays.asList(ids.split(","));
             list.forEach(this::deleteAlone);
@@ -110,22 +110,20 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
             sysDict.setUpdateUserId(UserUtil.getUserId());
             this.updateById(sysDict);
         } else {
-            if (sysDict != null) {
-                sysDict.setCreateUserId(UserUtil.getUserId());
-                if (StringUtils.isBlank(sysDict.getParentId())) {
-                    sysDict.setParentId("root");
-                } else {
-                    QueryWrapper<SysDict> queryWrapper = new QueryWrapper<>();
-                    queryWrapper.eq("parent_id", sysDict.getParentId());
-                    queryWrapper.eq("del_flag", 0);
-                    queryWrapper.and(wrapper -> wrapper.eq("name", sysDict.getName()).or().eq("value", sysDict.getValue()));
-                    List<SysDict> sysDicts = this.baseMapper.selectList(queryWrapper);
-                    if (ObjectUtil.isNotEmpty(sysDicts)) {
-                        throw new ErrorException(Error.DictExisted);
-                    }
+            sysDict.setCreateUserId(UserUtil.getUserId());
+            if (StringUtils.isBlank(sysDict.getParentId())) {
+                sysDict.setParentId("root");
+            } else {
+                QueryWrapper<SysDict> queryWrapper = new QueryWrapper<>();
+                queryWrapper.eq("parent_id", sysDict.getParentId());
+                queryWrapper.eq("del_flag", 0);
+                queryWrapper.and(wrapper -> wrapper.eq("name", sysDict.getName()).or().eq("value", sysDict.getValue()));
+                List<SysDict> sysDicts = this.baseMapper.selectList(queryWrapper);
+                if (ObjectUtil.isNotEmpty(sysDicts)) {
+                    throw new ErrorException(Error.DICTEXISTED);
                 }
-                this.save(sysDict);
             }
+            this.save(sysDict);
         }
     }
 
@@ -140,7 +138,7 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
                 .eq(SysDict::getParentId, id)
                 .eq(SysDict::getDelFlag, CommonEnum.DelFlag.NO_DEL.getCode())
         );
-        if (dictList != null && dictList.size() > 0) {
+        if (dictList != null && !dictList.isEmpty()) {
             for (SysDict dict : dictList) {
                 idList.add(dict.getSysDictId());
                 this.checkChildrenExists(dict.getSysDictId(), idList);
@@ -151,12 +149,12 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
     @Override
     public List<SysDict> getDict(String sKey) {
         // 字典路径检查
-        Object[] keys = sKey.replaceAll(" ", "").split(">");
+        Object[] keys = sKey.replace(" ", "").split(">");
         if (keys.length <= 0) {
-            throw new ErrorException(Error.PathIsNull);
+            throw new ErrorException(Error.PATHISNULL);
         }
         if (keys.length != 2) {
-            throw new ErrorException(Error.PathIsError);
+            throw new ErrorException(Error.PATHISERROR);
         }
         return this.baseMapper.getDictByRoute(keys[0], keys[1]);
     }

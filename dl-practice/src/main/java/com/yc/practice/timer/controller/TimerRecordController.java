@@ -3,7 +3,6 @@ package com.yc.practice.timer.controller;
 import com.yc.practice.timer.service.TimerRecordService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,7 +41,7 @@ public class TimerRecordController {
     // @Scheduled(cron = "0 50 0/2 * * ?")
     public void refreshComponentAccessToken() {
         log.info("=========== 刷新ComponentAccessToken START ===========");
-        System.out.println(new Date());
+        log.info("当前时间{}", new Date());
         log.info("=========== 刷新ComponentAccessToken END ===========");
 
 

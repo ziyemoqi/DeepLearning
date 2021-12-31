@@ -92,7 +92,7 @@ public class TokenServiceImpl implements TokenService {
                         securityProperties.getJwtActiveTime(), TimeUnit.MILLISECONDS);
             }
         } catch (TokenExpiredException e) {
-            throw new ErrorException(Error.TokenError);
+            throw new ErrorException(Error.TOKENERROR);
         }
         return new UsernamePasswordAuthenticationToken(userDetailsSelf, userDetailsSelf.getPassWord(), AuthorityUtils.commaSeparatedStringToAuthorityList(String.join(",", permissions)));
     }

@@ -19,6 +19,12 @@ import java.util.regex.Pattern;
  */
 public class LocalHostUtil {
 
+    private LocalHostUtil() {
+    }
+
+
+    public static final String UNKNOWN = "unknown";
+
     /**
      * @Description:获取客户端真实IP地址
      * @Date: 16:07 2019/5/9
@@ -27,19 +33,19 @@ public class LocalHostUtil {
      */
     public static String getIpAddress(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
-        if (StringUtils.isBlank(ip) || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (StringUtils.isBlank(ip) || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("Proxy-Client-IP");
         }
-        if (StringUtils.isBlank(ip) || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (StringUtils.isBlank(ip) || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
         }
-        if (StringUtils.isBlank(ip) || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (StringUtils.isBlank(ip) || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("HTTP_CLIENT_IP");
         }
-        if (StringUtils.isBlank(ip) || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (StringUtils.isBlank(ip) || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getHeader("HTTP_X_FORWARDED_FOR");
         }
-        if (StringUtils.isBlank(ip) || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (StringUtils.isBlank(ip) || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
         return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : ip;
@@ -72,7 +78,7 @@ public class LocalHostUtil {
     public static String getMACAddress(InetAddress inetAddress) throws IOException {
         String strMac = "";
         // Linux System
-        if (System.getProperties().getProperty("os.name").toLowerCase().indexOf("linux") != -1) {
+        if (System.getProperties().getProperty("os.name").toLowerCase().contains("linux")) {
             String mac = "";
             try {
                 Process p = new ProcessBuilder("ifconfig").start();
@@ -95,7 +101,7 @@ public class LocalHostUtil {
             // 获得网络接口对象（即网卡），并得到mac地址，mac地址存在于一个byte数组中。
             byte[] mac = NetworkInterface.getByInetAddress(inetAddress).getHardwareAddress();
             // 下面代码是把mac地址拼装成String
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < mac.length; i++) {
                 if (i != 0) {
                     sb.append("-");

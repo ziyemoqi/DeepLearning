@@ -1,7 +1,6 @@
 package com.yc.practice.config.swagger;
 
 import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -44,7 +43,6 @@ public class Swagger2Config {
                 .title("swagger-bootstrap-ui RESTful APIs")
                 .description("swagger-bootstrap-ui")
                 .termsOfServiceUrl("http://localhost:8082/")
-                .contact("developer@mail.com")
                 .description("测试Swagger2")
                 .version("1.0")
                 .build();

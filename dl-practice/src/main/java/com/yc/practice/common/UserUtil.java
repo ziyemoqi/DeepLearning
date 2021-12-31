@@ -14,6 +14,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
  */
 public class UserUtil {
 
+    private UserUtil() {
+    }
+
     /**
      * 获取当前用户信息
      *
@@ -23,7 +26,7 @@ public class UserUtil {
         try {
             return (UserDetailsSelf) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         } catch (Exception e) {
-            throw new ErrorException(Error.TokenError);
+            throw new ErrorException(Error.TOKENERROR);
         }
     }
 
@@ -36,7 +39,7 @@ public class UserUtil {
         try {
             return ((UserDetailsSelf) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getSysUserId();
         } catch (Exception e) {
-            throw new ErrorException(Error.TokenError);
+            throw new ErrorException(Error.TOKENERROR);
         }
     }
 }

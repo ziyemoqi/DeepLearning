@@ -7,8 +7,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yc.common.utils.LocalHostUtil;
 import com.yc.core.system.entity.SysLog;
 import com.yc.core.system.mapper.SysLogMapper;
-import com.yc.core.system.model.query.LogQuery;
-import com.yc.core.system.model.vo.SysLogVO;
+import com.yc.core.system.model.LogQuery;
+import com.yc.core.system.model.SysLogVO;
 import com.yc.practice.common.UserUtil;
 import com.yc.practice.system.service.SysLogService;
 import org.springframework.stereotype.Service;
@@ -30,10 +30,10 @@ import java.util.Map;
 public class SysLogServiceImpl extends ServiceImpl<SysLogMapper, SysLog> implements SysLogService {
 
     @Override
-    public void addLog(HttpServletRequest request, String LogContent, Integer logType, String loginName,
+    public void addLog(HttpServletRequest request, String logContent, Integer logType, String loginName,
                        String requestMethod, String requestParams) {
         SysLog sysLog = new SysLog();
-        sysLog.setLogContent(LogContent);
+        sysLog.setLogContent(logContent);
         sysLog.setLogType(logType);
         sysLog.setRequestMethod(requestMethod);
         sysLog.setRequestParam(requestParams);
@@ -52,7 +52,7 @@ public class SysLogServiceImpl extends ServiceImpl<SysLogMapper, SysLog> impleme
     @Override
     public JSONObject logInfo(HttpServletRequest request) {
         JSONObject jsonObject = new JSONObject();
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         SysLog syslog = this.baseMapper.selectOne(new LambdaQueryWrapper<SysLog>()
                 .like(SysLog::getLogContent, UserUtil.getUser().getLoginName())
                 .orderByDesc(SysLog::getCreateTime)

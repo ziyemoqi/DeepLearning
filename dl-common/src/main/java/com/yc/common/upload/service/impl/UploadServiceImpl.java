@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -48,7 +49,7 @@ public class UploadServiceImpl implements UploadService {
             throw new ErrorException(200, 50001, "文件大小不能大于5M");
         }
         //获取文件后缀
-        String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);
+        String suffix = Objects.requireNonNull(file.getOriginalFilename()).substring(file.getOriginalFilename().lastIndexOf(".") + 1);
         if (!CommonConstant.IMG_FORMAT.toUpperCase().contains(suffix.toUpperCase())) {
             throw new ErrorException(Error.ImgFormatError);
         }
@@ -81,7 +82,7 @@ public class UploadServiceImpl implements UploadService {
             folder.mkdirs();
         }
         String oldName = file.getOriginalFilename();
-        String newName = generateOrderNo() + oldName.substring(oldName.lastIndexOf("."));
+        String newName = generateOrderNo() + Objects.requireNonNull(oldName).substring(oldName.lastIndexOf("."));
         try {
             file.transferTo(new File(folder, newName));
         } catch (IOException e) {
@@ -100,15 +101,15 @@ public class UploadServiceImpl implements UploadService {
      */
     private String generateOrderNo() {
         StringBuilder sb = new StringBuilder();
-        Long nowLong = Long.parseLong(new SimpleDateFormat(CommonConstant.yyyyMMddHHmmss).format(new Date()));
-        sb.append(nowLong.toString());
+        long nowLong = Long.parseLong(new SimpleDateFormat(CommonConstant.yyyyMMddHHmmss).format(new Date()));
+        sb.append(Long.toString(nowLong));
         String date = new SimpleDateFormat(CommonConstant.yyyyMMddHHmm).format(new Date());
         String key = CommonConstant.TODAY_ORDER_NO + date;
-        if (!redisTemplate.hasKey(key)) {
+        if (Boolean.FALSE.equals(redisTemplate.hasKey(key))) {
             redisTemplate.opsForValue().set(key, 0, 5, TimeUnit.MINUTES);
         }
         Long increment = redisTemplate.opsForValue().increment(key, 1);
-        String incrementStr = increment.toString();
+        String incrementStr = Objects.requireNonNull(increment).toString();
         if (incrementStr.length() <= 6) {
             sb.append(String.format("%06d", increment));
         } else {

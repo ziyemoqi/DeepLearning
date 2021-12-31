@@ -12,9 +12,9 @@ import com.yc.common.global.error.ErrorException;
 import com.yc.core.cascade.CaseTopLevel;
 import com.yc.core.system.entity.SysPermission;
 import com.yc.core.system.mapper.SysPermissionMapper;
-import com.yc.core.system.model.query.PermissionQuery;
-import com.yc.core.system.model.vo.SysPermissionTree;
-import com.yc.core.system.model.vo.TreeModel;
+import com.yc.core.system.model.PermissionQuery;
+import com.yc.core.system.model.SysPermissionTree;
+import com.yc.core.system.model.TreeModel;
 import com.yc.practice.common.UserUtil;
 import com.yc.practice.system.service.SysPermissionService;
 import com.yc.practice.system.utils.PermissionOPUtil;
@@ -53,7 +53,7 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
     public JSONObject getUserPermissionByToken(String token, HttpServletResponse response) {
         JSONObject json = new JSONObject();
         if (StringUtils.isEmpty(token)) {
-            throw new ErrorException(Error.ParameterNotFound);
+            throw new ErrorException(Error.PARAMETERNOTFOUND);
         }
         List<SysPermission> metaList = this.baseMapper.queryPermissionByUser(UserUtil.getUser().getLoginName());
         PermissionOPUtil.addIndexPage(metaList);
@@ -157,17 +157,10 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
             // 默认所有的菜单都加路由缓存，提高系统性能
             meta.put("keepAlive", "true");
             meta.put("title", permission.getName());
-            if (StringUtils.isEmpty(permission.getParentId())) {
-                // 一级菜单跳转地址
-                if (StringUtils.isNotEmpty(permission.getIcon())) {
-                    meta.put("icon", permission.getIcon());
-                }
-            } else {
-                if (StringUtils.isNotEmpty(permission.getIcon())) {
-                    meta.put("icon", permission.getIcon());
-                }
+            if (StringUtils.isNotEmpty(permission.getIcon())) {
+                meta.put("icon", permission.getIcon());
             }
-            if (permission.getIsHidden()) {
+            if (Boolean.TRUE.equals(permission.getIsHidden())) {
                 json.put("hidden", true);
             }
             json.put("meta", meta);

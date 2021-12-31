@@ -32,9 +32,10 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> implements MessageService {
 
-    private WebSocketUtil webSocket;
-    private MessageReceiveService messageReceiveService;
-    private SysUserMapper sysUserMapper;
+    public static final String CONTENT = "content";
+    private final WebSocketUtil webSocket;
+    private final SysUserMapper sysUserMapper;
+    private final MessageReceiveService messageReceiveService;
 
     @Autowired
     public MessageServiceImpl(WebSocketUtil webSocket, MessageReceiveService messageReceiveService, SysUserMapper sysUserMapper) {
@@ -62,7 +63,7 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
         int result = this.baseMapper.insert(remindMessage);
         JSONObject obj = new JSONObject();
         //消息内容
-        obj.put("content", content);
+        obj.put(CONTENT, content);
         boolean flag = webSocket.sendOneMessage(userId, obj.toJSONString());
         if (result > 0) {
             messageReceiveService.insertRecord(userId, remindMessage.getMessageId(), flag);
@@ -92,14 +93,14 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
         this.messageReceiveService.saveBatch(messageReceives);
         // 实时推送
         JSONObject obj = new JSONObject();
-        obj.put("content", "您有一条新的消息!");
+        obj.put(CONTENT, "您有一条新的消息!");
         webSocket.sendAllMessage(obj.toJSONString());
     }
 
     @Override
     public void test() {
         JSONObject obj = new JSONObject();
-        obj.put("content", "您有一条新的消息!");
+        obj.put(CONTENT, "您有一条新的消息!");
         webSocket.sendAllMessage(obj.toJSONString());
     }
 

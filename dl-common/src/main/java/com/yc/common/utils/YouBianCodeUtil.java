@@ -13,7 +13,11 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class YouBianCodeUtil {
 
-    private static final int numLength = 2;
+    private YouBianCodeUtil() {
+    }
+
+
+    private static final int NUM_LENGTH = 2;
 
     /**
      * 根据前一个code，获取同级下一个code
@@ -29,27 +33,27 @@ public class YouBianCodeUtil {
             String num = getStrNum(1);
             newcode = zimu + num;
         } else {
-            String beforeCode = code.substring(0, code.length() - 1 - numLength);
-            String afterCode = code.substring(code.length() - 1 - numLength, code.length());
+            String beforeCode = code.substring(0, code.length() - 1 - NUM_LENGTH);
+            String afterCode = code.substring(code.length() - 1 - NUM_LENGTH, code.length());
             char afterCodeZimu = afterCode.substring(0, 1).charAt(0);
-            Integer afterCodeNum = Integer.parseInt(afterCode.substring(1));
+            int afterCodeNum = Integer.parseInt(afterCode.substring(1));
 
             String nextNum;
-            char nextZimu = 'A';
+            char nextZimu;
             // 先判断数字等于999*，则计数从1重新开始，递增
-            if (afterCodeNum == getMaxNumByLength(numLength)) {
+            if (afterCodeNum == getMaxNumByLength()) {
                 nextNum = getNextStrNum(0);
             } else {
                 nextNum = getNextStrNum(afterCodeNum);
             }
             // 先判断数字等于999*，则字母从A重新开始,递增
-            if (afterCodeNum == getMaxNumByLength(numLength)) {
+            if (afterCodeNum == getMaxNumByLength()) {
                 nextZimu = getNextZiMu(afterCodeZimu);
             } else {
                 nextZimu = afterCodeZimu;
             }
             // 例如Z99，下一个code就是Z99A01
-            if ('Z' == afterCodeZimu && getMaxNumByLength(numLength) == afterCodeNum) {
+            if ('Z' == afterCodeZimu && getMaxNumByLength() == afterCodeNum) {
                 newcode = code + (nextZimu + nextNum);
             } else {
                 newcode = beforeCode + (nextZimu + nextNum);
@@ -95,7 +99,7 @@ public class YouBianCodeUtil {
      * @return new str
      */
     private static String getStrNum(int num) {
-        return String.format("%0" + numLength + "d", num);
+        return String.format("%0" + NUM_LENGTH + "d", num);
     }
 
     /**
@@ -126,18 +130,17 @@ public class YouBianCodeUtil {
     /**
      * 根据数字位数获取最大值
      *
-     * @param length 数字位数
      * @return 最大值
      */
-    private static int getMaxNumByLength(int length) {
-        if (length == 0) {
+    private static int getMaxNumByLength() {
+        if (YouBianCodeUtil.NUM_LENGTH == 0) {
             return 0;
         }
-        String maxNum = "";
-        for (int i = 0; i < length; i++) {
-            maxNum = maxNum + "9";
+        StringBuilder maxNum = new StringBuilder();
+        for (int i = 0; i < YouBianCodeUtil.NUM_LENGTH; i++) {
+            maxNum.append("9");
         }
-        return Integer.parseInt(maxNum);
+        return Integer.parseInt(new String(maxNum));
     }
 
 }

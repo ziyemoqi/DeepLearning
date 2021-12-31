@@ -2,7 +2,7 @@ package com.yc.core.mall.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yc.core.mall.entity.MallSeckill;
-import com.yc.core.mall.model.form.SeckillForm;
+import com.yc.core.mall.model.SeckillForm;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

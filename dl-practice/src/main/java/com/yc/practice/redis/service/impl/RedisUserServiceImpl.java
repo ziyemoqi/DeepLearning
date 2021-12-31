@@ -56,7 +56,7 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
         String key = CommonConstant.USER_BY_ID + id;
         ValueOperations<String, RedisUser> operations = redisTemplate.opsForValue();
         // 判断redis中是否有键为key的缓存
-        if (redisTemplate.hasKey(key)) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
             //从缓存中获得数据
             return operations.get(key);
         } else {
@@ -94,7 +94,7 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
         if (result > 0) {
             ValueOperations operations = redisTemplate.opsForValue();
             String key = CommonConstant.USER_BY_ID + redisUser.getRedisUserId();
-            if (redisTemplate.hasKey(key)) {
+            if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
                 redisTemplate.delete(key);
             }
             RedisUser redisUser_cache = this.baseMapper.selectById(redisUser.getRedisUserId());
@@ -114,7 +114,7 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
         );
         if (result > 0) {
             String key = CommonConstant.USER_BY_ID + id;
-            if (redisTemplate.hasKey(key)) {
+            if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
                 redisTemplate.delete(key);
             }
         }
@@ -126,13 +126,13 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
         if (result > 0) {
             ValueOperations operations = redisTemplate.opsForValue();
             String key = CommonConstant.USER_BY_ID + redisUser.getRedisUserId();
-            if (redisTemplate.hasKey(key)) {
+            if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
                 redisTemplate.delete(key);
             }
-            RedisUser redisUser_cache = this.baseMapper.selectById(redisUser.getRedisUserId());
-            if (ObjectUtil.isNotNull(redisUser_cache)) {
+            RedisUser redisUserCache = this.baseMapper.selectById(redisUser.getRedisUserId());
+            if (ObjectUtil.isNotNull(redisUserCache)) {
                 // 放入缓存并设置超时时间
-                operations.set(key, redisUser_cache, 1, TimeUnit.MINUTES);
+                operations.set(key, redisUserCache, 1, TimeUnit.MINUTES);
             }
         }
     }
@@ -140,7 +140,7 @@ public class RedisUserServiceImpl extends ServiceImpl<RedisUserMapper, RedisUser
     @Override
     public boolean expireState(String redisUserId) {
         String key = CommonConstant.USER_BY_ID + redisUserId;
-        if (redisTemplate.hasKey(key)) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
             return true;
         }
         return false;

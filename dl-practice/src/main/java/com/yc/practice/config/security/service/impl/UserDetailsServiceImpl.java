@@ -40,15 +40,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String loginName) {
         if (StringUtils.isEmpty(loginName)) {
-            throw new ErrorException(Error.LoginNameIsNull);
+            throw new ErrorException(Error.LOGINNAMEISNULL);
         }
         SysUser sysUser = sysUserMapper.loginByName(loginName);
         if (sysUser == null) {
-            throw new ErrorException(Error.UserNotFound);
+            throw new ErrorException(Error.USERNOTFOUND);
         } else if (sysUser.getDelFlag().equals(CommonEnum.DelFlag.DEL.getCode())) {
-            throw new ErrorException(Error.UserDeleted);
-        } else if (sysUser.getState().equals(CommonEnum.State.Disabled.getCode())) {
-            throw new ErrorException(Error.UserDisabled);
+            throw new ErrorException(Error.USERDELETED);
+        } else if (sysUser.getState().equals(CommonEnum.State.DISABLED.getCode())) {
+            throw new ErrorException(Error.USERDISABLED);
         } else {
             Collection<GrantedAuthority> authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority(sysUser.getSysUserId()));

@@ -2,8 +2,8 @@ package com.yc.practice.message.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yc.core.message.entity.MessageReceive;
-import com.yc.core.message.model.query.MessageReceiveQuery;
-import com.yc.core.message.model.vo.NoticeVO;
+import com.yc.core.message.model.MessageReceiveQuery;
+import com.yc.core.message.model.NoticeVO;
 import com.yc.practice.message.service.MessageReceiveService;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;

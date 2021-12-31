@@ -2,8 +2,8 @@ package com.yc.practice.mall.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yc.core.mall.entity.MallSeckill;
-import com.yc.core.mall.model.form.SeckillForm;
-import com.yc.core.mall.model.vo.SeckillVO;
+import com.yc.core.mall.model.SeckillForm;
+import com.yc.core.mall.model.SeckillVO;
 import com.yc.practice.mall.service.MallSeckillService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +61,6 @@ public class MallSeckillController {
      */
     @PutMapping("/execSeckill")
     public void execSeckill(@RequestBody SeckillForm seckillForm) {
-        // this.iMallSeckillService.execSeckill(seckillForm);
         this.iMallSeckillService.execSeckillByProcedure(seckillForm);
     }
 

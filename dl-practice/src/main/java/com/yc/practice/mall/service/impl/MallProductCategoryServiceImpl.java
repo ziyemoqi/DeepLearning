@@ -70,7 +70,7 @@ public class MallProductCategoryServiceImpl extends ServiceImpl<MallProductCateg
     public void deleteAlone(String mallProductCategoryId) {
         MallProductCategory mallProductCategory = this.getById(mallProductCategoryId);
         if (mallProductCategory == null) {
-            throw new ErrorException(Error.ParameterNotFound);
+            throw new ErrorException(Error.PARAMETERNOTFOUND);
         }
         // 删除子类目
         this.removeChildren(mallProductCategoryId);

@@ -3,8 +3,8 @@ package com.yc.practice.system.service;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yc.core.system.entity.SysPermission;
-import com.yc.core.system.model.query.PermissionQuery;
-import com.yc.core.system.model.vo.SysPermissionTree;
+import com.yc.core.system.model.PermissionQuery;
+import com.yc.core.system.model.SysPermissionTree;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;

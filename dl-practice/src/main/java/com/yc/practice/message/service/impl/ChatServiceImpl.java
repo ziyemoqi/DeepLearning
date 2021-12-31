@@ -12,10 +12,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 功能描述:
@@ -29,7 +26,7 @@ import java.util.Set;
 @Transactional(rollbackFor = Exception.class)
 public class ChatServiceImpl implements ChatService {
 
-    private WebSocketUtil webSocket;
+    private final WebSocketUtil webSocket;
     private final RedisTemplate redisTemplate;
 
     @Autowired
@@ -54,11 +51,11 @@ public class ChatServiceImpl implements ChatService {
         map.put("time", DateUtil.formatDateTime(new Date()));
         map.put("sysUserId", UserUtil.getUserId());
         String key = UserUtil.getUserId() + "AND" + jsonObject.getString("receiveUserId");
-        String key_sub = jsonObject.getString("receiveUserId") + "AND" + UserUtil.getUserId();
-        if (redisTemplate.hasKey(CommonConstant.CHAT_OBJECT)) {
+        String keySub = jsonObject.getString("receiveUserId") + "AND" + UserUtil.getUserId();
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(CommonConstant.CHAT_OBJECT))) {
             Set<String> chatObject = redisTemplate.opsForSet().members(CommonConstant.CHAT_OBJECT);
-            if (chatObject.contains(key_sub)) {
-                key = key_sub;
+            if (chatObject.contains(keySub)) {
+                key = keySub;
             }
         } else {
             redisTemplate.opsForSet().add(CommonConstant.CHAT_OBJECT, key);
@@ -76,16 +73,16 @@ public class ChatServiceImpl implements ChatService {
     @Override
     public List<Object> message(String receiveUserId) {
         String key = UserUtil.getUserId() + "AND" + receiveUserId;
-        String key_sub = receiveUserId + "AND" + UserUtil.getUserId();
-        if (redisTemplate.hasKey(CommonConstant.CHAT_OBJECT)) {
+        String keySub = receiveUserId + "AND" + UserUtil.getUserId();
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(CommonConstant.CHAT_OBJECT))) {
             Set<String> chatObject = redisTemplate.opsForSet().members(CommonConstant.CHAT_OBJECT);
-            if (chatObject.contains(key_sub)) {
-                key = key_sub;
+            if (chatObject.contains(keySub)) {
+                key = keySub;
             }
             Long size = redisTemplate.opsForList().size(key);
             return redisTemplate.opsForList().range(key, 0, size);
         }
-        return null;
+        return Collections.emptyList();
     }
 
 }

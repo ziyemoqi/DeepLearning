@@ -3,8 +3,8 @@ package com.yc.practice.message.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yc.core.message.entity.MessageReceive;
-import com.yc.core.message.model.query.MessageReceiveQuery;
-import com.yc.core.message.model.vo.NoticeVO;
+import com.yc.core.message.model.MessageReceiveQuery;
+import com.yc.core.message.model.NoticeVO;
 
 /**
  * 功能描述:

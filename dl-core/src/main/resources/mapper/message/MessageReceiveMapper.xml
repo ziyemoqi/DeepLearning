@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yc.core.message.mapper.MessageReceiveMapper">
 
-    <select id="pageNotice" resultType="com.yc.core.message.model.vo.NoticeVO">
+    <select id="pageNotice" resultType="com.yc.core.message.model.NoticeVO">
         select
             mr.message_receive_id as id,mr.read_state,
             m.title,m.content,m.type,m.level,m.send_time,m.create_user

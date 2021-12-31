@@ -11,16 +11,14 @@ import com.yc.common.global.error.Error;
 import com.yc.common.global.error.ErrorException;
 import com.yc.core.system.entity.SysRole;
 import com.yc.core.system.entity.SysRolePermission;
-import com.yc.core.system.entity.SysUser;
 import com.yc.core.system.entity.SysUserRole;
 import com.yc.core.system.mapper.SysRoleMapper;
 import com.yc.core.system.mapper.SysUserRoleMapper;
-import com.yc.core.system.model.query.RoleQuery;
+import com.yc.core.system.model.RoleQuery;
 import com.yc.practice.system.service.SysRolePermissionService;
 import com.yc.practice.system.service.SysRoleService;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -77,7 +75,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
                 .eq(SysRole::getRoleCode, roleCode)
                 .eq(SysRole::getDelFlag, CommonEnum.DelFlag.NO_DEL.getCode())
         );
-        if (list != null && list.size() > 0) {
+        if (list != null && !list.isEmpty()) {
             throw new ErrorException(Error.RoleExisted);
         }
     }
@@ -110,7 +108,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
             this.sysRolePermissionService.saveBatch(list);
         }
         List<String> delete = getDiff(permissionIds, lastPermissionIds);
-        if (delete != null && delete.size() > 0) {
+        if (delete != null && !delete.isEmpty()) {
             for (String permissionId : delete) {
                 this.sysRolePermissionService.remove(new LambdaQueryWrapper<SysRolePermission>()
                         .eq(SysRolePermission::getRoleId, roleId)
@@ -126,7 +124,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
                 .eq(SysUserRole::getRoleId, sysRoleId)
         );
         if (count > 0) {
-            throw new ErrorException(Error.ParameterNotFound, "当前角色有关联用户");
+            throw new ErrorException(Error.PARAMETERNOTFOUND, "当前角色有关联用户");
         }
         // 删除多余数据
         sysUserRoleMapper.delete(Wrappers.<SysUserRole>lambdaQuery()
@@ -156,7 +154,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     private List<String> getDiff(String main, String diff) {
         if (StringUtils.isEmpty(diff)) {
-            return null;
+            return Collections.emptyList();
         }
         if (StringUtils.isEmpty(main)) {
             return Arrays.asList(diff.split(","));

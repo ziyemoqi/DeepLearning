@@ -35,50 +35,49 @@ public class CommonConstant {
     /**
      * 日志操作结果 成功
      */
-    public final static int OPSTATE_SUCCESS = 0;
+    public static final int OPSTATE_SUCCESS = 0;
     /**
      * 日志操作结果 失败
      */
-    public final static int OPSTATE_FAILURE = 1;
+    public static final int OPSTATE_FAILURE = 1;
 
     /**
      * 日志操作类型 增加
      */
-    public final static int OPTYPE_CREATE = 0;
+    public static final int OPTYPE_CREATE = 0;
     /**
      * 日志操作类型 删除
      */
-    public final static int OPTYPE_DELETE = 1;
+    public static final int OPTYPE_DELETE = 1;
     /**
      * 日志操作类型 修改
      */
-    public final static int OPTYPE_UPDATE = 2;
+    public static final int OPTYPE_UPDATE = 2;
     /**
      * 日志操作类型 读取
      */
-    public final static int OPTYPE_READ = 3;
+    public static final int OPTYPE_READ = 3;
 
     // ================== 编码格式 ===========================
-
-    /**
-     * 文本编码
-     */
-    public static String TEXT_CONTENTTYPE = "text/plain;charset=UTF-8";
-
-    /**
-     * JSON编码
-     */
-    public static String JSON_CONTENTTYPE = "application/json;charset=UTF-8";
-
-    /**
-     * XML编码
-     */
-    public static String XML_CONTENTTYPE = "text/xml;charset=UTF-8";
 
     /**
      * 编码格式
      */
     public static final String CHARSET_UTF_8 = "UTF-8";
+    /**
+     * 文本编码
+     */
+    public static final String TEXT_CONTENTTYPE = "text/plain;charset=UTF-8";
+
+    /**
+     * JSON编码
+     */
+    public static final String JSON_CONTENTTYPE = "application/json;charset=UTF-8";
+
+    /**
+     * XML编码
+     */
+    public static final String XML_CONTENTTYPE = "text/xml;charset=UTF-8";
 
     /**
      * 编码格式
@@ -95,11 +94,12 @@ public class CommonConstant {
      * AES
      */
     public static final String ENCODE_AES = "AES";
+    public static final String ENCODE_AES_CIPHERS = "AES/GCM/NoPadding";
 
     /**
      * RSA
      */
-    public static final String ENCODE_RSA = "RSA";
+    public static final String ENCODE_RSA = "RSA/None/OAEPWITHSHA-256ANDMGF1PADDING";
 
     /**
      * SHA1PRNG 算法
@@ -124,7 +124,7 @@ public class CommonConstant {
     public static final String SLAT = "u8*9wje^&jsapdu@!~%#u03&4f')kd(*";
     // =============== 凭证相关 ==================
 
-    public static String X_ACCESS_TOKEN = "X-Access-Token";
+    public static final String X_ACCESS_TOKEN = "X-Access-Token";
 
     /**
      * 存放Token的Header Key
@@ -141,7 +141,7 @@ public class CommonConstant {
     /**
      * 用户信息
      */
-    public final static String SYS_USERS_CACHE = "SYS_USERS_CACHE_";
+    public static final String SYS_USERS_CACHE = "SYS_USERS_CACHE_";
 
     /**
      * 今日订单号
@@ -166,29 +166,29 @@ public class CommonConstant {
     /**
      * 用户ID
      */
-    public final static String USER_BY_ID = "USER_BY_ID_";
+    public static final String USER_BY_ID = "USER_BY_ID_";
 
     /**
      * 总成绩排名
      */
-    public final static String SCORE_BANK = "SCORE_BANK";
+    public static final String SCORE_BANK = "SCORE_BANK";
 
     /**
      * 设备号
      */
-    public final static String DEVICE_REPAIR = "DEVICE_REPAIR";
+    public static final String DEVICE_REPAIR = "DEVICE_REPAIR";
 
     // ====================== 图片格式 ======================
     /**
      * 图片格式
      */
-    public final static String IMG_FORMAT = "jpg,jpeg,gif,png";
+    public static final String IMG_FORMAT = "jpg,jpeg,gif,png";
 
     // ====================== 默认数据 ======================
     /**
      * 默认密码
      */
-    public final static String DEFAULT_PASSWORD = "123456";
+    public static final String DEFAULT_PASSWORD = "123456";
 
     // ======================= 日期格式 =======================
     /**

@@ -37,7 +37,7 @@ public class ListenerModule extends KeyExpirationEventMessageListener {
     @Override
     public void onMessage(Message message, byte[] pattern) {
         String expiredKey = message.toString();
-        System.out.println("失效key:" + expiredKey);
+        log.warn("失效key:{}", expiredKey);
     }
 
 

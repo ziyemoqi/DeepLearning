@@ -4,9 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yc.core.system.entity.SysUser;
-import com.yc.core.system.model.form.SysUserForm;
-import com.yc.core.system.model.query.UserQuery;
-import com.yc.core.system.model.vo.SysUserVO;
+import com.yc.core.system.model.SysUserForm;
+import com.yc.core.system.model.UserQuery;
+import com.yc.core.system.model.SysUserVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

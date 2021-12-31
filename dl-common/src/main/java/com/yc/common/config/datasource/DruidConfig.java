@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,7 +46,7 @@ public class DruidConfig {
     @Bean
     public ServletRegistrationBean statViewServlet() {
         ServletRegistrationBean bean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
-        Map<String, String> initParams = new HashMap<String, String>();
+        Map<String, String> initParams = new HashMap<>();
         initParams.put("loginUsername", "xieyc");
         initParams.put("loginPassword", "xieyc");
         // 默认就是允许所有访问:可设置为""
@@ -65,10 +66,10 @@ public class DruidConfig {
     public FilterRegistrationBean webStatFilter() {
         FilterRegistrationBean bean = new FilterRegistrationBean();
         bean.setFilter(new WebStatFilter());
-        Map<String, String> initParams = new HashMap<String, String>();
+        Map<String, String> initParams = new HashMap<>();
         initParams.put("exclusions", "*.js,*.css,/druid/*");
         bean.setInitParameters(initParams);
-        bean.setUrlPatterns(Arrays.asList("/*"));
+        bean.setUrlPatterns(Collections.singletonList("/*"));
         return bean;
     }
 }

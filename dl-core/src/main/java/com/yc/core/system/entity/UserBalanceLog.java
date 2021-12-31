@@ -27,8 +27,8 @@ public class UserBalanceLog implements Serializable {
     /**
      * 主键
      */
-    @TableId(value = "user_balance_log", type = IdType.ASSIGN_UUID)
-    private String userBalanceLog;
+    @TableId(value = "user_balance_log_id", type = IdType.ASSIGN_UUID)
+    private String userBalanceLogId;
 
     /**
      * 用户ID

@@ -10,10 +10,7 @@ import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 功能描述:
@@ -35,15 +32,15 @@ public class RedisRankServiceImpl implements RedisRankService {
     }
 
     @Override
-    public Set getData() {
+    public Set<ZSetOperations.TypedTuple<String>> getData() {
         String key = CommonConstant.SCORE_BANK;
-        if (redisTemplate.hasKey(key)) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
             Long aLong = redisTemplate.opsForZSet().zCard(key);
             Set<ZSetOperations.TypedTuple<String>> range =
                     redisTemplate.opsForZSet().reverseRangeWithScores(key, 0, aLong - 1);
             return range;
         } else {
-            return null;
+            return Collections.emptySet();
         }
     }
 
@@ -61,7 +58,7 @@ public class RedisRankServiceImpl implements RedisRankService {
         for (int i = 0; i < 200; i++) {
             // (int)((Math.random()*9+1)*10) 生成两位随机数字
             DefaultTypedTuple<String> scoreTuple = new DefaultTypedTuple<>("乔治_" + i,
-                    (double) ((int) ((Math.random() * 9 + 1) * 10)));
+                    (double) ((new Random().nextInt() * 9 + 1) * 10));
             scoreTuples.add(scoreTuple);
         }
         redisTemplate.opsForZSet().add(score_key, scoreTuples);
@@ -70,14 +67,14 @@ public class RedisRankServiceImpl implements RedisRankService {
 
 
     @Override
-    public Set top10(String type) {
+    public Set<ZSetOperations.TypedTuple<String>> top10(String type) {
         String key = CommonConstant.SCORE_BANK;
-        if (redisTemplate.hasKey(key)) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
             Set<ZSetOperations.TypedTuple<String>> range =
                     redisTemplate.opsForZSet().reverseRangeWithScores(key, 0, 9);
             return range;
         } else {
-            return null;
+            return Collections.emptySet();
         }
     }
 
@@ -89,9 +86,9 @@ public class RedisRankServiceImpl implements RedisRankService {
     }
 
     @Override
-    public Map userInfo() {
+    public Map<String, Object> userInfo() {
         String key = CommonConstant.SCORE_BANK;
-        if (redisTemplate.hasKey(key)) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
             Map<String, Object> map = new HashMap<>(16);
             Long rankNum = redisTemplate.opsForZSet().reverseRank(key, "乔治_1");
             map.put("rankNum", rankNum + 1);
@@ -99,14 +96,14 @@ public class RedisRankServiceImpl implements RedisRankService {
             map.put("score", score);
             return map;
         } else {
-            return null;
+            return Collections.emptyMap();
         }
     }
 
     @Override
     public Long scopeCount() {
         String key = CommonConstant.SCORE_BANK;
-        if (redisTemplate.hasKey(key)) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
             return redisTemplate.opsForZSet().count(key, 50, 80);
         } else {
             return null;
@@ -116,7 +113,7 @@ public class RedisRankServiceImpl implements RedisRankService {
     @Override
     public void addScore() {
         String key = CommonConstant.SCORE_BANK;
-        if (redisTemplate.hasKey(key)) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
             Double score = redisTemplate.opsForZSet().incrementScore(key, "乔治_1", 10);
             log.info("乔治1添加500后的分数为:" + score);
         }

@@ -4,8 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yc.core.mall.entity.MallOrder;
-import com.yc.core.mall.model.form.OrderForm;
-import com.yc.core.mall.model.query.OrderQuery;
+import com.yc.core.mall.model.OrderForm;
+import com.yc.core.mall.model.OrderQuery;
 
 import javax.servlet.http.HttpServletRequest;
 

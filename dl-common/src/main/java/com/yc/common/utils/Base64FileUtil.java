@@ -7,6 +7,7 @@ import sun.misc.BASE64Encoder;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Objects;
 
 /**
  * 功能描述:base64工具类
@@ -17,13 +18,17 @@ import java.net.URL;
  */
 public class Base64FileUtil {
 
+    private Base64FileUtil() {
+
+    }
+
     /**
      * 本地文件转换成base64字符串
      *
      * @param fileUrl 文件本地路径
      * @return str
      */
-    public static String fileToBase64ByLocal(String fileUrl) {
+    public static String fileToBase64ByLocal(String fileUrl) throws IOException {
         InputStream in = null;
         byte[] data = null;
 
@@ -36,6 +41,8 @@ public class Base64FileUtil {
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            Objects.requireNonNull(in).close();
         }
         // 对字节数组Base64编码
         BASE64Encoder encoder = new BASE64Encoder();
@@ -82,15 +89,17 @@ public class Base64FileUtil {
      * @param toFilePath 文件存放路径
      * @return true or false
      */
-    public static boolean base64ToFile(String base64, String toFilePath) {
+    public static boolean base64ToFile(String base64, String toFilePath) throws IOException {
         // 图像数据为空
+        String encode = ";base64,";
         if (StringUtils.isBlank(base64)) {
             return false;
         }
-        if (base64.contains(";base64,")) {
-            base64 = base64.substring(base64.indexOf(";base64,") + ";base64,".length());
+        if (base64.contains(encode)) {
+            base64 = base64.substring(base64.indexOf(encode) + encode.length());
         }
         BASE64Decoder decoder = new BASE64Decoder();
+        OutputStream out = null;
         try {
             // Base64解码
             byte[] b = decoder.decodeBuffer(base64);
@@ -100,13 +109,14 @@ public class Base64FileUtil {
                     b[i] += 256;
                 }
             }
-            OutputStream out = new FileOutputStream(toFilePath);
+            out = new FileOutputStream(toFilePath);
             out.write(b);
             out.flush();
-            out.close();
             return true;
         } catch (Exception e) {
             return false;
+        } finally {
+            Objects.requireNonNull(out).close();
         }
     }
 }

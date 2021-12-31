@@ -64,7 +64,7 @@ public class TreeNode implements TreeEntity<TreeNode>, Serializable {
      * 子级
      */
     @JSONField(ordinal = 8)
-    public List<TreeNode> children;
+    private List<TreeNode> children;
 
 
 }

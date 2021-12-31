@@ -1,6 +1,8 @@
 package com.yc.practice.redis.service;
 
 
+import org.springframework.data.redis.core.ZSetOperations;
+
 import java.util.Map;
 import java.util.Set;
 
@@ -23,7 +25,7 @@ public interface RedisRankService {
      *
      * @return set
      */
-    Set getData();
+    Set<ZSetOperations.TypedTuple<String>> getData();
 
     /**
      * 初始化数据
@@ -36,7 +38,7 @@ public interface RedisRankService {
      *
      * @return
      */
-    Set top10(String type);
+    Set<ZSetOperations.TypedTuple<String>> top10(String type);
 
     /**
      * 新增学生成绩
@@ -48,7 +50,7 @@ public interface RedisRankService {
      *
      * @return
      */
-    Map userInfo();
+    Map<String, Object> userInfo();
 
     /**
      * .统计分数区间人数

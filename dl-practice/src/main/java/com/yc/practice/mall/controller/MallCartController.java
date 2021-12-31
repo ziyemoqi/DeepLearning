@@ -1,6 +1,6 @@
 package com.yc.practice.mall.controller;
 
-import com.yc.core.mall.model.form.CartForm;
+import com.yc.core.mall.model.CartForm;
 import com.yc.practice.mall.service.MallCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

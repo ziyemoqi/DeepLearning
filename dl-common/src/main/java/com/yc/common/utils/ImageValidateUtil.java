@@ -20,8 +20,12 @@ import java.util.Random;
  */
 public class ImageValidateUtil {
 
+    private ImageValidateUtil() {
+    }
+
+
     private static final String VERIFY_CODES = "123456789ABCDEFGHIJKLMNPQRSTUVWXYZ";
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     /**
      * 使用默认字符源生成验证码
@@ -70,14 +74,10 @@ public class ImageValidateUtil {
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        try {
-            outputFile.createNewFile();
-            FileOutputStream fos = new FileOutputStream(outputFile);
-            outputImage(w, h, fos, code);
-            fos.close();
-        } catch (IOException e) {
-            throw e;
-        }
+        outputFile.createNewFile();
+        FileOutputStream fos = new FileOutputStream(outputFile);
+        outputImage(w, h, fos, code);
+        fos.close();
     }
 
     /**
@@ -159,7 +159,8 @@ public class ImageValidateUtil {
             Color color = new Color(random.nextInt(180), random.nextInt(180), random.nextInt(180));
             g2.setColor(color);
             AffineTransform affine = new AffineTransform();
-            affine.setToRotation(Math.PI / 4 * rand.nextDouble() * (rand.nextBoolean() ? 1 : -1), (w / verifySize) * i + fontSize / 2, h / 2);
+            affine.setToRotation(Math.PI / 4 * rand.nextDouble() * (rand.nextBoolean() ? 1 : -1),
+                    (w / verifySize) * i + fontSize / 2, h / 2);
             g2.setTransform(affine);
             g2.drawChars(chars, i, 1, ((w - 10) / verifySize) * i + 5, h / 2 + fontSize / 2 - 10);
         }
@@ -206,39 +207,33 @@ public class ImageValidateUtil {
 
     private static void shearX(Graphics g, int w1, int h1, Color color) {
         int period = random.nextInt(2);
-        boolean borderGap = true;
         int frames = 1;
         int phase = random.nextInt(2);
         for (int i = 0; i < h1; i++) {
-            double d = (double) (period >> 1)
+            double d = (0)
                     * Math.sin((double) i / (double) period
-                    + (6.2831853071795862D * (double) phase)
-                    / (double) frames);
+                    + (6.2831853071795862D * phase)
+                    / frames);
             g.copyArea(0, i, w1, 1, (int) d, 0);
-            if (borderGap) {
-                g.setColor(color);
-                g.drawLine((int) d, i, 0, i);
-                g.drawLine((int) d + w1, i, w1, i);
-            }
+            g.setColor(color);
+            g.drawLine((int) d, i, 0, i);
+            g.drawLine((int) d + w1, i, w1, i);
         }
     }
 
     private static void shearY(Graphics g, int w1, int h1, Color color) {
         int period = random.nextInt(40) + 10;
-        boolean borderGap = true;
         int frames = 20;
         int phase = 7;
         for (int i = 0; i < w1; i++) {
-            double d = (double) (period >> 1)
+            double d = (period >> 1)
                     * Math.sin((double) i / (double) period
-                    + (6.2831853071795862D * (double) phase)
-                    / (double) frames);
+                    + (6.2831853071795862D * phase)
+                    / frames);
             g.copyArea(i, 0, 1, h1, 0, (int) d);
-            if (borderGap) {
-                g.setColor(color);
-                g.drawLine(i, (int) d, i, 0);
-                g.drawLine(i, (int) d + h1, i, h1);
-            }
+            g.setColor(color);
+            g.drawLine(i, (int) d, i, 0);
+            g.drawLine(i, (int) d + h1, i, h1);
         }
     }
 

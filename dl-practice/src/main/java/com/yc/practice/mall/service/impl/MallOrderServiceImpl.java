@@ -21,9 +21,9 @@ import com.yc.core.mall.entity.MallProduct;
 import com.yc.core.mall.entity.MallShipping;
 import com.yc.core.mall.mapper.MallOrderMapper;
 import com.yc.core.mall.mapper.MallShippingMapper;
-import com.yc.core.mall.model.form.OrderForm;
-import com.yc.core.mall.model.form.SyncCallBack;
-import com.yc.core.mall.model.query.OrderQuery;
+import com.yc.core.mall.model.OrderForm;
+import com.yc.core.mall.model.OrderQuery;
+import com.yc.core.mall.model.SyncCallBack;
 import com.yc.practice.common.UserUtil;
 import com.yc.practice.mall.service.MallOrderItemService;
 import com.yc.practice.mall.service.MallOrderLogService;
@@ -40,13 +40,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -61,8 +59,8 @@ import java.util.concurrent.TimeUnit;
 @Transactional(rollbackFor = Exception.class)
 public class MallOrderServiceImpl extends ServiceImpl<MallOrderMapper, MallOrder> implements MallOrderService {
 
-    private final MallOrderItemService mallOrderItemService;
     private final RedisTemplate redisTemplate;
+    private final MallOrderItemService mallOrderItemService;
     private final MallProductService mallProductService;
     private final MallOrderLogService mallOrderLogService;
     private final MallShippingMapper mallShippingMapper;
@@ -157,7 +155,7 @@ public class MallOrderServiceImpl extends ServiceImpl<MallOrderMapper, MallOrder
                 .eq(MallOrder::getMallOrderId, mallOrderId)
         );
         if (!flag) {
-            throw new ErrorException(Error.ParameterNotFound);
+            throw new ErrorException(Error.PARAMETERNOTFOUND);
         }
         // 订单变更记录
         mallOrderLogService.saveOrderLog(mallOrderId, CommonEnum.OrderLogState.INVALID.getCode(), UserUtil.getUserId(),
@@ -169,7 +167,7 @@ public class MallOrderServiceImpl extends ServiceImpl<MallOrderMapper, MallOrder
         try {
             request.setCharacterEncoding(CommonConstant.CHARSET_UTF_8);
             BufferedReader streamReader = new BufferedReader(new InputStreamReader(request.getInputStream(),
-                    CommonConstant.CHARSET_UTF_8));
+                    StandardCharsets.UTF_8));
             StringBuilder responseStrBuilder = new StringBuilder();
             String inputStr;
             while ((inputStr = streamReader.readLine()) != null) {
@@ -214,15 +212,15 @@ public class MallOrderServiceImpl extends ServiceImpl<MallOrderMapper, MallOrder
      */
     private String generateOrderNo() {
         StringBuilder sb = new StringBuilder();
-        Long nowLong = Long.parseLong(new SimpleDateFormat(CommonConstant.yyyyMMddHHmmssSSS).format(new Date()));
-        sb.append(nowLong.toString());
+        long nowLong = Long.parseLong(new SimpleDateFormat(CommonConstant.yyyyMMddHHmmssSSS).format(new Date()));
+        sb.append(Long.toString(nowLong));
         String date = new SimpleDateFormat(CommonConstant.yyyyMMddHHmm).format(new Date());
         String key = CommonConstant.TODAY_ORDER_NO + date;
-        if (!redisTemplate.hasKey(key)) {
+        if (Boolean.FALSE.equals(redisTemplate.hasKey(key))) {
             redisTemplate.opsForValue().set(key, 0, 5, TimeUnit.MINUTES);
         }
         Long increment = redisTemplate.opsForValue().increment(key, 1);
-        String incrementStr = increment.toString();
+        String incrementStr = Objects.requireNonNull(increment).toString();
         if (incrementStr.length() <= 6) {
             sb.append(String.format("%06d", increment));
         } else {

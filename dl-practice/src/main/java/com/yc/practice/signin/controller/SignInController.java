@@ -29,7 +29,7 @@ import java.util.List;
 public class SignInController {
 
     private final RedisTemplate<String, Object> redisTemplate;
-    private Jedis jedis = new Jedis("127.0.0.1");
+    private final Jedis jedis = new Jedis("127.0.0.1");
 
     /**
      * 签到KEY
@@ -64,7 +64,7 @@ public class SignInController {
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyyMM");
         int offset = localDate.getDayOfMonth() - 1;
         String key = String.format(SIGN_KEY, userId, sdf.format(localDate));
-        return redisTemplate.opsForValue().getBit(key, offset);
+        return Boolean.TRUE.equals(redisTemplate.opsForValue().getBit(key, offset));
     }
 
     /**
@@ -95,7 +95,7 @@ public class SignInController {
         int signCount = 0;
         String type = String.format("u%d", localDate.getDayOfMonth());
         List<Long> list = jedis.bitfield(key, "GET", type, "0");
-        if (list != null && list.size() > 0) {
+        if (list != null && !list.isEmpty()) {
             // 取低位连续不为0的个数即为连续签到次数，需考虑当天尚未签到的情况
             long v = list.get(0) == null ? 0 : list.get(0);
             for (int i = 0; i < localDate.getDayOfMonth(); i++) {
@@ -148,7 +148,7 @@ public class SignInController {
             for (int i = localDate.lengthOfMonth(); i > 0; i--) {
                 LocalDate d = localDate.withDayOfMonth(i);
                 HashMap map = new HashMap(localDate.getDayOfMonth());
-                map.put(formatDate(d, "yyyy-MM-dd"), v >> 1 << 1 != v);
+                map.put(formatDate(d), v >> 1 << 1 != v);
                 signMap.add(map);
                 v >>= 1;
             }
@@ -156,8 +156,8 @@ public class SignInController {
         return signMap;
     }
 
-    private static String formatDate(LocalDate date, String pattern) {
-        return date.format(DateTimeFormatter.ofPattern(pattern));
+    private static String formatDate(LocalDate date) {
+        return date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
 
 

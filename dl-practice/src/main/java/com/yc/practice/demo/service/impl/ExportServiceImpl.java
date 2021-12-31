@@ -38,7 +38,7 @@ public class ExportServiceImpl implements ExportService {
      * @return map
      */
     private Map<String, Object> dealExportData() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("comunityName", "园区名称[蓝海软件园]");
         map.put("rentAddr", "蓝海路1号蓝海软件园D座10层1001");
         map.put("rentTimeLimit", "2019-01-01至2020-10-10");

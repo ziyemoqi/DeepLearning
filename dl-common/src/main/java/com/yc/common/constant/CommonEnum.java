@@ -39,8 +39,8 @@ public interface CommonEnum {
         /**
          * 冻结状态
          */
-        Disabled(1, "冻结"),
-        enabled(0, "正常");
+        DISABLED(1, "冻结"),
+        ENABLED(0, "正常");
 
         private Integer code;
         private String name;
@@ -193,7 +193,7 @@ public interface CommonEnum {
          * 消息接收类型
          */
         SINGLE_USER(0, "指定用户"),
-        All_USER(1, "全体用户");
+        ALL_USER(1, "全体用户");
         private Integer code;
         private String name;
 

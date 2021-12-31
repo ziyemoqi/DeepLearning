@@ -4,7 +4,7 @@ import cn.hutool.core.lang.tree.Tree;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yc.common.constant.CommonConstant;
 import com.yc.core.system.entity.SysDict;
-import com.yc.core.system.model.query.DictQuery;
+import com.yc.core.system.model.DictQuery;
 import com.yc.practice.common.log.WriteLog;
 import com.yc.practice.system.service.SysDictService;
 import io.swagger.annotations.Api;

@@ -31,7 +31,7 @@ public class WebSocketUtil {
     /**
      * 与某个客户端的连接会话，需要通过它来给客户端发送数据
      */
-    private Session session;
+    private Session busSession;
 
     /**
      * 用户ID
@@ -42,21 +42,21 @@ public class WebSocketUtil {
      * concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象
      */
     private static CopyOnWriteArraySet<WebSocketUtil> webSockets = new CopyOnWriteArraySet<>();
-    private static Map<String, Session> sessionPool = new HashMap<String, Session>();
+    private static Map<String, Session> sessionPool = new HashMap<>();
 
     /**
      * 连接建立成功
      * 【适当添加业务逻辑：监听用户登录后推送未成功接受的历史消息】
      *
-     * @param session 会话
+     * @param busSession 会话
      * @param userId  用户id
      */
     @OnOpen
-    public void onOpen(Session session, @PathParam(value = "userId") String userId) {
+    public void onOpen(Session busSession, @PathParam(value = "userId") String userId) {
         try {
-            this.session = session;
+            this.busSession = busSession;
             webSockets.add(this);
-            sessionPool.put(userId, session);
+            sessionPool.put(userId, busSession);
             this.userId = userId;
             log.info("【websocket消息】有新的连接，总数为:" + webSockets.size());
         } catch (Exception e) {
@@ -90,7 +90,7 @@ public class WebSocketUtil {
         obj.put("type", "heartcheck");
         //消息内容
         obj.put("content", "心跳响应");
-        session.getAsyncRemote().sendText(obj.toJSONString());
+        busSession.getAsyncRemote().sendText(obj.toJSONString());
     }
 
     /**
@@ -102,8 +102,8 @@ public class WebSocketUtil {
         log.info("【websocket消息】广播消息:" + message);
         for (WebSocketUtil webSocket : webSockets) {
             try {
-                if (webSocket.session.isOpen()) {
-                    webSocket.session.getAsyncRemote().sendText(message);
+                if (webSocket.busSession.isOpen()) {
+                    webSocket.busSession.getAsyncRemote().sendText(message);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -120,11 +120,11 @@ public class WebSocketUtil {
      * @return 是否推送成功 true: 成功
      */
     public boolean sendOneMessage(String userId, String message) {
-        Session session = sessionPool.get(userId);
-        if (session != null && session.isOpen()) {
+        Session busSession = sessionPool.get(userId);
+        if (busSession != null && busSession.isOpen()) {
             try {
                 log.info("【websocket消息】 单点消息:" + message);
-                session.getAsyncRemote().sendText(message);
+                busSession.getAsyncRemote().sendText(message);
                 return true;
             } catch (Exception e) {
                 log.info("【websocket消息】 单点消息异常:" + e.getMessage());
@@ -141,11 +141,11 @@ public class WebSocketUtil {
      */
     public void sendMoreMessage(String[] userIds, String message) {
         for (String userId : userIds) {
-            Session session = sessionPool.get(userId);
-            if (session != null && session.isOpen()) {
+            Session busSession = sessionPool.get(userId);
+            if (busSession != null && busSession.isOpen()) {
                 try {
                     log.info("【websocket消息】 单点消息:" + message);
-                    session.getAsyncRemote().sendText(message);
+                    busSession.getAsyncRemote().sendText(message);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

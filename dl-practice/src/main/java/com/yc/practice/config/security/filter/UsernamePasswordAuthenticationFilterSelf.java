@@ -68,15 +68,15 @@ public class UsernamePasswordAuthenticationFilterSelf extends UsernamePasswordAu
         try {
             loginData = JSON.parseObject(request.getInputStream(), JSONObject.class);
             if (loginData == null) {
-                String errorMsg = RestResult.error(Error.ParameterNotFound.getCode(),
-                        Error.ParameterNotFound.getMsg()).toJSONString();
+                String errorMsg = RestResult.error(Error.PARAMETERNOTFOUND.getCode(),
+                        Error.PARAMETERNOTFOUND.getMsg()).toJSONString();
                 ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
                         StandardCharsets.UTF_8));
                 return null;
             }
         } catch (IOException e) {
             log.error(e.getMessage(), e);
-            String errorMsg = RestResult.error(Error.ParameterNotFound.getCode(), Error.ParameterNotFound.getMsg()).toJSONString();
+            String errorMsg = RestResult.error(Error.PARAMETERNOTFOUND.getCode(), Error.PARAMETERNOTFOUND.getMsg()).toJSONString();
             ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
                     StandardCharsets.UTF_8));
             return null;
@@ -91,14 +91,14 @@ public class UsernamePasswordAuthenticationFilterSelf extends UsernamePasswordAu
         if (Boolean.TRUE.equals(redisTemplate.hasKey(verifyKey))) {
             if (!StringUtils.equalsIgnoreCase(redisTemplate.opsForValue().get(verifyKey), verifyCode)) {
                 String errorMsg =
-                        RestResult.error(Error.CheckCodeError.getCode(), Error.CheckCodeError.getMsg()).toJSONString();
+                        RestResult.error(Error.CHECKCODEERROR.getCode(), Error.CHECKCODEERROR.getMsg()).toJSONString();
                 ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
                         StandardCharsets.UTF_8));
                 return null;
             }
         } else {
             String errorMsg =
-                    RestResult.error(Error.GetCodeAgain.getCode(), Error.GetCodeAgain.getMsg()).toJSONString();
+                    RestResult.error(Error.GETCODEAGAIN.getCode(), Error.GETCODEAGAIN.getMsg()).toJSONString();
             ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
                     StandardCharsets.UTF_8));
             return null;
@@ -109,7 +109,7 @@ public class UsernamePasswordAuthenticationFilterSelf extends UsernamePasswordAu
             int errorNum = Integer.parseInt(cacheErrNum);
             if (errorNum >= 5) {
                 String errorMsg =
-                        RestResult.error(Error.AccountLock.getCode(), Error.AccountLock.getMsg()).toJSONString();
+                        RestResult.error(Error.ACCOUNTLOCK.getCode(), Error.ACCOUNTLOCK.getMsg()).toJSONString();
                 ServletUtil.write(response, errorMsg, ContentType.build(CommonConstant.JSON_CONTENTTYPE,
                         StandardCharsets.UTF_8));
                 return null;

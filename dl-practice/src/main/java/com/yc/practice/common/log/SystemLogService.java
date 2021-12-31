@@ -1,10 +1,11 @@
 package com.yc.practice.common.log;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSON;
 import com.yc.common.utils.LocalHostUtil;
 import com.yc.core.system.entity.SysLog;
 import com.yc.core.system.entity.SysUser;
 import com.yc.core.system.mapper.SysLogMapper;
+import com.yc.core.system.model.SysLogDto;
 import com.yc.practice.common.UserUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,32 +36,38 @@ public class SystemLogService {
                   long costTimeMillis, int opResult) {
         String message = new String[]{"创建", "删除", "更新", "读取"}[opType] + "位置【" + opPosition + "】" + (opResult != 1
                 ? "成功" : "失败");
-        String requestParams = JSONObject.toJSONString(request.getParameterMap());
-        return write(UserUtil.getUser(), opType, logType, requestMethod, request.getRequestURI(),
-                request.getMethod(), requestParams, costTimeMillis, message);
+        return write(UserUtil.getUser(),
+                SysLogDto.builder()
+                        .opType(opType)
+                        .logType(logType)
+                        .requestMethod(requestMethod)
+                        .requestUrl(request.getRequestURI())
+                        .requestType(request.getMethod())
+                        .requestParam(JSON.toJSONString(request.getParameterMap()))
+                        .costTime(costTimeMillis)
+                        .build(), message);
     }
 
-    private boolean write(SysUser sysUser, int opType, int logType,
-                          String requestMethod, String requestUrl, String requestType, String requestParams,
-                          long costTimeMillis, String... describe) {
+    private boolean write(SysUser sysUser, SysLogDto sysLogDto, String... describe) {
         sysUser = sysUser != null ? sysUser : new SysUser();
-        SysLog log = new SysLog();
-        log.setRequestMethod(requestMethod);
-        log.setRequestUrl(requestUrl);
-        log.setRequestType(requestType);
-        log.setRequestParam(requestParams.trim());
-        log.setCreateTime(LocalDateTime.now());
-        log.setCreateUserId(sysUser.getSysUserId());
-        log.setIpAddress(LocalHostUtil.getIpAddress());
-        log.setOpType(opType);
-        log.setCostTime(costTimeMillis);
-        log.setLogType(logType);
-        String tmpDesc = "";
+        StringBuilder tmpDesc = new StringBuilder();
         for (int i = 0; i < describe.length; i++) {
-            tmpDesc += describe[i] + (i < describe.length - 1 ? "\r\n" : "");
+            tmpDesc.append(describe[i]).append(i < describe.length - 1 ? "\r\n" : "");
         }
-        log.setLogContent(tmpDesc);
-        int result = sysLogMapper.insert(log);
+        int result = sysLogMapper.insert(SysLog.builder()
+                .requestMethod(sysLogDto.getRequestMethod())
+                .requestUrl(sysLogDto.getRequestUrl())
+                .requestType(sysLogDto.getRequestType())
+                .requestParam(sysLogDto.getRequestParam())
+                .createTime(LocalDateTime.now())
+                .createUserId(sysUser.getSysUserId())
+                .ipAddress(LocalHostUtil.getIpAddress())
+                .opType(sysLogDto.getOpType())
+                .costTime(sysLogDto.getCostTime())
+                .logType(sysLogDto.getLogType())
+                .logContent(tmpDesc.toString())
+                .build());
         return result > 0;
     }
+
 }
